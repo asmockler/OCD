@@ -5,7 +5,7 @@ var {
 } = React;
 
 var text = StyleSheet.create({
-  movingText: {
+  dismissableText: {
     fontSize: 50,
     textAlign: 'center'
   }

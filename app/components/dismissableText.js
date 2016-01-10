@@ -65,7 +65,7 @@ const DismissableText = React.createClass({
       <Animated.View
         style={[this.state.pan.getLayout(), {backgroundColor: 'transparent'}]}
         {...this._panResponder.panHandlers} >
-        <Text style={[styles.movingText]}>
+        <Text style={[styles.dismissableText]}>
           {this.props.text}
         </Text>
       </Animated.View>
