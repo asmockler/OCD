@@ -22,7 +22,8 @@ const DismissableText = React.createClass({
 
   getDefaultProps: function () {
     return {
-      text: ""
+      text: "",
+      elementDismissed: () => {}
     }
   },
 
@@ -58,6 +59,11 @@ const DismissableText = React.createClass({
         toValue: {x: newX, y: 0},
       }
     ).start()
+
+    // Tell the container if the element was dismissed
+    if (Math.abs(newX) == 1000) {
+      this.props.elementDismissed()
+    }
   },
 
   render: function () {
