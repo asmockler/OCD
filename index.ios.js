@@ -1,7 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
 'use strict';
 
 var React = require('react-native');
@@ -9,18 +5,27 @@ var {
   Animated,
   AppRegistry,
   Easing,
+  Navigator,
   StyleSheet,
   Text,
   View,
 } = React;
 
-const ScrollTextContainer = require('./app/components/ScrollingTextContainer');
+const Routes = require('./app/routes');
 
 var OCD = React.createClass({
   render: function () {
-    <View>
-      <Text>Hello, World!</Text>
-    </View>
+    return (
+      <Navigator
+        initialRoute={Routes['StartScreen']}
+        configureScene={() => {
+          return Navigator.SceneConfigs.FloatFromRight;
+        }}
+        renderScene={(route, navigator) => {
+          return React.createElement(Routes[route.name].component, {navigator});
+        }}
+        />
+    )
   }
 });
 
