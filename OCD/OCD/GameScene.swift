@@ -16,6 +16,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var bottomY: CGFloat = 0.0
     
     var selectedNode: Sentence?
+    var nodeScale: CGFloat?
     
     
     override func didMoveToView(view: SKView) {
@@ -45,6 +46,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // set position of sprite on scene
         topSentence.position = CGPoint(x: startX, y: startY)
         bottomSentence.position = CGPoint(x: startX, y: bottomY)
+        
+        if self.nodeScale == nil {
+            self.nodeScale = (size.width * 0.75) / topSentence.texture!.size().width
+        }
+        
+        topSentence.setScale(self.nodeScale!)
+        bottomSentence.setScale(self.nodeScale!)
         
         addChild(topSentence)
         addChild(bottomSentence)
@@ -95,6 +103,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if touchedNode is Sentence {
             selectedNode = touchedNode as? Sentence
             selectedNode?.physicsBody?.categoryBitMask = PhysicsCategory.SelectedSentence
+            selectedNode?.physicsBody?.collisionBitMask = PhysicsCategory.SelectedSentence
+            selectedNode?.physicsBody?.contactTestBitMask = PhysicsCategory.SelectedSentence
+            selectedNode?.zPosition = 10.0
         }
     }
     
@@ -112,7 +123,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         selectedNode?.physicsBody?.categoryBitMask = PhysicsCategory.Sentence
-        selectedNode = nil
+        selectedNode?.physicsBody?.collisionBitMask = PhysicsCategory.Sentence
+        selectedNode?.physicsBody?.contactTestBitMask = PhysicsCategory.Sentence
+        selectedNode?.zPosition = 0.0
     }
    
     override func update(currentTime: CFTimeInterval) {
