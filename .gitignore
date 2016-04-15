@@ -23,3 +23,7 @@ xcuserdata/
 *.xcscmblueprint
 
 .DS_Store
+
+## Cocoapods
+Podfile.lock
+Pods/
