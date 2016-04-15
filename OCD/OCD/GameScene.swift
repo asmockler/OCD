@@ -94,6 +94,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if touchedNode is Sentence {
             selectedNode = touchedNode as? Sentence
+            selectedNode?.physicsBody?.categoryBitMask = PhysicsCategory.SelectedSentence
         }
     }
     
@@ -110,6 +111,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        selectedNode?.physicsBody?.categoryBitMask = PhysicsCategory.Sentence
         selectedNode = nil
     }
    
@@ -122,5 +124,5 @@ struct PhysicsCategory {
     static let None      : UInt32 = 0
     static let All       : UInt32 = UInt32.max
     static let Sentence   : UInt32 = 0b1       // 1
-    //    static let Projectile: UInt32 = 0b10      // 2
+    static let SelectedSentence: UInt32 = 0b10      // 2
 }
