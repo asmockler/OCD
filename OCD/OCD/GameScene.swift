@@ -8,38 +8,95 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
+    
+    // MARK: Properties
+    var startX: CGFloat = 0.0
+    var startY: CGFloat = 0.0
+    var bottomY: CGFloat = 0.0
+    
+    
+    
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!"
-        myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        backgroundColor = SKColor.whiteColor()
         
-        self.addChild(myLabel)
+        startX = size.width/2
+        startY = size.height
+        
+        // init physics world
+        physicsWorld.gravity = CGVectorMake(0,0)
+        physicsWorld.contactDelegate = self
+        
+        // run actions
+        runAction(SKAction.repeatActionForever(
+            SKAction.sequence([
+                SKAction.runBlock(addSentence),
+                SKAction.waitForDuration(1.0)
+                ])
+            ))
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       /* Called when a touch begins */
+    func addSentence() {
+        // create sprite
+        let topSentence = Sentence(type: SentenceType.FromTop)
+        let bottomSentence = Sentence(type: SentenceType.FromBottom)
         
-        for touch in touches {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
+        // set position of sprite on scene
+        topSentence.position = CGPoint(x: startX, y: startY)
+        bottomSentence.position = CGPoint(x: startX, y: bottomY)
+        
+        addChild(topSentence)
+        addChild(bottomSentence)
+        
+    }
+    
+    // MARK: SKPhysicsContactDelegate
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        
+        var topBody: SKPhysicsBody
+        var bottomBody: SKPhysicsBody
+        
+        // figure out which sentence is on top
+        if (contact.bodyA.node?.position.y > contact.bodyB.node?.position.y)  {
+            topBody = contact.bodyA
+            bottomBody = contact.bodyB
+        } else {
+            topBody = contact.bodyB
+            bottomBody = contact.bodyA
         }
+        
+        sentencesDidCollide(topBody.node as! Sentence, bottomSentence: bottomBody.node as! Sentence)
+        
+    }
+    
+    func sentencesDidCollide(topSentence:Sentence, bottomSentence:Sentence) {
+        
+        let topVelocity = topSentence.physicsBody?.velocity
+        let bottomVelocity = bottomSentence.physicsBody?.velocity
+        
+        topSentence.physicsBody?.applyForce(bottomVelocity!)
+        bottomSentence.physicsBody?.applyForce(topVelocity!)
+        
+    }
+    
+    
+    
+    // MARK: Actions
+    
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
     }
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
+}
+
+struct PhysicsCategory {
+    static let None      : UInt32 = 0
+    static let All       : UInt32 = UInt32.max
+    static let Sentence   : UInt32 = 0b1       // 1
+    //    static let Projectile: UInt32 = 0b10      // 2
 }
