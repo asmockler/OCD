@@ -15,6 +15,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var startY: CGFloat = 0.0
     var bottomY: CGFloat = 0.0
     
+    var selectedNode: Sentence?
     
     
     override func didMoveToView(view: SKView) {
@@ -84,9 +85,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: Actions
     
-    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch = touches.first
         
+        let positionInScene = touch?.locationInNode(self)
+        
+        let touchedNode = self.nodeAtPoint(positionInScene!)
+        
+        if touchedNode is Sentence {
+            selectedNode = touchedNode as? Sentence
+        }
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch = touches.first
+        let previousTouchPosition = touch?.previousLocationInNode(self)
+        let currentTouchPosition = touch?.locationInNode(self)
+        
+        let diffX:CGFloat = currentTouchPosition!.x - previousTouchPosition!.x
+        let diffY:CGFloat = currentTouchPosition!.y - previousTouchPosition!.y
+        
+        let previousPosition = selectedNode!.position
+        selectedNode!.position = CGPoint(x: previousPosition.x + diffX, y: previousPosition.y + diffY)
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        selectedNode = nil
     }
    
     override func update(currentTime: CFTimeInterval) {
