@@ -159,17 +159,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
     }
-    
-    
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        selectedNode?.physicsBody?.categoryBitMask = PhysicsCategory.Sentence
-        selectedNode?.physicsBody?.collisionBitMask = PhysicsCategory.Sentence
-        selectedNode?.physicsBody?.contactTestBitMask = PhysicsCategory.Sentence
-        selectedNode?.zPosition = 0.0
-        
-        selectedNode?.physicsBody?.applyForce(self.releaseVector!)
-    
-    }
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
