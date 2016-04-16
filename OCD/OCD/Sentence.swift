@@ -36,7 +36,7 @@ class Sentence: SKSpriteNode {
         self.physicsBody?.contactTestBitMask = PhysicsCategory.Sentence
         self.physicsBody?.collisionBitMask = PhysicsCategory.Sentence
         self.physicsBody?.mass = 5.0
-        self.physicsBody?.allowsRotation = true
+        self.physicsBody?.allowsRotation = false
         self.physicsBody?.linearDamping = 0.0
         self.physicsBody?.angularDamping = 0.0
         
