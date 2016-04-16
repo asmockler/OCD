@@ -15,11 +15,18 @@ enum SentenceType {
 
 class Sentence: SKSpriteNode {
     
+    let DEFAULT_VELOCITY:CGFloat = 100
+    var type:SentenceType?
+    
+    var currentVelocity:CGVector?
+    
     init(type: SentenceType) {
         let texture = SKTexture(imageNamed: "sentence")
         super.init(texture: texture, color: UIColor.whiteColor(), size: texture.size())
+    
+        self.type = type
         
-        initPhysics(type)
+        initPhysics()
         
     }
     
@@ -27,7 +34,7 @@ class Sentence: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func initPhysics(type: SentenceType) {
+    func initPhysics() {
         // init physics body
         self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
         self.physicsBody?.dynamic = true
@@ -40,11 +47,17 @@ class Sentence: SKSpriteNode {
         self.physicsBody?.linearDamping = 0.0
         self.physicsBody?.angularDamping = 0.0
         
-        if type == .FromTop {
-            self.physicsBody?.velocity = CGVectorMake(0.0, -100.0)
+        setDefaultVelocity()
+    }
+    
+    func setDefaultVelocity() {
+        if self.type == .FromTop {
+            self.physicsBody?.velocity = CGVectorMake(0.0, -DEFAULT_VELOCITY)
         } else if type == .FromBottom {
-            self.physicsBody?.velocity = CGVectorMake(0.0, 100.0)
+            self.physicsBody?.velocity = CGVectorMake(0.0, DEFAULT_VELOCITY)
         }
+        
+        self.currentVelocity = self.physicsBody?.velocity
     }
     
 }

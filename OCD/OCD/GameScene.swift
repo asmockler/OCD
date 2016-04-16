@@ -97,6 +97,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         topSentence.physicsBody?.applyForce(bottomVelocity!)
         bottomSentence.physicsBody?.applyForce(topVelocity!)
         
+        // Cache the velocities for use after panning
+        topSentence.currentVelocity = topSentence.physicsBody?.velocity
+        bottomSentence.currentVelocity = bottomSentence.physicsBody?.velocity
+        
     }
     
     
@@ -146,6 +150,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     let moveToCenter = SKAction.moveToX(self.size.width / 2, duration: 0.5)
                     moveToCenter.timingMode = SKActionTimingMode.EaseOut
                     node.runAction(moveToCenter)
+                    
+                    node.physicsBody?.velocity = node.currentVelocity!
                     
                     // Re-enable collisions
                     node.physicsBody?.categoryBitMask = PhysicsCategory.Sentence
