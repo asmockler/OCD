@@ -11,6 +11,8 @@ import SpriteKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: Properties
+    let SWIPE_THRESHOLD:CGFloat = 2000
+    
     var startX: CGFloat = 0.0
     var startY: CGFloat = 0.0
     var bottomY: CGFloat = 0.0
@@ -19,9 +21,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var nodeScale: CGFloat?
     var releaseVector: CGVector?
     
+    var panGestureRecognizer: UIPanGestureRecognizer?
+    var positionWhenTouched: CGPoint?
+    
     
     override func didMoveToView(view: SKView) {
         backgroundColor = SKColor.whiteColor()
+        
+        self.panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
+        self.view?.addGestureRecognizer(self.panGestureRecognizer!)
+        
         
         startX = size.width/2
         startY = size.height
@@ -94,36 +103,63 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: Actions
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let touch = touches.first
+    func handlePanGesture (recognizer: UIPanGestureRecognizer) {
         
-        let positionInScene = touch?.locationInNode(self)
+        // Convert the gesture touch point into a scene touch point
+        var touchLocation = recognizer.locationInView(recognizer.view)
+        touchLocation = self.convertPointFromView(touchLocation)
         
-        let touchedNode = self.nodeAtPoint(positionInScene!)
-        
-        if touchedNode is Sentence {
-            selectedNode = touchedNode as? Sentence
-            selectedNode?.physicsBody?.categoryBitMask = PhysicsCategory.SelectedSentence
-            selectedNode?.physicsBody?.collisionBitMask = PhysicsCategory.SelectedSentence
-            selectedNode?.physicsBody?.contactTestBitMask = PhysicsCategory.SelectedSentence
-            selectedNode?.zPosition = 10.0
-            selectedNode?.physicsBody?.velocity = CGVectorMake(0, 0)
+        if recognizer.state == .Began {
+            
+            // Get the touched node
+            let touchedNode = self.nodeAtPoint(touchLocation)
+            
+            // Set up the selectedNode if sentence is touched
+            if touchedNode is Sentence {
+                self.selectedNode = touchedNode as? Sentence
+                selectedNode?.physicsBody?.categoryBitMask = PhysicsCategory.SelectedSentence
+                selectedNode?.physicsBody?.collisionBitMask = PhysicsCategory.SelectedSentence
+                selectedNode?.physicsBody?.contactTestBitMask = PhysicsCategory.SelectedSentence
+                selectedNode?.zPosition = 10.0
+                selectedNode?.physicsBody?.velocity = CGVectorMake(0, 0)
+                
+                self.positionWhenTouched = selectedNode!.position
+            }
+            
+        } else if recognizer.state == .Changed {
+            
+            if let node = self.selectedNode {
+                let translation = recognizer.translationInView(recognizer.view)
+                node.position = CGPointMake(positionWhenTouched!.x + translation.x, positionWhenTouched!.y - translation.y)
+                
+            }
+            
+        } else if recognizer.state == .Ended {
+            
+            if let node = self.selectedNode {
+                let v = recognizer.velocityInView(recognizer.view)
+                
+                if v.x > SWIPE_THRESHOLD || v.x < -SWIPE_THRESHOLD {
+                    node.physicsBody?.velocity = CGVectorMake(v.x, -v.y)
+                } else {
+                    // Move it back to center
+                    let moveToCenter = SKAction.moveToX(self.size.width / 2, duration: 0.5)
+                    moveToCenter.timingMode = SKActionTimingMode.EaseOut
+                    node.runAction(moveToCenter)
+                    
+                    // Re-enable collisions
+                    node.physicsBody?.categoryBitMask = PhysicsCategory.Sentence
+                    node.physicsBody?.collisionBitMask = PhysicsCategory.Sentence
+                    node.physicsBody?.contactTestBitMask = PhysicsCategory.Sentence
+                    node.zPosition = 0.0
+                }
+                
+                selectedNode = nil
+            }
+            
         }
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let touch = touches.first
-        let previousTouchPosition = touch?.previousLocationInNode(self)
-        let currentTouchPosition = touch?.locationInNode(self)
-        
-        let diffX:CGFloat = currentTouchPosition!.x - previousTouchPosition!.x
-        let diffY:CGFloat = currentTouchPosition!.y - previousTouchPosition!.y
-        
-        self.releaseVector = CGVectorMake(diffX, diffY)
-        
-        let previousPosition = selectedNode!.position
-        selectedNode!.position = CGPoint(x: previousPosition.x + diffX, y: previousPosition.y + diffY)
-    }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         selectedNode?.physicsBody?.categoryBitMask = PhysicsCategory.Sentence
@@ -131,13 +167,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         selectedNode?.physicsBody?.contactTestBitMask = PhysicsCategory.Sentence
         selectedNode?.zPosition = 0.0
         
-        selectedNode?.physicsBody?.velocity = self.releaseVector!
+        selectedNode?.physicsBody?.applyForce(self.releaseVector!)
     
     }
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
+
+    
+    
+    
 }
 
 struct PhysicsCategory {
