@@ -17,6 +17,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var selectedNode: Sentence?
     var nodeScale: CGFloat?
+    var releaseVector: CGVector?
     
     
     override func didMoveToView(view: SKView) {
@@ -33,7 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         runAction(SKAction.repeatActionForever(
             SKAction.sequence([
                 SKAction.runBlock(addSentence),
-                SKAction.waitForDuration(1.0)
+                SKAction.waitForDuration(5.0)
                 ])
             ))
     }
@@ -106,6 +107,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             selectedNode?.physicsBody?.collisionBitMask = PhysicsCategory.SelectedSentence
             selectedNode?.physicsBody?.contactTestBitMask = PhysicsCategory.SelectedSentence
             selectedNode?.zPosition = 10.0
+            selectedNode?.physicsBody?.velocity = CGVectorMake(0, 0)
         }
     }
     
@@ -117,6 +119,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let diffX:CGFloat = currentTouchPosition!.x - previousTouchPosition!.x
         let diffY:CGFloat = currentTouchPosition!.y - previousTouchPosition!.y
         
+        self.releaseVector = CGVectorMake(diffX, diffY)
+        
         let previousPosition = selectedNode!.position
         selectedNode!.position = CGPoint(x: previousPosition.x + diffX, y: previousPosition.y + diffY)
     }
@@ -126,6 +130,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         selectedNode?.physicsBody?.collisionBitMask = PhysicsCategory.Sentence
         selectedNode?.physicsBody?.contactTestBitMask = PhysicsCategory.Sentence
         selectedNode?.zPosition = 0.0
+        
+        selectedNode?.physicsBody?.velocity = self.releaseVector!
+    
     }
    
     override func update(currentTime: CFTimeInterval) {
