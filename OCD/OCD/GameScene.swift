@@ -15,6 +15,26 @@
 //
 // LATER
 // Look into using timingFunction for the wait action timing
+//      Improve pacing (esp at beginning)
+// Screen Recording
+//
+// NOTES
+// Don't do distortion straight in the middle
+//      Chain linearbump and twisting
+//          Not "to a point"
+// Break image apart
+//      SKLabel (possibly?)
+//      Push in multiple sprite nodes
+// More subtle on the shader
+// If none have been swiped, fade/disappear at center
+// Before and after stuff:
+//      ONBOARDING
+//          Tap here to start
+//          Instructions
+//              Swipe left and right to dismiss thoughts
+//                  Have a next button
+//              Ready...set...go! (just on a timer)
+//      INFORMATION
 
 
 
@@ -26,6 +46,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let SWIPE_THRESHOLD:CGFloat = 1500
     let NODE_BEING_DISMISSED = "node being dismissed"
     var currentGameVelocity:CGFloat = 10.0
+    var currentScaleFactor:CGFloat = 1.1
     var waitAction:SKAction?
     
     var startX: CGFloat = 0.0
@@ -41,6 +62,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var positionWhenTouched: CGPoint?
     
     var shaderMove:SKShader?
+    
+    var filterIsAnimating = false
+    var currentFilterValue = 1
     
     override func didMoveToView(view: SKView) {
         backgroundColor = SKColor.whiteColor()
@@ -63,7 +87,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addSentences()
 
         self.shaderMove = SKShader(fileNamed: "shader_water.fsh")
-    
+        
+        
+        self.filter = CIFilter(name: "CIBumpDistortion", withInputParameters: [
+            "inputRadius": currentFilterValue
+            ])
+
     }
     
     func addSentences() {
@@ -130,8 +159,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Cache the velocities for use after panning
         topSentence.currentVelocity = topSentence.physicsBody?.velocity
         bottomSentence.currentVelocity = bottomSentence.physicsBody?.velocity
+        
+        topSentence.runAction(SKAction.scaleBy(currentScaleFactor, duration: 1.0))
+        currentScaleFactor += 0.025
+        
+        animateGlobalFilter()
     }
     
+    func animateGlobalFilter() {
+        filterIsAnimating = true
+        currentFilterValue += 80
+    }
     
     
     // MARK: Actions
@@ -215,7 +253,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+        if filterIsAnimating {
+            let previousValue = self.filter?.valueForKey("inputRadius") as! Int
+            
+            if previousValue > currentFilterValue {
+                self.filterIsAnimating = false
+            } else {
+                self.filter?.setValue(previousValue + 1, forKeyPath: "inputRadius")
+            }
+        }
     }
 
     
