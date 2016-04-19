@@ -53,9 +53,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let topSentence = Sentence(type: SentenceType.FromTop)
         let bottomSentence = Sentence(type: SentenceType.FromBottom)
         
-        // set position of sprite on scene
-        topSentence.position = CGPoint(x: startX, y: startY)
-        bottomSentence.position = CGPoint(x: startX, y: bottomY)
+        // set position of sprite just above and just below scene
+        let sentenceOffset = topSentence.size.height / 2
+        topSentence.position = CGPoint(x: startX, y: startY + sentenceOffset)
+        bottomSentence.position = CGPoint(x: startX, y: bottomY - sentenceOffset)
         
         if self.nodeScale == nil {
             self.nodeScale = (size.width * 0.75) / topSentence.texture!.size().width
