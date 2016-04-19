@@ -6,16 +6,32 @@
 //  Copyright (c) 2016 Andy Mockler. All rights reserved.
 //
 
+
+// TODO
+// NOW
+// Collision distortions
+// Improve shader select animation
+// Clean things up
+//
+// LATER
+// Look into using timingFunction for the wait action timing
+
+
+
 import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: Properties
-    let SWIPE_THRESHOLD:CGFloat = 2000
+    let SWIPE_THRESHOLD:CGFloat = 1500
+    let NODE_BEING_DISMISSED = "node being dismissed"
+    var currentGameVelocity:CGFloat = 10.0
+    var waitAction:SKAction?
     
     var startX: CGFloat = 0.0
     var startY: CGFloat = 0.0
     var bottomY: CGFloat = 0.0
+    var sentenceHeight: CGFloat?
     
     var selectedNode: Sentence?
     var nodeScale: CGFloat?
@@ -24,34 +40,41 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var panGestureRecognizer: UIPanGestureRecognizer?
     var positionWhenTouched: CGPoint?
     
+    var shaderMove:SKShader?
     
     override func didMoveToView(view: SKView) {
         backgroundColor = SKColor.whiteColor()
-        
+
         self.panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
         self.view?.addGestureRecognizer(self.panGestureRecognizer!)
         
-        
         startX = size.width/2
         startY = size.height
+        
+        self.shouldEnableEffects = true
         
         // init physics world
         physicsWorld.gravity = CGVectorMake(0,0)
         physicsWorld.contactDelegate = self
         
+        
         // run actions
-        runAction(SKAction.repeatActionForever(
-            SKAction.sequence([
-                SKAction.runBlock(addSentence),
-                SKAction.waitForDuration(5.0)
-                ])
-            ))
+        self.waitAction = SKAction.waitForDuration(3.0)
+        addSentences()
+
+        self.shaderMove = SKShader(fileNamed: "shader_water.fsh")
+    
     }
     
-    func addSentence() {
+    func addSentences() {
         // create sprite
         let topSentence = Sentence(type: SentenceType.FromTop)
         let bottomSentence = Sentence(type: SentenceType.FromBottom)
+        
+        if self.sentenceHeight == nil {
+            self.sentenceHeight = topSentence.size.height
+            self.waitAction?.duration = Double(self.sentenceHeight! / self.currentGameVelocity)
+        }
         
         // set position of sprite just above and just below scene
         let sentenceOffset = topSentence.size.height / 2
@@ -65,9 +88,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         topSentence.setScale(self.nodeScale!)
         bottomSentence.setScale(self.nodeScale!)
         
-        addChild(topSentence)
-        addChild(bottomSentence)
+        topSentence.setInitialVelocity(currentGameVelocity)
+        bottomSentence.setInitialVelocity(currentGameVelocity)
         
+        self.addChild(topSentence)
+        self.addChild(bottomSentence)
+        
+        runAction(SKAction.sequence([
+            self.waitAction!,
+            SKAction.runBlock(addSentences)
+            ]))
     }
     
     // MARK: SKPhysicsContactDelegate
@@ -87,7 +117,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         sentencesDidCollide(topBody.node as! Sentence, bottomSentence: bottomBody.node as! Sentence)
-        
     }
     
     func sentencesDidCollide(topSentence:Sentence, bottomSentence:Sentence) {
@@ -101,7 +130,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Cache the velocities for use after panning
         topSentence.currentVelocity = topSentence.physicsBody?.velocity
         bottomSentence.currentVelocity = bottomSentence.physicsBody?.velocity
-        
     }
     
     
@@ -128,6 +156,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 selectedNode?.zPosition = 10.0
                 selectedNode?.physicsBody?.velocity = CGVectorMake(0, 0)
                 
+                selectedNode?.shader = self.shaderMove
+                
                 self.positionWhenTouched = selectedNode!.position
             }
             
@@ -146,6 +176,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 if v.x > SWIPE_THRESHOLD || v.x < -SWIPE_THRESHOLD {
                     node.physicsBody?.velocity = CGVectorMake(v.x, -v.y)
+                    node.name = NODE_BEING_DISMISSED
+                    increaseGameSpeed()
                 } else {
                     // Move it back to center
                     let moveToCenter = SKAction.moveToX(self.size.width / 2, duration: 0.5)
@@ -161,10 +193,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     node.zPosition = 0.0
                 }
                 
+                node.shader = nil
+                
                 selectedNode = nil
             }
             
         }
+    }
+    
+    func increaseGameSpeed() {
+        let dy:CGFloat = 10.0
+        self.currentGameVelocity += dy
+        for child in self.children {
+            if child is Sentence && child.name != NODE_BEING_DISMISSED {
+                let sentence = child as! Sentence
+                sentence.increaseVelocity(dy)
+            }
+        }
+        
+        self.waitAction?.duration = Double(self.sentenceHeight! / self.currentGameVelocity)
     }
    
     override func update(currentTime: CFTimeInterval) {

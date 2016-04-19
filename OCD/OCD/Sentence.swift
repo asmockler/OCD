@@ -15,12 +15,12 @@ enum SentenceType {
 
 class Sentence: SKSpriteNode {
     
-    let DEFAULT_VELOCITY:CGFloat = 100
     var type:SentenceType?
     
     var currentVelocity:CGVector?
     
     init(type: SentenceType) {
+        
         let texture = SKTexture(imageNamed: "sentence")
         super.init(texture: texture, color: UIColor.whiteColor(), size: texture.size())
     
@@ -46,15 +46,23 @@ class Sentence: SKSpriteNode {
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.linearDamping = 0.0
         self.physicsBody?.angularDamping = 0.0
-        
-        setDefaultVelocity()
     }
     
-    func setDefaultVelocity() {
+    func setInitialVelocity(dy:CGFloat) {
         if self.type == .FromTop {
-            self.physicsBody?.velocity = CGVectorMake(0.0, -DEFAULT_VELOCITY)
+            self.physicsBody?.velocity = CGVectorMake(0.0, -dy)
         } else if type == .FromBottom {
-            self.physicsBody?.velocity = CGVectorMake(0.0, DEFAULT_VELOCITY)
+            self.physicsBody?.velocity = CGVectorMake(0.0, dy)
+        }
+        
+        self.currentVelocity = self.physicsBody?.velocity
+    }
+    
+    func increaseVelocity(dy:CGFloat) {
+        if self.type == .FromTop {
+            self.physicsBody?.velocity.dy -= dy
+        } else if type == .FromBottom {
+            self.physicsBody?.velocity.dy += dy
         }
         
         self.currentVelocity = self.physicsBody?.velocity
