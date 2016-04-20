@@ -66,6 +66,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var filterIsAnimating = false
     var currentFilterValue = 1
     
+    var userHasSwipedSentences = false
+    
     override func didMoveToView(view: SKView) {
         backgroundColor = SKColor.whiteColor()
 
@@ -149,26 +151,52 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func sentencesDidCollide(topSentence:Sentence, bottomSentence:Sentence) {
+        if userHasSwipedSentences {
+            let topVelocity = topSentence.physicsBody?.velocity
+            let bottomVelocity = bottomSentence.physicsBody?.velocity
+            
+            topSentence.physicsBody?.applyForce(bottomVelocity!)
+            bottomSentence.physicsBody?.applyForce(topVelocity!)
+            
+            // Cache the velocities for use after panning
+            topSentence.currentVelocity = topSentence.physicsBody?.velocity
+            bottomSentence.currentVelocity = bottomSentence.physicsBody?.velocity
+            
+            topSentence.runAction(SKAction.scaleBy(currentScaleFactor, duration: 1.0))
+            currentScaleFactor += 0.025
+            
+            animateGlobalFilter()
+        } else {
+            fadeAndRemoveSentences(topSentence, bottomSentence: bottomSentence)
+        }
         
-        let topVelocity = topSentence.physicsBody?.velocity
-        let bottomVelocity = bottomSentence.physicsBody?.velocity
-        
-        topSentence.physicsBody?.applyForce(bottomVelocity!)
-        bottomSentence.physicsBody?.applyForce(topVelocity!)
-        
-        // Cache the velocities for use after panning
-        topSentence.currentVelocity = topSentence.physicsBody?.velocity
-        bottomSentence.currentVelocity = bottomSentence.physicsBody?.velocity
-        
-        topSentence.runAction(SKAction.scaleBy(currentScaleFactor, duration: 1.0))
-        currentScaleFactor += 0.025
-        
-        animateGlobalFilter()
     }
     
     func animateGlobalFilter() {
         filterIsAnimating = true
         currentFilterValue += 80
+    }
+    
+    func fadeAndRemoveSentences(topSentence:Sentence, bottomSentence:Sentence) {
+        // Pretend like the collision didn't happen
+        topSentence.physicsBody?.categoryBitMask = PhysicsCategory.SelectedSentence
+        topSentence.physicsBody?.collisionBitMask = PhysicsCategory.SelectedSentence
+        topSentence.physicsBody?.contactTestBitMask = PhysicsCategory.SelectedSentence
+        topSentence.setInitialVelocity(10.0)
+        bottomSentence.setInitialVelocity(10.0)
+        
+        // Run the animation
+        let fadeAndShrink = SKAction.group([
+            SKAction.fadeOutWithDuration(0.5),
+            SKAction.scaleBy(0.95, duration: 0.75)
+            ])
+        
+        let fadeOutAndRemove = SKAction.sequence([
+            fadeAndShrink,
+            SKAction.removeFromParent()
+            ])
+        topSentence.runAction(fadeOutAndRemove)
+        bottomSentence.runAction(fadeOutAndRemove)
     }
     
     
@@ -187,6 +215,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             // Set up the selectedNode if sentence is touched
             if touchedNode is Sentence {
+                self.userHasSwipedSentences = true
                 self.selectedNode = touchedNode as? Sentence
                 selectedNode?.physicsBody?.categoryBitMask = PhysicsCategory.SelectedSentence
                 selectedNode?.physicsBody?.collisionBitMask = PhysicsCategory.SelectedSentence
