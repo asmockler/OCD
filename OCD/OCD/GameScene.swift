@@ -45,7 +45,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // MARK: Properties
     let SWIPE_THRESHOLD:CGFloat = 1500
     let NODE_BEING_DISMISSED = "node being dismissed"
-    var currentGameVelocity:CGFloat = 10.0
+    var currentGameVelocity:CGFloat = 25.0
     var currentScaleFactor:CGFloat = 1.1
     var waitAction:SKAction?
     
