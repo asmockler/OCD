@@ -8,10 +8,6 @@
 
 
 // TODO
-// NOW
-// Collision distortions
-// Improve shader select animation
-// Clean things up
 //
 // LATER
 // Look into using timingFunction for the wait action timing
@@ -26,7 +22,6 @@
 //      SKLabel (possibly?)
 //      Push in multiple sprite nodes
 // More subtle on the shader
-// If none have been swiped, fade/disappear at center
 // Before and after stuff:
 //      ONBOARDING
 //          Tap here to start
@@ -39,6 +34,7 @@
 
 
 import SpriteKit
+import QuartzCore
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -62,6 +58,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var positionWhenTouched: CGPoint?
     
     var shaderMove:SKShader?
+    var shaderTwirl:SKShader?
     
     var filterIsAnimating = false
     var currentFilterValue = 1
@@ -79,16 +76,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.shouldEnableEffects = true
         
+        
         // init physics world
         physicsWorld.gravity = CGVectorMake(0,0)
         physicsWorld.contactDelegate = self
         
+        // Setup shaders
+        self.shaderMove = SKShader(fileNamed: "shader_water.fsh")
+//        self.shaderTwirl = SKShader(fileNamed: "swirl.fsh")
+//        self.shader = self.shaderTwirl!
         
         // run actions
         self.waitAction = SKAction.waitForDuration(3.0)
         addSentences()
-
-        self.shaderMove = SKShader(fileNamed: "shader_water.fsh")
         
         
         self.filter = CIFilter(name: "CIBumpDistortion", withInputParameters: [
@@ -101,6 +101,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // create sprite
         let topSentence = Sentence(type: SentenceType.FromTop)
         let bottomSentence = Sentence(type: SentenceType.FromBottom)
+        
+//        topSentence.shader = self.shaderTwirl!
         
         if self.sentenceHeight == nil {
             self.sentenceHeight = topSentence.size.height
@@ -292,15 +294,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
-
-    
-    
-    
 }
 
 struct PhysicsCategory {
-    static let None      : UInt32 = 0
-    static let All       : UInt32 = UInt32.max
-    static let Sentence   : UInt32 = 0b1       // 1
-    static let SelectedSentence: UInt32 = 0b10      // 2
+    static let None             : UInt32 = 0
+    static let All              : UInt32 = UInt32.max
+    static let Sentence         : UInt32 = 0b1       // 1
+    static let SelectedSentence : UInt32 = 0b10      // 2
 }
