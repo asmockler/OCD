@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		37F965C11CC0A66D00F009DD /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F965C01CC0A66D00F009DD /* Sentence.swift */; };
+		A112974C1CD26E4900BC6707 /* RadiatingCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A112974B1CD26E4900BC6707 /* RadiatingCircles.swift */; };
 		A1323BA51CC5D94D00AC680D /* shader_water.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A1323BA41CC5D94D00AC680D /* shader_water.fsh */; };
+		A135EA421CCD56FC008AD503 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135EA411CCD56FC008AD503 /* OnboardingController.swift */; };
 		A146FF181CC93005008FD12E /* swirl.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A146FF171CC93005008FD12E /* swirl.fsh */; };
 		A15CA32D1CC0A4E900A1DF3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CA32C1CC0A4E900A1DF3D /* AppDelegate.swift */; };
 		A15CA3311CC0A4E900A1DF3D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CA3301CC0A4E900A1DF3D /* GameScene.swift */; };
@@ -20,7 +22,9 @@
 
 /* Begin PBXFileReference section */
 		37F965C01CC0A66D00F009DD /* Sentence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
+		A112974B1CD26E4900BC6707 /* RadiatingCircles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadiatingCircles.swift; sourceTree = "<group>"; };
 		A1323BA41CC5D94D00AC680D /* shader_water.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = shader_water.fsh; path = ../shader_water.fsh; sourceTree = "<group>"; };
+		A135EA411CCD56FC008AD503 /* OnboardingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		A146FF171CC93005008FD12E /* swirl.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = swirl.fsh; sourceTree = "<group>"; };
 		A15CA3291CC0A4E900A1DF3D /* OCD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A15CA32C1CC0A4E900A1DF3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 				A15CA3391CC0A4E900A1DF3D /* LaunchScreen.storyboard */,
 				A15CA33C1CC0A4E900A1DF3D /* Info.plist */,
 				A146FF171CC93005008FD12E /* swirl.fsh */,
+				A135EA411CCD56FC008AD503 /* OnboardingController.swift */,
+				A112974B1CD26E4900BC6707 /* RadiatingCircles.swift */,
 			);
 			path = OCD;
 			sourceTree = "<group>";
@@ -151,8 +157,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A15CA3311CC0A4E900A1DF3D /* GameScene.swift in Sources */,
+				A112974C1CD26E4900BC6707 /* RadiatingCircles.swift in Sources */,
 				A15CA3331CC0A4E900A1DF3D /* GameViewController.swift in Sources */,
 				37F965C11CC0A66D00F009DD /* Sentence.swift in Sources */,
+				A135EA421CCD56FC008AD503 /* OnboardingController.swift in Sources */,
 				A15CA32D1CC0A4E900A1DF3D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

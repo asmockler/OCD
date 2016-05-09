@@ -17,6 +17,7 @@ class GameViewController: UIViewController {
         let scene = GameScene(size: view.bounds.size)
         let skView = view as! SKView
         
+        
         // for debugging
         skView.showsFPS = true
         skView.showsNodeCount = true

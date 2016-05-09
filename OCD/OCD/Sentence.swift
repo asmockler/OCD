@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import GLKit
 
 enum SentenceType {
     case FromTop, FromBottom
@@ -16,15 +17,21 @@ enum SentenceType {
 class Sentence: SKSpriteNode {
     
     var type:SentenceType?
-    
     var currentVelocity:CGVector?
+    var effect:GLKBaseEffect?
     
     init(type: SentenceType) {
         
         let texture = SKTexture(imageNamed: "sentence")
         super.init(texture: texture, color: UIColor.whiteColor(), size: texture.size())
+        
     
         self.type = type
+        self.effect = GLKBaseEffect()
+//        effect?.transform.
+        let projectionMatrix = GLKMatrix4MakeOrtho(0, Float(texture.size().width), 0, Float(texture.size().height), -1, 1)
+        self.effect!.transform.projectionMatrix = projectionMatrix
+        self.texture?.textureByApplyingCIFilter(CIFilter(name: "CIBumpDistortion")!)
         
         initPhysics()
         
