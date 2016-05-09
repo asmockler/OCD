@@ -70,8 +70,7 @@ class OnboardingController : UIViewController {
     }
     
     func moveToGameController() {
-//        let controller = GameViewController()
-        presentViewController(GameViewController(), animated: true, completion: nil)
-        
+        // call segue manually with identifier
+        performSegueWithIdentifier("gameViewSegue", sender: self)
     }
 }

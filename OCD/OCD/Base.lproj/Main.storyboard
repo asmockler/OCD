@@ -58,6 +58,7 @@
                     </view>
                     <connections>
                         <outlet property="label" destination="Csf-xl-VTq" id="92s-B7-diT"/>
+                        <segue destination="BV1-FR-VrT" kind="show" identifier="gameViewSegue" id="a3x-OG-XbI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCz-hw-txs" userLabel="First Responder" sceneMemberID="firstResponder"/>
