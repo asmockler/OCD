@@ -24,8 +24,6 @@ class Sentence: SKSpriteNode {
         
         let texture = SKTexture(imageNamed: "sentence")
         super.init(texture: texture, color: UIColor.whiteColor(), size: texture.size())
-        
-    
         self.type = type
         self.effect = GLKBaseEffect()
 //        effect?.transform.
