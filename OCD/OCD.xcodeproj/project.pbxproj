@@ -18,6 +18,8 @@
 		A15CA3361CC0A4E900A1DF3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A15CA3341CC0A4E900A1DF3D /* Main.storyboard */; };
 		A15CA3381CC0A4E900A1DF3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A15CA3371CC0A4E900A1DF3D /* Assets.xcassets */; };
 		A15CA33B1CC0A4E900A1DF3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A15CA3391CC0A4E900A1DF3D /* LaunchScreen.storyboard */; };
+		A1F39FA01CEACC4D0005BF49 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F39F9E1CEACC4D0005BF49 /* OnboardingController.swift */; };
+		A1F39FA11CEACC4D0005BF49 /* RadiatingCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F39F9F1CEACC4D0005BF49 /* RadiatingCircles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		A15CA3371CC0A4E900A1DF3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A15CA33A1CC0A4E900A1DF3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A15CA33C1CC0A4E900A1DF3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1F39F9E1CEACC4D0005BF49 /* OnboardingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
+		A1F39F9F1CEACC4D0005BF49 /* RadiatingCircles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadiatingCircles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 		A15CA32B1CC0A4E900A1DF3D /* OCD */ = {
 			isa = PBXGroup;
 			children = (
+				A1F39F9E1CEACC4D0005BF49 /* OnboardingController.swift */,
+				A1F39F9F1CEACC4D0005BF49 /* RadiatingCircles.swift */,
 				A1323BA41CC5D94D00AC680D /* shader_water.fsh */,
 				A15CA32C1CC0A4E900A1DF3D /* AppDelegate.swift */,
 				A15CA3301CC0A4E900A1DF3D /* GameScene.swift */,
@@ -157,10 +163,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A15CA3311CC0A4E900A1DF3D /* GameScene.swift in Sources */,
-				A112974C1CD26E4900BC6707 /* RadiatingCircles.swift in Sources */,
+				A1F39FA11CEACC4D0005BF49 /* RadiatingCircles.swift in Sources */,
 				A15CA3331CC0A4E900A1DF3D /* GameViewController.swift in Sources */,
 				37F965C11CC0A66D00F009DD /* Sentence.swift in Sources */,
-				A135EA421CCD56FC008AD503 /* OnboardingController.swift in Sources */,
+				A1F39FA01CEACC4D0005BF49 /* OnboardingController.swift in Sources */,
 				A15CA32D1CC0A4E900A1DF3D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

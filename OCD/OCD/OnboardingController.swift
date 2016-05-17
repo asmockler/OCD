@@ -16,9 +16,9 @@ enum OnboardingLabelState : CustomStringConvertible {
         case .TapToStart:
             return "TAP TO START"
         case .KeepScreenClear:
-            return "Try to keep the screen clear of intrusive thoughts,"
+            return "Try and keep the screen clear of\nintrusive thoughts."
         case .SwipeLeftAndRight:
-            return "by swiping them left and right."
+            return "Swipe them off the screen\nleft and right."
         case .MoveToGameController:
             return ""
         }
@@ -64,14 +64,13 @@ class OnboardingController : UIViewController {
             moveToGameController()
         } else {
             UIView.transitionWithView(label, duration: 0.5, options: [.TransitionCrossDissolve], animations: {
-                self.label.text = self.currentState.description
+                self.label.text = self.currentState.description.uppercaseString
                 }, completion: nil)
         }
     }
     
     func moveToGameController() {
-//        let controller = GameViewController()
-        presentViewController(GameViewController(), animated: true, completion: nil)
-        
+        // call segue manually with identifier
+        performSegueWithIdentifier("gameViewSegue", sender: self)
     }
 }
