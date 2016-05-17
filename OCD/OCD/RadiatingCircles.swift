@@ -17,12 +17,13 @@ class RadiatingCircles : UIView {
         
         self.backgroundColor = UIColor.blackColor()
         
-        drawCircle(0.0)
-        drawCircle(2.0)
+        drawCircle()
+        performSelector(#selector(RadiatingCircles.drawCircle), withObject: self, afterDelay: 3.0)
+        performSelector(#selector(RadiatingCircles.drawCircle), withObject: self, afterDelay: 6.0)
     }
     
-    func drawCircle (offset: CFTimeInterval) {
-        let circlePath = UIBezierPath(arcCenter: CGPoint(x: 0, y: 0), radius: CGFloat(10), startAngle: CGFloat(0), endAngle: CGFloat(M_PI * 2), clockwise: true)
+    func drawCircle () {
+        let circlePath = UIBezierPath(arcCenter: CGPoint(x: 0, y: 0), radius: CGFloat(20), startAngle: CGFloat(0), endAngle: CGFloat(M_PI * 2), clockwise: true)
         
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = circlePath.CGPath
@@ -35,20 +36,21 @@ class RadiatingCircles : UIView {
         
         self.layer.addSublayer(shapeLayer)
         
-        let scaleAnimation = CABasicAnimation(keyPath: "radius")
+        let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
         scaleAnimation.fromValue = 1.0
-        scaleAnimation.toValue = 2.0
-        scaleAnimation.duration = 4.0
+        scaleAnimation.toValue = 3.0
+        scaleAnimation.duration = 9.0
         scaleAnimation.repeatCount = .infinity
         
         let opacityAnimation = CABasicAnimation(keyPath: "opacity")
-        opacityAnimation.fromValue = 1.0
-        opacityAnimation.toValue = 0.0
-        opacityAnimation.duration = 4.0
+        opacityAnimation.fromValue = 0.0
+        opacityAnimation.toValue = 1.0
+        opacityAnimation.duration = 4.5
         opacityAnimation.delegate = self
         opacityAnimation.repeatCount = .infinity
+        opacityAnimation.autoreverses = true
         
-        shapeLayer.addAnimation(scaleAnimation, forKey: "radius")
+        shapeLayer.addAnimation(scaleAnimation, forKey: "scale")
         shapeLayer.addAnimation(opacityAnimation, forKey: "opacity")
     }
     
