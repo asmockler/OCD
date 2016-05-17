@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37F52BA11CE9599F00E05CB2 /* EducationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F52BA01CE9599F00E05CB2 /* EducationScene.swift */; };
+		37F52BA31CEA9EE300E05CB2 /* SKLabelNodeMultiline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F52BA21CEA9EE300E05CB2 /* SKLabelNodeMultiline.swift */; };
 		37F965C11CC0A66D00F009DD /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F965C01CC0A66D00F009DD /* Sentence.swift */; };
 		A112974C1CD26E4900BC6707 /* RadiatingCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A112974B1CD26E4900BC6707 /* RadiatingCircles.swift */; };
 		A1323BA51CC5D94D00AC680D /* shader_water.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A1323BA41CC5D94D00AC680D /* shader_water.fsh */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		37F52BA01CE9599F00E05CB2 /* EducationScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EducationScene.swift; sourceTree = "<group>"; };
+		37F52BA21CEA9EE300E05CB2 /* SKLabelNodeMultiline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKLabelNodeMultiline.swift; sourceTree = "<group>"; };
 		37F965C01CC0A66D00F009DD /* Sentence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 		A112974B1CD26E4900BC6707 /* RadiatingCircles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadiatingCircles.swift; sourceTree = "<group>"; };
 		A1323BA41CC5D94D00AC680D /* shader_water.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = shader_water.fsh; path = ../shader_water.fsh; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 				A15CA3301CC0A4E900A1DF3D /* GameScene.swift */,
 				37F965C01CC0A66D00F009DD /* Sentence.swift */,
 				A15CA3321CC0A4E900A1DF3D /* GameViewController.swift */,
+				37F52BA01CE9599F00E05CB2 /* EducationScene.swift */,
+				37F52BA21CEA9EE300E05CB2 /* SKLabelNodeMultiline.swift */,
 				A15CA3341CC0A4E900A1DF3D /* Main.storyboard */,
 				A15CA3371CC0A4E900A1DF3D /* Assets.xcassets */,
 				A15CA3391CC0A4E900A1DF3D /* LaunchScreen.storyboard */,
@@ -165,6 +171,8 @@
 				A15CA3311CC0A4E900A1DF3D /* GameScene.swift in Sources */,
 				A1F39FA11CEACC4D0005BF49 /* RadiatingCircles.swift in Sources */,
 				A15CA3331CC0A4E900A1DF3D /* GameViewController.swift in Sources */,
+				37F52BA11CE9599F00E05CB2 /* EducationScene.swift in Sources */,
+				37F52BA31CEA9EE300E05CB2 /* SKLabelNodeMultiline.swift in Sources */,
 				37F965C11CC0A66D00F009DD /* Sentence.swift in Sources */,
 				A1F39FA01CEACC4D0005BF49 /* OnboardingController.swift in Sources */,
 				A15CA32D1CC0A4E900A1DF3D /* AppDelegate.swift in Sources */,

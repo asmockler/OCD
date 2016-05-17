@@ -118,6 +118,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.nodeScale = (size.width * 0.75) / topSentence.texture!.size().width
         }
         
+        
         topSentence.setScale(self.nodeScale!)
         bottomSentence.setScale(self.nodeScale!)
         
@@ -293,7 +294,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.filter?.setValue(previousValue + 1, forKeyPath: "inputRadius")
             }
         }
+        
+        // TODO replace 18000 with CONST
+        if currentFilterValue > 18000 {
+            print("screen is black")
+
+            // stop gameplay and transition to educational series
+            moveToEducationScene()
+        }
+        
     }
+    
+    func moveToEducationScene() {
+        let scene = EducationScene(size: self.view!.bounds.size)
+        self.view?.presentScene(scene)
+    }
+
+    
+    
 }
 
 struct PhysicsCategory {
