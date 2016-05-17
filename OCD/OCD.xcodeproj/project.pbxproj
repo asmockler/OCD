@@ -10,9 +10,7 @@
 		37F52BA11CE9599F00E05CB2 /* EducationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F52BA01CE9599F00E05CB2 /* EducationScene.swift */; };
 		37F52BA31CEA9EE300E05CB2 /* SKLabelNodeMultiline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F52BA21CEA9EE300E05CB2 /* SKLabelNodeMultiline.swift */; };
 		37F965C11CC0A66D00F009DD /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F965C01CC0A66D00F009DD /* Sentence.swift */; };
-		A112974C1CD26E4900BC6707 /* RadiatingCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A112974B1CD26E4900BC6707 /* RadiatingCircles.swift */; };
 		A1323BA51CC5D94D00AC680D /* shader_water.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A1323BA41CC5D94D00AC680D /* shader_water.fsh */; };
-		A135EA421CCD56FC008AD503 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135EA411CCD56FC008AD503 /* OnboardingController.swift */; };
 		A146FF181CC93005008FD12E /* swirl.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A146FF171CC93005008FD12E /* swirl.fsh */; };
 		A15CA32D1CC0A4E900A1DF3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CA32C1CC0A4E900A1DF3D /* AppDelegate.swift */; };
 		A15CA3311CC0A4E900A1DF3D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15CA3301CC0A4E900A1DF3D /* GameScene.swift */; };
@@ -126,7 +124,7 @@
 				TargetAttributes = {
 					A15CA3281CC0A4E900A1DF3D = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 48T25SU88V;
+						DevelopmentTeam = WTBVMZ9B5P;
 					};
 				};
 			};
@@ -291,10 +289,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = OCD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.udachi.OCD;
+				PRODUCT_BUNDLE_IDENTIFIER = dan.morain.OCD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -303,10 +303,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = OCD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.udachi.OCD;
+				PRODUCT_BUNDLE_IDENTIFIER = dan.morain.OCD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
