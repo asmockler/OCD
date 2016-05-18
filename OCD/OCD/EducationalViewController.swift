@@ -42,7 +42,9 @@ class EducationalViewController: UIViewController {
         let swipeLeft:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(EducationalViewController.swipedLeft(_:)))
         swipeLeft.direction = .Left
         view.addGestureRecognizer(swipeLeft)
-
+        
+        // set timeout if user bails after 2 mins
+        var timer = NSTimer.scheduledTimerWithTimeInterval(120.0, target:self, selector: #selector(EducationalViewController.closeButtonTapped), userInfo: nil, repeats: false)
         
     }
     
