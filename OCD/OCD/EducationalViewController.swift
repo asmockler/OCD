@@ -52,6 +52,10 @@ class EducationalViewController: UIViewController {
         print("edu view did appear")
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
     func swipedLeft(sender:UISwipeGestureRecognizer){
         // update state
         self.currentState = currentState.nextState
