@@ -11,11 +11,14 @@ import SpriteKit
 
 class GameViewController: UIViewController {
     
+    var sentenceNumber:Int = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         let scene = GameScene(size: view.bounds.size)
         scene.parentViewController = self
+        scene.sentenceNumber = self.sentenceNumber
         
         
         let skView = view as! SKView
@@ -37,6 +40,12 @@ class GameViewController: UIViewController {
     
     func presentEducationalSeries() {
         performSegueWithIdentifier("showEducationalSeries", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let viewController = segue.destinationViewController as! EducationalViewController
+        viewController.sentenceNumber = self.sentenceNumber
+        
     }
     
 }

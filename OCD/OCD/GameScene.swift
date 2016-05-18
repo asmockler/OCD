@@ -39,6 +39,8 @@ import QuartzCore
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: Properties
+    
+    var sentenceNumber:Int = 1
     var parentViewController:GameViewController? = nil
     
     
@@ -97,8 +99,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addSentences() {
         // create sprite
-        let topSentence = Sentence(type: SentenceType.FromTop)
-        let bottomSentence = Sentence(type: SentenceType.FromBottom)
+        let topSentence = Sentence(type: SentenceType.FromTop, sentenceNumber: self.sentenceNumber)
+        let bottomSentence = Sentence(type: SentenceType.FromBottom, sentenceNumber: self.sentenceNumber)
         
 //        topSentence.shader = self.shaderTwirl!
         

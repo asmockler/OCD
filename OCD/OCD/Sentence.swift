@@ -19,12 +19,16 @@ class Sentence: SKSpriteNode {
     var type:SentenceType?
     var currentVelocity:CGVector?
     var effect:GLKBaseEffect?
+    var sentenceNumber:Int?
     
-    init(type: SentenceType) {
+    init(type: SentenceType, sentenceNumber: Int) {
         
-        let texture = SKTexture(imageNamed: "sentence")
+        let sentenceString = "sentences-" + String(sentenceNumber)
+        
+        let texture = SKTexture(imageNamed: sentenceString)
         super.init(texture: texture, color: UIColor.whiteColor(), size: texture.size())
         self.type = type
+        self.sentenceNumber = sentenceNumber
         self.effect = GLKBaseEffect()
 //        effect?.transform.
         let projectionMatrix = GLKMatrix4MakeOrtho(0, Float(texture.size().width), 0, Float(texture.size().height), -1, 1)

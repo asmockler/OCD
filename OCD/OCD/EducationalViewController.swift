@@ -21,6 +21,8 @@ class EducationalViewController: UIViewController {
     
     var currentState:EducationLabelState = .Start
     
+    var sentenceNumber:Int = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
                 
@@ -73,6 +75,11 @@ class EducationalViewController: UIViewController {
         // seque back to Onboarding
         performSegueWithIdentifier("showOnboarding", sender: self)
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let viewController = segue.destinationViewController as! OnboardingController
+        viewController.sentenceNumber = self.sentenceNumber + 1
     }
     
     func updateState() {

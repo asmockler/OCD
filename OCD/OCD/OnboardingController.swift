@@ -54,10 +54,19 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
     
     var touchesEnabled = true
     
+    var sentenceNumber:Int = 5
+    
     
     // MARK: Initialize
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if self.sentenceNumber < 5 {
+            self.sentenceNumber = self.sentenceNumber + 1
+        } else {
+            self.sentenceNumber = 1
+        }
+        
         
         // Set the initial label text
         label.text = currentState.description
@@ -84,6 +93,11 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
     func moveToGameController() {
         // call segue manually with identifier
         performSegueWithIdentifier("gameViewSegue", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let viewController = segue.destinationViewController as! GameViewController
+        viewController.sentenceNumber = self.sentenceNumber
     }
     
     
