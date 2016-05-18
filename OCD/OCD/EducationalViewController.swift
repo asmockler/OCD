@@ -13,21 +13,36 @@ class EducationalViewController: UIViewController {
     // MARK: Properties
     
     @IBOutlet weak var educationalLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     var currentState:EducationLabelState = .Start
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // set screen to black
-        self.view.backgroundColor = UIColor.blackColor()
-        
+                
         // set label to .Start
         educationalLabel.text = currentState.description
-        educationalLabel.textColor = UIColor.whiteColor()
+
         
     }
     
+    @IBAction func nextButtonTapped(sender: UIButton) {
+                
+        // update state
+        self.currentState = currentState.nextState
+        educationalLabel.text = currentState.description
+
+        
+        
+    }
     
+    @IBAction func backButtonTapped(sender: UIButton) {
+        
+        // update state
+        self.currentState = currentState.prevState
+        educationalLabel.text = currentState.description
+        
+    }
     
 }
 
