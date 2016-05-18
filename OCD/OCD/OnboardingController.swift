@@ -53,12 +53,7 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
         // Set the initial label text
         label.text = currentState.description
         
-        
-        let circlesTappedListener = UITapGestureRecognizer(target: self, action: #selector(OnboardingController.circlesTapped(_:)))
-        
-        circlesTappedListener.delegate = self
-        
-        radiatingCircles.addGestureRecognizer(circlesTappedListener)
+        radiatingCircles.parentViewController = self
         
         
     }
@@ -67,7 +62,7 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
         return true
     }
     
-    func circlesTapped(sender: UITapGestureRecognizer) {
+    func circlesTapped() {
         print("radiating circles tapped")
     }
     
