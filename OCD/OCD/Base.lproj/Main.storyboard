@@ -19,9 +19,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <segue destination="61U-Xm-wGX" kind="showDetail" identifier="showEducationalSeries" animates="NO" action="showViewController:sender:" id="j55-Qw-LhZ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
@@ -201,6 +198,7 @@
                         <outlet property="radiatingCircles" destination="zok-a7-Eab" id="ihB-Nd-Gep"/>
                         <outlet property="reviewButton" destination="tmg-xO-1Ik" id="ZQz-RS-Fqh"/>
                         <segue destination="BV1-FR-VrT" kind="show" identifier="gameViewSegue" id="a3x-OG-XbI"/>
+                        <segue destination="61U-Xm-wGX" kind="showDetail" identifier="showEducationalSeries" id="w2R-xz-xMv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCz-hw-txs" userLabel="First Responder" sceneMemberID="firstResponder"/>

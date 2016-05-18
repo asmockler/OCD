@@ -9,7 +9,7 @@
 import UIKit
 
 enum OnboardingLabelState : CustomStringConvertible {
-    case TapToStart, KeepScreenClear, SwipeLeftAndRight, TapToPlay, MoveToGameController
+    case TapToStart, KeepScreenClear, SwipeLeftAndRight, TapToPlay, MoveToGameController, MoveToEducationController
     
     var description: String {
         switch self {
@@ -22,6 +22,8 @@ enum OnboardingLabelState : CustomStringConvertible {
         case .TapToPlay:
             return "TAP TO PLAY"
         case .MoveToGameController:
+            return ""
+        case .MoveToEducationController:
             return ""
         }
     }
@@ -37,7 +39,9 @@ enum OnboardingLabelState : CustomStringConvertible {
         case .TapToPlay:
             return .MoveToGameController
         case .MoveToGameController:
-            return .MoveToGameController
+            return .MoveToEducationController
+        case .MoveToEducationController:
+            return .TapToStart
         }
     }
 }
@@ -61,19 +65,15 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.sentenceNumber < 5 {
-            self.sentenceNumber = self.sentenceNumber + 1
-        } else {
-            self.sentenceNumber = 1
-        }
+        print("onboard view did load")
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         
-        // Set the initial label text
-        label.text = currentState.description
+        print("onboard view did appear")
         
-        // hide reviewButton
-        reviewButton.hidden = true
-        
+        updateState()
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -95,17 +95,27 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
         performSegueWithIdentifier("gameViewSegue", sender: self)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let viewController = segue.destinationViewController as! GameViewController
-        viewController.sentenceNumber = self.sentenceNumber
-    }
-    
-    
+
     @IBAction func reviewButtonTapped(sender: UIButton) {
         
         self.currentState = .KeepScreenClear
         updateState()
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "gameViewSegue" {
+            
+            if self.sentenceNumber < 5 {
+                self.sentenceNumber = self.sentenceNumber + 1
+            } else {
+                self.sentenceNumber = 1
+            }
+            
+            // pass sentenceNumber
+            let viewController = segue.destinationViewController as! GameViewController
+            viewController.sentenceNumber = self.sentenceNumber
+        }
     }
     
     
@@ -119,6 +129,12 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
         
         
         switch self.currentState {
+            
+        case .TapToStart:
+            // hide reviewButton
+            reviewButton.hidden = true
+            
+            break
             
         case .KeepScreenClear:
             
@@ -159,14 +175,18 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
             break
         
         case .MoveToGameController:
+            // change state
+            self.currentState = self.currentState.nextState
             moveToGameController()
             break
             
-        default:
+        case .MoveToEducationController:
+            
+            self.currentState = self.currentState.nextState
+            self.performSegueWithIdentifier("showEducationalSeries", sender: self)
+            
             break
         }
-        
-        
     }
 
 }

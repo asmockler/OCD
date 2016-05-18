@@ -15,6 +15,8 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("game view did load")
                 
         let scene = GameScene(size: view.bounds.size)
         scene.parentViewController = self
@@ -33,19 +35,12 @@ class GameViewController: UIViewController {
 
     }
     
+    override func viewDidAppear(animated: Bool) {
+        print("Game view did appear")
+    }
 
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
-    
-    func presentEducationalSeries() {
-        performSegueWithIdentifier("showEducationalSeries", sender: self)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let viewController = segue.destinationViewController as! EducationalViewController
-        viewController.sentenceNumber = self.sentenceNumber
         
-    }
-    
 }

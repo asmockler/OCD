@@ -293,9 +293,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func moveToEducationSeries() {
+        self.removeAllActions()
+        self.removeAllChildren()
         self.removeFromParent()
         self.view?.presentScene(nil)
-        self.parentViewController!.presentEducationalSeries()
+//        self.parentViewController!.view = nil
+        self.parentViewController?.dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
 }

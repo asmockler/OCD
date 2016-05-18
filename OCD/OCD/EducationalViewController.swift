@@ -25,6 +25,8 @@ class EducationalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("edu view did load")
                 
         // set label to .Start
         educationalLabel.text = currentState.description
@@ -42,6 +44,10 @@ class EducationalViewController: UIViewController {
         view.addGestureRecognizer(swipeLeft)
 
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        print("edu view did appear")
     }
     
     func swipedLeft(sender:UISwipeGestureRecognizer){
@@ -73,15 +79,9 @@ class EducationalViewController: UIViewController {
     @IBAction func closeButtonTapped(sender: UIButton) {
         
         // seque back to Onboarding
-        performSegueWithIdentifier("showOnboarding", sender: self)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
         
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let viewController = segue.destinationViewController as! OnboardingController
-        viewController.sentenceNumber = self.sentenceNumber + 1
-    }
-    
     func updateState() {
         
         // update text
