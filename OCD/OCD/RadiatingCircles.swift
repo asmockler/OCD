@@ -18,6 +18,10 @@ class RadiatingCircles : UIView {
         self.backgroundColor = UIColor.blackColor()
         
         drawCircle()
+        startAnimation()
+    }
+    
+    func startAnimation() {
         performSelector(#selector(RadiatingCircles.drawCircle), withObject: self, afterDelay: 3.0)
         performSelector(#selector(RadiatingCircles.drawCircle), withObject: self, afterDelay: 6.0)
     }

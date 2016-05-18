@@ -286,7 +286,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    
     override func update(currentTime: CFTimeInterval) {
         // TODO replace 18000 with CONST
-        if currentFilterValue > 22000 {
+        if currentFilterValue > 18000 {
             // stop gameplay and transition to educational series
             moveToEducationSeries()
         }   

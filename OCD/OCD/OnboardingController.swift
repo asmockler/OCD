@@ -134,6 +134,11 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
             // hide reviewButton
             reviewButton.hidden = true
             
+            // enable touches
+            self.touchesEnabled = true
+            
+            radiatingCircles.startAnimation()
+            
             break
             
         case .KeepScreenClear:
@@ -175,6 +180,9 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
             break
         
         case .MoveToGameController:
+            // disable touches
+            self.touchesEnabled = false
+            
             // change state
             self.currentState = self.currentState.nextState
             moveToGameController()
