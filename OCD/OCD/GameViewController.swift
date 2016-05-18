@@ -15,8 +15,10 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         let scene = GameScene(size: view.bounds.size)
-        let skView = view as! SKView
+        scene.parentViewController = self
         
+        
+        let skView = view as! SKView
         
         // for debugging
         skView.showsFPS = true
@@ -27,13 +29,14 @@ class GameViewController: UIViewController {
         skView.presentScene(scene)
 
     }
-
+    
 
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
     
     func presentEducationalSeries() {
-        print("presenting educational series")
+        performSegueWithIdentifier("showEducationalSeries", sender: self)
     }
+    
 }

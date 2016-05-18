@@ -18,10 +18,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="61U-Xm-wGX" kind="showDetail" identifier="showEducationalSeries" animates="NO" action="showViewController:sender:" id="j55-Qw-LhZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1137" y="50"/>
+        </scene>
+        <!--Educational View Controller-->
+        <scene sceneID="ieM-80-et1">
+            <objects>
+                <viewController id="61U-Xm-wGX" customClass="EducationalViewController" customModule="OCD" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="foA-Jr-1p3"/>
+                        <viewControllerLayoutGuide type="bottom" id="2e2-rz-46E"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DS8-FH-WDT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Educational Series" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jN3-Dg-mhx">
+                                <rect key="frame" x="229" y="289" width="142" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jN3-Dg-mhx" firstAttribute="centerX" secondItem="DS8-FH-WDT" secondAttribute="centerX" id="IbU-Kp-QJZ"/>
+                            <constraint firstItem="jN3-Dg-mhx" firstAttribute="centerY" secondItem="DS8-FH-WDT" secondAttribute="centerY" id="ZEW-Cs-Bap"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="educationalLabel" destination="jN3-Dg-mhx" id="Evf-01-4qI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NFl-Aq-uxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1943" y="50"/>
         </scene>
         <!--Onboarding Controller-->
         <scene sceneID="frz-cm-JZJ">

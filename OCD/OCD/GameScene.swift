@@ -39,6 +39,9 @@ import QuartzCore
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: Properties
+    var parentViewController:GameViewController? = nil
+    
+    
     let SWIPE_THRESHOLD:CGFloat = 1500
     let NODE_BEING_DISMISSED = "node being dismissed"
     var currentGameVelocity:CGFloat = 25.0
@@ -281,22 +284,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    
     override func update(currentTime: CFTimeInterval) {
         // TODO replace 18000 with CONST
-        if currentFilterValue > 18000 {
-            print("screen is black")
-
+        if currentFilterValue > 22000 {
             // stop gameplay and transition to educational series
-            moveToEducationScene()
-        }
-        
+            moveToEducationSeries()
+        }   
     }
     
-    func moveToEducationScene() {
+    func moveToEducationSeries() {
         self.removeFromParent()
         self.view?.presentScene(nil)
-        
+        self.parentViewController!.presentEducationalSeries()
     }
-
-    
     
 }
 

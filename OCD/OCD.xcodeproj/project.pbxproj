@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		374753B21CEC06C8003100D6 /* EducationalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374753B11CEC06C8003100D6 /* EducationalViewController.swift */; };
 		37F52BA11CE9599F00E05CB2 /* EducationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F52BA01CE9599F00E05CB2 /* EducationScene.swift */; };
 		37F52BA31CEA9EE300E05CB2 /* SKLabelNodeMultiline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F52BA21CEA9EE300E05CB2 /* SKLabelNodeMultiline.swift */; };
 		37F965C11CC0A66D00F009DD /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F965C01CC0A66D00F009DD /* Sentence.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		374753B11CEC06C8003100D6 /* EducationalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EducationalViewController.swift; sourceTree = "<group>"; };
 		37F52BA01CE9599F00E05CB2 /* EducationScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EducationScene.swift; sourceTree = "<group>"; };
 		37F52BA21CEA9EE300E05CB2 /* SKLabelNodeMultiline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKLabelNodeMultiline.swift; sourceTree = "<group>"; };
 		37F965C01CC0A66D00F009DD /* Sentence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				A15CA3301CC0A4E900A1DF3D /* GameScene.swift */,
 				37F965C01CC0A66D00F009DD /* Sentence.swift */,
 				A15CA3321CC0A4E900A1DF3D /* GameViewController.swift */,
+				374753B11CEC06C8003100D6 /* EducationalViewController.swift */,
 				37F52BA01CE9599F00E05CB2 /* EducationScene.swift */,
 				37F52BA21CEA9EE300E05CB2 /* SKLabelNodeMultiline.swift */,
 				A15CA3341CC0A4E900A1DF3D /* Main.storyboard */,
@@ -166,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				374753B21CEC06C8003100D6 /* EducationalViewController.swift in Sources */,
 				A15CA3311CC0A4E900A1DF3D /* GameScene.swift in Sources */,
 				A1F39FA11CEACC4D0005BF49 /* RadiatingCircles.swift in Sources */,
 				A15CA3331CC0A4E900A1DF3D /* GameViewController.swift in Sources */,
