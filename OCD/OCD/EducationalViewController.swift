@@ -45,17 +45,10 @@ class EducationalViewController: UIViewController {
     func swipedLeft(sender:UISwipeGestureRecognizer){
         // update state
         self.currentState = currentState.nextState
-        educationalLabel.text = currentState.description
+        updateState()
         
         // disable swipe
         sender.enabled = false
-        
-        // show close button, next button, circles-1
-        closeButton.hidden = false
-        nextButton.hidden = false
-        progressCircles.hidden = false
-    
-        
     }
     
     
@@ -85,8 +78,9 @@ class EducationalViewController: UIViewController {
     func updateState() {
         
         // update text
-        educationalLabel.text = self.currentState.description
-        
+        UIView.transitionWithView(educationalLabel, duration: 0.5, options: [.TransitionCrossDissolve], animations: {
+            self.educationalLabel.text = self.currentState.description
+            }, completion: nil)
         
         switch self.currentState {
         case .WhenSomeone:
