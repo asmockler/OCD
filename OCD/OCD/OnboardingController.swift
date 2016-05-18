@@ -38,11 +38,13 @@ enum OnboardingLabelState : CustomStringConvertible {
     }
 }
 
-class OnboardingController : UIViewController {
+class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
     
     // MARK: Properties
     @IBOutlet weak var label: UILabel!
     var currentState:OnboardingLabelState = .TapToStart
+    
+    @IBOutlet weak var radiatingCircles: RadiatingCircles!
     
     // MARK: Initialize
     override func viewDidLoad() {
@@ -50,10 +52,23 @@ class OnboardingController : UIViewController {
         
         // Set the initial label text
         label.text = currentState.description
+        
+        
+        let circlesTappedListener = UITapGestureRecognizer(target: self, action: #selector(OnboardingController.circlesTapped(_:)))
+        
+        circlesTappedListener.delegate = self
+        
+        radiatingCircles.addGestureRecognizer(circlesTappedListener)
+        
+        
     }
     
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    func circlesTapped(sender: UITapGestureRecognizer) {
+        print("radiating circles tapped")
     }
     
     // MARK: Actions

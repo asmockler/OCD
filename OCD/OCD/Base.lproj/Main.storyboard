@@ -45,7 +45,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bc9-pQ-Uoj">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bc9-pQ-Uoj">
                                 <rect key="frame" x="460" y="289" width="120" height="21"/>
                                 <state key="normal" image="btn-next">
                                     <attributedString key="attributedTitle">
@@ -97,9 +97,11 @@
                             <constraint firstAttribute="trailing" secondItem="bc9-pQ-Uoj" secondAttribute="trailing" constant="20" id="KIt-F3-gBL"/>
                             <constraint firstItem="jN3-Dg-mhx" firstAttribute="centerY" secondItem="DS8-FH-WDT" secondAttribute="centerY" id="ZEW-Cs-Bap"/>
                             <constraint firstItem="4Kt-TI-VAj" firstAttribute="centerX" secondItem="DS8-FH-WDT" secondAttribute="centerX" id="dON-6o-0Yh"/>
+                            <constraint firstItem="h99-fG-7sc" firstAttribute="centerY" secondItem="DS8-FH-WDT" secondAttribute="centerY" id="ffZ-yB-Uli"/>
                             <constraint firstItem="K4P-MZ-VmM" firstAttribute="centerX" secondItem="DS8-FH-WDT" secondAttribute="centerX" id="gBp-b2-N5K"/>
                             <constraint firstItem="K4P-MZ-VmM" firstAttribute="top" secondItem="jN3-Dg-mhx" secondAttribute="bottom" constant="107" id="iR6-qs-Qjd"/>
                             <constraint firstItem="bc9-pQ-Uoj" firstAttribute="top" secondItem="jN3-Dg-mhx" secondAttribute="top" id="jGO-8S-Vvf"/>
+                            <constraint firstItem="bc9-pQ-Uoj" firstAttribute="centerY" secondItem="DS8-FH-WDT" secondAttribute="centerY" id="kuT-gg-4lU"/>
                             <constraint firstItem="2e2-rz-46E" firstAttribute="top" secondItem="4Kt-TI-VAj" secondAttribute="bottom" constant="12" id="oUd-ct-se5"/>
                             <constraint firstItem="h99-fG-7sc" firstAttribute="leading" secondItem="DS8-FH-WDT" secondAttribute="leading" constant="20" id="owL-qX-lJR"/>
                             <constraint firstItem="jN3-Dg-mhx" firstAttribute="centerX" secondItem="DS8-FH-WDT" secondAttribute="centerX" id="tIp-wr-sqC"/>
@@ -107,8 +109,10 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="HO5-U4-EVl"/>
                                 <exclude reference="gBp-b2-N5K"/>
                                 <exclude reference="yAw-7Q-mwV"/>
+                                <exclude reference="jGO-8S-Vvf"/>
                             </mask>
                         </variation>
                     </view>
@@ -149,8 +153,8 @@
                                     <outletCollection property="gestureRecognizers" destination="c90-yh-zqq" appends="YES" id="64J-KZ-p1G"/>
                                 </connections>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zok-a7-Eab" customClass="RadiatingCircles" customModule="OCD" customModuleProvider="target">
-                                <rect key="frame" x="180" y="333" width="240" height="128"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zok-a7-Eab" customClass="RadiatingCircles" customModule="OCD" customModuleProvider="target">
+                                <rect key="frame" x="248" y="336" width="105" height="88"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -158,10 +162,21 @@
                         <constraints>
                             <constraint firstItem="Csf-xl-VTq" firstAttribute="centerX" secondItem="dWw-SK-dTI" secondAttribute="centerX" id="3El-w5-2Wv"/>
                             <constraint firstItem="Csf-xl-VTq" firstAttribute="centerY" secondItem="dWw-SK-dTI" secondAttribute="centerY" id="EVn-jC-ksI"/>
+                            <constraint firstItem="zok-a7-Eab" firstAttribute="centerX" secondItem="dWw-SK-dTI" secondAttribute="centerX" id="GaL-p9-lBa"/>
+                            <constraint firstItem="zok-a7-Eab" firstAttribute="top" secondItem="Csf-xl-VTq" secondAttribute="bottom" constant="75" id="N6K-Kb-icb"/>
+                            <constraint firstItem="zok-a7-Eab" firstAttribute="centerX" secondItem="dWw-SK-dTI" secondAttribute="centerX" id="cgv-38-sCB"/>
+                            <constraint firstItem="zok-a7-Eab" firstAttribute="top" secondItem="Csf-xl-VTq" secondAttribute="bottom" constant="23" id="hgy-fq-8Dz"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="cgv-38-sCB"/>
+                                <exclude reference="hgy-fq-8Dz"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="label" destination="Csf-xl-VTq" id="92s-B7-diT"/>
+                        <outlet property="radiatingCircles" destination="zok-a7-Eab" id="ihB-Nd-Gep"/>
                         <segue destination="BV1-FR-VrT" kind="show" identifier="gameViewSegue" id="a3x-OG-XbI"/>
                     </connections>
                 </viewController>
