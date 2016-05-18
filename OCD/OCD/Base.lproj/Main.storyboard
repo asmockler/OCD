@@ -82,6 +82,10 @@
                                     <action selector="closeButtonTapped:" destination="61U-Xm-wGX" eventType="touchUpInside" id="1LE-Yk-U00"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Kt-TI-VAj">
+                                <rect key="frame" x="182" y="522" width="236" height="22"/>
+                                <state key="normal" image="circles-1"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -92,9 +96,11 @@
                             <constraint firstItem="jN3-Dg-mhx" firstAttribute="centerX" secondItem="DS8-FH-WDT" secondAttribute="centerX" id="IbU-Kp-QJZ"/>
                             <constraint firstAttribute="trailing" secondItem="bc9-pQ-Uoj" secondAttribute="trailing" constant="20" id="KIt-F3-gBL"/>
                             <constraint firstItem="jN3-Dg-mhx" firstAttribute="centerY" secondItem="DS8-FH-WDT" secondAttribute="centerY" id="ZEW-Cs-Bap"/>
+                            <constraint firstItem="4Kt-TI-VAj" firstAttribute="centerX" secondItem="DS8-FH-WDT" secondAttribute="centerX" id="dON-6o-0Yh"/>
                             <constraint firstItem="K4P-MZ-VmM" firstAttribute="centerX" secondItem="DS8-FH-WDT" secondAttribute="centerX" id="gBp-b2-N5K"/>
                             <constraint firstItem="K4P-MZ-VmM" firstAttribute="top" secondItem="jN3-Dg-mhx" secondAttribute="bottom" constant="107" id="iR6-qs-Qjd"/>
                             <constraint firstItem="bc9-pQ-Uoj" firstAttribute="top" secondItem="jN3-Dg-mhx" secondAttribute="top" id="jGO-8S-Vvf"/>
+                            <constraint firstItem="2e2-rz-46E" firstAttribute="top" secondItem="4Kt-TI-VAj" secondAttribute="bottom" constant="12" id="oUd-ct-se5"/>
                             <constraint firstItem="h99-fG-7sc" firstAttribute="leading" secondItem="DS8-FH-WDT" secondAttribute="leading" constant="20" id="owL-qX-lJR"/>
                             <constraint firstItem="jN3-Dg-mhx" firstAttribute="centerX" secondItem="DS8-FH-WDT" secondAttribute="centerX" id="tIp-wr-sqC"/>
                             <constraint firstItem="3Tr-iB-SBU" firstAttribute="top" secondItem="DS8-FH-WDT" secondAttribute="top" constant="30" id="yAw-7Q-mwV"/>
@@ -173,5 +179,6 @@
         <image name="btn-close" width="34" height="34"/>
         <image name="btn-exit" width="79" height="21"/>
         <image name="btn-next" width="88" height="21"/>
+        <image name="circles-1" width="182" height="22"/>
     </resources>
 </document>
