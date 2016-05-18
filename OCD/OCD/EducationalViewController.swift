@@ -15,6 +15,8 @@ class EducationalViewController: UIViewController {
     @IBOutlet weak var educationalLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
+    
     var currentState:EducationLabelState = .Start
     
     override func viewDidLoad() {
@@ -43,6 +45,15 @@ class EducationalViewController: UIViewController {
         educationalLabel.text = currentState.description
         
     }
+    
+    @IBAction func closeButtonTapped(sender: UIButton) {
+        print("close button tapped")
+        
+        // seque back to Onboarding
+        performSegueWithIdentifier("showOnboarding", sender: self)
+        
+    }
+    
     
 }
 

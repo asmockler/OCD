@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		374753B21CEC06C8003100D6 /* EducationalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374753B11CEC06C8003100D6 /* EducationalViewController.swift */; };
+		374753B41CEC18A5003100D6 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374753B31CEC18A5003100D6 /* GameScene.swift */; };
 		37F52BA31CEA9EE300E05CB2 /* SKLabelNodeMultiline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F52BA21CEA9EE300E05CB2 /* SKLabelNodeMultiline.swift */; };
 		37F965C11CC0A66D00F009DD /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F965C01CC0A66D00F009DD /* Sentence.swift */; };
 		A1323BA51CC5D94D00AC680D /* shader_water.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A1323BA41CC5D94D00AC680D /* shader_water.fsh */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		374753B11CEC06C8003100D6 /* EducationalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EducationalViewController.swift; sourceTree = "<group>"; };
+		374753B31CEC18A5003100D6 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		37F52BA21CEA9EE300E05CB2 /* SKLabelNodeMultiline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKLabelNodeMultiline.swift; sourceTree = "<group>"; };
 		37F965C01CC0A66D00F009DD /* Sentence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 		A112974B1CD26E4900BC6707 /* RadiatingCircles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadiatingCircles.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		A15CA32B1CC0A4E900A1DF3D /* OCD */ = {
 			isa = PBXGroup;
 			children = (
+				374753B31CEC18A5003100D6 /* GameScene.swift */,
 				A1F39F9E1CEACC4D0005BF49 /* OnboardingController.swift */,
 				A1F39F9F1CEACC4D0005BF49 /* RadiatingCircles.swift */,
 				A1323BA41CC5D94D00AC680D /* shader_water.fsh */,
@@ -165,6 +168,7 @@
 			files = (
 				374753B21CEC06C8003100D6 /* EducationalViewController.swift in Sources */,
 				A1F39FA11CEACC4D0005BF49 /* RadiatingCircles.swift in Sources */,
+				374753B41CEC18A5003100D6 /* GameScene.swift in Sources */,
 				A15CA3331CC0A4E900A1DF3D /* GameViewController.swift in Sources */,
 				37F52BA31CEA9EE300E05CB2 /* SKLabelNodeMultiline.swift in Sources */,
 				37F965C11CC0A66D00F009DD /* Sentence.swift in Sources */,
