@@ -22,15 +22,8 @@ class GameViewController: UIViewController {
         scene.parentViewController = self
         scene.sentenceNumber = self.sentenceNumber
         
-        
         let skView = view as! SKView
         
-        // for debugging
-        skView.showsFPS = true
-        skView.showsNodeCount = true
-        
-        skView.ignoresSiblingOrder = true
-        scene.scaleMode = .ResizeFill
         skView.presentScene(scene)
 
     }

@@ -121,11 +121,18 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
     
     func updateState() {
         
-        print("currentState: \(self.currentState.hashValue)")
+        let attributedString = NSMutableAttributedString(string: self.currentState.description.uppercaseString)
+        
+        let attributedStringLength = self.currentState.description.characters.count
+        
+        attributedString.addAttribute(NSKernAttributeName, value: CGFloat(5.0), range: NSRange(location: 0, length: attributedStringLength))
+        
         
         UIView.transitionWithView(label, duration: 0.5, options: [.TransitionCrossDissolve], animations: {
-            self.label.text = self.currentState.description.uppercaseString
+            self.label.attributedText = attributedString
             }, completion: nil)
+        
+        
         
         
         switch self.currentState {

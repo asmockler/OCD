@@ -90,6 +90,7 @@ class EducationalViewController: UIViewController {
         
     func updateState() {
         
+
         // update text
         UIView.transitionWithView(educationalLabel, duration: 0.5, options: [.TransitionCrossDissolve], animations: {
             self.educationalLabel.text = self.currentState.description
