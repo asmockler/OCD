@@ -141,6 +141,7 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
             // show label, radiatingCirlces
             label.hidden = false
             radiatingCircles.hidden = false
+            radiatingCircles.reset()
             radiatingCircles.startAnimation()
             
             // hide reviewButton
@@ -158,7 +159,7 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
             reviewButton.hidden = true
             
             // start timer
-            var timer = NSTimer.scheduledTimerWithTimeInterval(3.0, target:self, selector: #selector(OnboardingController.updateState), userInfo: nil, repeats: false)
+            _ = NSTimer.scheduledTimerWithTimeInterval(3.0, target:self, selector: #selector(OnboardingController.updateState), userInfo: nil, repeats: false)
             
             // change state
             self.currentState = self.currentState.nextState
@@ -171,7 +172,7 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
         case .SwipeLeftAndRight:
             
             // start timer
-            var timer = NSTimer.scheduledTimerWithTimeInterval(3.0, target:self, selector: #selector(OnboardingController.updateState), userInfo: nil, repeats: false)
+            _ = NSTimer.scheduledTimerWithTimeInterval(3.0, target:self, selector: #selector(OnboardingController.updateState), userInfo: nil, repeats: false)
             
             // change state
             self.currentState = self.currentState.nextState

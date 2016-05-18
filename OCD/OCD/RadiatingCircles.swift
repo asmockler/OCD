@@ -17,13 +17,19 @@ class RadiatingCircles : UIView {
         
         self.backgroundColor = UIColor.blackColor()
         
-        drawCircle()
         startAnimation()
     }
     
     func startAnimation() {
-        performSelector(#selector(RadiatingCircles.drawCircle), withObject: self, afterDelay: 3.0)
-        performSelector(#selector(RadiatingCircles.drawCircle), withObject: self, afterDelay: 6.0)
+        performSelector(#selector(RadiatingCircles.drawCircle), withObject: self, afterDelay: 1.0)
+        performSelector(#selector(RadiatingCircles.drawCircle), withObject: self, afterDelay: 4.0)
+        performSelector(#selector(RadiatingCircles.drawCircle), withObject: self, afterDelay: 7.0)
+    }
+    
+    func reset () {
+        for circle in circles {
+            circle.removeFromSuperlayer()
+        }
     }
     
     func drawCircle () {
