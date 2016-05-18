@@ -50,15 +50,20 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var radiatingCircles: RadiatingCircles!
     
+    @IBOutlet weak var reviewButton: UIButton!
+    
+    var touchesEnabled = true
+    
+    
     // MARK: Initialize
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        print("currentState: \(self.currentState.hashValue)")
-        
         // Set the initial label text
         label.text = currentState.description
+        
+        // hide reviewButton
+        reviewButton.hidden = true
         
     }
     
@@ -67,18 +72,13 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
     }
     
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.currentState = currentState.nextState
-        print("currentState: \(self.currentState.hashValue)")
-        updateState()
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        if (self.currentState == .MoveToGameController) {
-            moveToGameController()
-        } else {
-            UIView.transitionWithView(label, duration: 0.5, options: [.TransitionCrossDissolve], animations: {
-                self.label.text = self.currentState.description.uppercaseString
-                }, completion: nil)
+        if self.touchesEnabled {
+            self.currentState = currentState.nextState
+            updateState()
         }
+        
     }
         
     func moveToGameController() {
@@ -86,17 +86,66 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
         performSegueWithIdentifier("gameViewSegue", sender: self)
     }
     
+    
+    @IBAction func reviewButtonTapped(sender: UIButton) {
+        
+        self.currentState = .KeepScreenClear
+        updateState()
+        
+    }
+    
+    
     func updateState() {
-
+        
+        print("currentState: \(self.currentState.hashValue)")
+        
+        UIView.transitionWithView(label, duration: 0.5, options: [.TransitionCrossDissolve], animations: {
+            self.label.text = self.currentState.description.uppercaseString
+            }, completion: nil)
+        
+        
         switch self.currentState {
+            
         case .KeepScreenClear:
-            // hide radiatingCircles
+            
+            // hide radiatingCircles and reviewInstructions
             radiatingCircles.hidden = true
+            reviewButton.hidden = true
+            
+            // start timer
+            var timer = NSTimer.scheduledTimerWithTimeInterval(3.0, target:self, selector: #selector(OnboardingController.updateState), userInfo: nil, repeats: false)
+            
+            // change state
+            self.currentState = self.currentState.nextState
+            
+            // disable touches until timer returns
+            self.touchesEnabled = false
+            
             break
             
+        case .SwipeLeftAndRight:
+            
+            // start timer
+            var timer = NSTimer.scheduledTimerWithTimeInterval(3.0, target:self, selector: #selector(OnboardingController.updateState), userInfo: nil, repeats: false)
+            
+            // change state
+            self.currentState = self.currentState.nextState
+            
+            break
+            
+            
         case .TapToPlay:
-            // show radidiatingCircles
+            // show radidiatingCircles and reviewButton
             radiatingCircles.hidden = false
+            reviewButton.hidden = false
+            
+            // enable touches
+            self.touchesEnabled = true
+            
+            break
+        
+        case .MoveToGameController:
+            moveToGameController()
             break
             
         default:
