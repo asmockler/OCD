@@ -90,11 +90,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.waitAction = SKAction.waitForDuration(3.0)
         addSentences()
         
-        
-        self.filter = CIFilter(name: "CIBumpDistortion", withInputParameters: [
-            "inputRadius": currentFilterValue
-            ])
-
     }
     
     func addSentences() {
@@ -285,16 +280,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
    
     override func update(currentTime: CFTimeInterval) {
-        if filterIsAnimating {
-            let previousValue = self.filter?.valueForKey("inputRadius") as! Int
-            
-            if previousValue > currentFilterValue {
-                self.filterIsAnimating = false
-            } else {
-                self.filter?.setValue(previousValue + 1, forKeyPath: "inputRadius")
-            }
-        }
-        
         // TODO replace 18000 with CONST
         if currentFilterValue > 18000 {
             print("screen is black")
@@ -306,8 +291,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func moveToEducationScene() {
-        let scene = EducationScene(size: self.view!.bounds.size)
-        self.view?.presentScene(scene)
+        self.removeFromParent()
+        self.view?.presentScene(nil)
+        
     }
 
     
