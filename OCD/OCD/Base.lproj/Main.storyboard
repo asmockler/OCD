@@ -82,7 +82,7 @@
                                     <action selector="closeButtonTapped:" destination="61U-Xm-wGX" eventType="touchUpInside" id="1LE-Yk-U00"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Kt-TI-VAj">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Kt-TI-VAj">
                                 <rect key="frame" x="182" y="522" width="236" height="22"/>
                                 <state key="normal" image="circles-1"/>
                             </button>
@@ -120,6 +120,7 @@
                         <outlet property="educationalLabel" destination="jN3-Dg-mhx" id="Evf-01-4qI"/>
                         <outlet property="exitButton" destination="K4P-MZ-VmM" id="72o-cN-NaM"/>
                         <outlet property="nextButton" destination="bc9-pQ-Uoj" id="M80-A6-MDX"/>
+                        <outlet property="progressCircles" destination="4Kt-TI-VAj" id="r75-OO-ah9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFl-Aq-uxE" userLabel="First Responder" sceneMemberID="firstResponder"/>

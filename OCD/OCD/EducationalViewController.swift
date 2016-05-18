@@ -17,6 +17,7 @@ class EducationalViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var exitButton: UIButton!
+    @IBOutlet weak var progressCircles: UIButton!
     
     var currentState:EducationLabelState = .Start
     
@@ -25,17 +26,44 @@ class EducationalViewController: UIViewController {
                 
         // set label to .Start
         educationalLabel.text = currentState.description
+        
+        // hide all buttons and progress circles
+        backButton.hidden = true
+        nextButton.hidden = true
+        closeButton.hidden = true
+        exitButton.hidden = true
+        progressCircles.hidden = true
+        
+        // swipe left to progress
+        let swipeLeft:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(EducationalViewController.swipedLeft(_:)))
+        swipeLeft.direction = .Left
+        view.addGestureRecognizer(swipeLeft)
 
         
     }
+    
+    func swipedLeft(sender:UISwipeGestureRecognizer){
+        // update state
+        self.currentState = currentState.nextState
+        educationalLabel.text = currentState.description
+        
+        // disable swipe
+        sender.enabled = false
+        
+        // show close button, next button, circles-1
+        closeButton.hidden = false
+        nextButton.hidden = false
+        progressCircles.hidden = false
+    
+        
+    }
+    
     
     @IBAction func nextButtonTapped(sender: UIButton) {
                 
         // update state
         self.currentState = currentState.nextState
-        educationalLabel.text = currentState.description
-
-        
+        updateState()
         
     }
     
@@ -43,7 +71,7 @@ class EducationalViewController: UIViewController {
         
         // update state
         self.currentState = currentState.prevState
-        educationalLabel.text = currentState.description
+        updateState()
         
     }
     
@@ -52,6 +80,76 @@ class EducationalViewController: UIViewController {
         // seque back to Onboarding
         performSegueWithIdentifier("showOnboarding", sender: self)
         
+    }
+    
+    func updateState() {
+        
+        // update text
+        educationalLabel.text = self.currentState.description
+        
+        
+        switch self.currentState {
+        case .WhenSomeone:
+            // show progressCircles, nextButton, closeButton
+            progressCircles.hidden = false
+            nextButton.hidden = false
+            closeButton.hidden = false
+            
+            // hide backButton
+            backButton.hidden = true
+            
+            // set progressCircles to cirlces-1
+            let image = UIImage(named: "circles-1")
+            progressCircles.setImage(image, forState: .Normal)
+            
+            break
+            
+        case .JustLikeHaving:
+            // show back button
+            backButton.hidden = false
+            
+            // set progressCircles to circles-2
+            let image = UIImage(named: "circles-2")
+            progressCircles.setImage(image, forState: .Normal)
+            
+            break
+            
+        case .ItOnlyGetsWorse:
+            // set progress circles to circles-3
+            let image = UIImage(named: "circles-3")
+            progressCircles.setImage(image, forState: .Normal)
+            
+            break
+            
+        case .FeelNeedToEngage:
+            // set progress circles to circles-4
+            let image = UIImage(named: "circles-4")
+            progressCircles.setImage(image, forState: .Normal)
+            
+            break
+            
+        case .SuccessfulTherapy:
+            // set progress circles to circles-5
+            let image = UIImage(named: "circles-5")
+            progressCircles.setImage(image, forState: .Normal)
+            
+            break
+            
+        case .End:
+            // hide backButton, nextButton, progressCircles
+            backButton.hidden = true
+            nextButton.hidden = true
+            progressCircles.hidden = true
+            
+            // show exitButton
+            exitButton.hidden = false
+            
+            
+            break
+        default: break
+            
+        }
+
     }
     
     
@@ -69,7 +167,7 @@ enum EducationLabelState : CustomStringConvertible {
         case .JustLikeHaving:
             return "Just like having OCD, the swiping action you were doing to try\n and get rid of the obsessive thought acted as a compulsion. \n Compulsions are repetitive behaviors or thoughts used to get\n rid of an obsession."
         case .ItOnlyGetsWorse:
-            return "Just as you tried harder to get rid of the thougths by engaging \n in the \"compulsion\" it only gets worse, which is what happens\n with OCD.  The more you obsess or engage in a compulsion,\n the worse and stronger the obsession gets. "
+            return "Just as you tried harder to get rid of the thoughts by engaging \n in the \"compulsion\" it only gets worse, which is what happens\n with OCD.  The more you obsess or engage in a compulsion,\n the worse and stronger the obsession gets. "
         case .FeelNeedToEngage:
             return "People with OCD feel the need to engage in compulsions in\n order to get rid of the obsessive thoughts and the accompanying\n paralyzing and life disrupting anxiety they are experiencing."
         case .SuccessfulTherapy:
