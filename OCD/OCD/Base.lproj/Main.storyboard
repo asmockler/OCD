@@ -75,21 +75,33 @@
                                     <segue destination="uux-ID-lCn" kind="show" identifier="showOnboarding" id="TTS-Yt-gZ6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4P-MZ-VmM">
+                                <rect key="frame" x="238" y="417" width="133" height="22"/>
+                                <state key="normal" image="btn-exit"/>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="61U-Xm-wGX" eventType="touchUpInside" id="1LE-Yk-U00"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bc9-pQ-Uoj" firstAttribute="trailing" secondItem="3Tr-iB-SBU" secondAttribute="trailing" id="1Yp-YN-0gh"/>
+                            <constraint firstItem="K4P-MZ-VmM" firstAttribute="centerX" secondItem="jN3-Dg-mhx" secondAttribute="centerX" id="2Sb-y6-vf2"/>
                             <constraint firstItem="3Tr-iB-SBU" firstAttribute="top" secondItem="DS8-FH-WDT" secondAttribute="topMargin" constant="30" id="9WI-Ag-azE"/>
                             <constraint firstItem="jN3-Dg-mhx" firstAttribute="top" secondItem="h99-fG-7sc" secondAttribute="top" id="HO5-U4-EVl"/>
                             <constraint firstItem="jN3-Dg-mhx" firstAttribute="centerX" secondItem="DS8-FH-WDT" secondAttribute="centerX" id="IbU-Kp-QJZ"/>
                             <constraint firstAttribute="trailing" secondItem="bc9-pQ-Uoj" secondAttribute="trailing" constant="20" id="KIt-F3-gBL"/>
                             <constraint firstItem="jN3-Dg-mhx" firstAttribute="centerY" secondItem="DS8-FH-WDT" secondAttribute="centerY" id="ZEW-Cs-Bap"/>
+                            <constraint firstItem="K4P-MZ-VmM" firstAttribute="centerX" secondItem="DS8-FH-WDT" secondAttribute="centerX" id="gBp-b2-N5K"/>
+                            <constraint firstItem="K4P-MZ-VmM" firstAttribute="top" secondItem="jN3-Dg-mhx" secondAttribute="bottom" constant="107" id="iR6-qs-Qjd"/>
                             <constraint firstItem="bc9-pQ-Uoj" firstAttribute="top" secondItem="jN3-Dg-mhx" secondAttribute="top" id="jGO-8S-Vvf"/>
                             <constraint firstItem="h99-fG-7sc" firstAttribute="leading" secondItem="DS8-FH-WDT" secondAttribute="leading" constant="20" id="owL-qX-lJR"/>
+                            <constraint firstItem="jN3-Dg-mhx" firstAttribute="centerX" secondItem="DS8-FH-WDT" secondAttribute="centerX" id="tIp-wr-sqC"/>
                             <constraint firstItem="3Tr-iB-SBU" firstAttribute="top" secondItem="DS8-FH-WDT" secondAttribute="top" constant="30" id="yAw-7Q-mwV"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="gBp-b2-N5K"/>
                                 <exclude reference="yAw-7Q-mwV"/>
                             </mask>
                         </variation>
@@ -100,6 +112,7 @@
                         <outlet property="backButton" destination="h99-fG-7sc" id="oFq-ye-ufq"/>
                         <outlet property="closeButton" destination="3Tr-iB-SBU" id="ZXo-5G-P1y"/>
                         <outlet property="educationalLabel" destination="jN3-Dg-mhx" id="Evf-01-4qI"/>
+                        <outlet property="exitButton" destination="K4P-MZ-VmM" id="72o-cN-NaM"/>
                         <outlet property="nextButton" destination="bc9-pQ-Uoj" id="M80-A6-MDX"/>
                     </connections>
                 </viewController>
@@ -158,6 +171,7 @@
     <resources>
         <image name="btn-back" width="88" height="21"/>
         <image name="btn-close" width="34" height="34"/>
+        <image name="btn-exit" width="79" height="21"/>
         <image name="btn-next" width="88" height="21"/>
     </resources>
 </document>
