@@ -9,7 +9,7 @@
 import UIKit
 
 enum OnboardingLabelState : CustomStringConvertible {
-    case TapToStart, KeepScreenClear, SwipeLeftAndRight, MoveToGameController
+    case TapToStart, KeepScreenClear, SwipeLeftAndRight, TapToPlay, MoveToGameController
     
     var description: String {
         switch self {
@@ -19,6 +19,8 @@ enum OnboardingLabelState : CustomStringConvertible {
             return "Try and keep the screen clear of\nintrusive thoughts."
         case .SwipeLeftAndRight:
             return "Swipe them off the screen\nleft and right."
+        case .TapToPlay:
+            return "TAP TO PLAY"
         case .MoveToGameController:
             return ""
         }
@@ -31,6 +33,8 @@ enum OnboardingLabelState : CustomStringConvertible {
         case .KeepScreenClear:
             return .SwipeLeftAndRight
         case .SwipeLeftAndRight:
+            return .TapToPlay
+        case .TapToPlay:
             return .MoveToGameController
         case .MoveToGameController:
             return .MoveToGameController
@@ -50,11 +54,11 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        print("currentState: \(self.currentState.hashValue)")
+        
         // Set the initial label text
         label.text = currentState.description
-        
-        radiatingCircles.parentViewController = self
-        
         
     }
     
@@ -62,13 +66,11 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
         return true
     }
     
-    func circlesTapped() {
-        print("radiating circles tapped")
-    }
     
-    // MARK: Actions
-    @IBAction func labelWasTapped(sender: UITapGestureRecognizer) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.currentState = currentState.nextState
+        print("currentState: \(self.currentState.hashValue)")
+        updateState()
         
         if (self.currentState == .MoveToGameController) {
             moveToGameController()
@@ -78,9 +80,30 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
                 }, completion: nil)
         }
     }
-    
+        
     func moveToGameController() {
         // call segue manually with identifier
         performSegueWithIdentifier("gameViewSegue", sender: self)
     }
+    
+    func updateState() {
+
+        switch self.currentState {
+        case .KeepScreenClear:
+            // hide radiatingCircles
+            radiatingCircles.hidden = true
+            break
+            
+        case .TapToPlay:
+            // show radidiatingCircles
+            radiatingCircles.hidden = false
+            break
+            
+        default:
+            break
+        }
+        
+        
+    }
+
 }

@@ -10,7 +10,6 @@ import UIKit
 
 class RadiatingCircles : UIView {
     var circles:[CAShapeLayer]
-    var parentViewController:OnboardingController? = nil
     
     required init?(coder aDecoder: NSCoder) {
         circles = [CAShapeLayer]()
@@ -59,14 +58,6 @@ class RadiatingCircles : UIView {
 //        circles.first?.removeFromSuperlayer()
 //        circles.removeFirst()
 //        drawCircle(0.0)
-    }
-    
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        // update current state in GameView
-        print("circles touched inside rad")
-        self.parentViewController!.circlesTapped()
-        
     }
     
 }
