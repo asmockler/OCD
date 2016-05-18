@@ -131,13 +131,16 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
         switch self.currentState {
             
         case .TapToStart:
+            // show label, radiatingCirlces
+            label.hidden = false
+            radiatingCircles.hidden = false
+            radiatingCircles.startAnimation()
+            
             // hide reviewButton
             reviewButton.hidden = true
             
             // enable touches
             self.touchesEnabled = true
-            
-            radiatingCircles.startAnimation()
             
             break
             
@@ -182,6 +185,10 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
         case .MoveToGameController:
             // disable touches
             self.touchesEnabled = false
+            
+            // hide radiatingCircles, reviewButton
+            radiatingCircles.hidden = true
+            reviewButton.hidden = true
             
             // change state
             self.currentState = self.currentState.nextState
