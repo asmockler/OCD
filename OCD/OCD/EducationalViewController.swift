@@ -26,17 +26,7 @@ class EducationalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("edu view did load")
-                
-        // set label to .Start
-        educationalLabel.text = currentState.description
-        
-        // hide all buttons and progress circles
-        backButton.hidden = true
-        nextButton.hidden = true
-        closeButton.hidden = true
-        exitButton.hidden = true
-        progressCircles.hidden = true
+        updateState()
         
         // swipe left to progress
         let swipeLeft:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(EducationalViewController.swipedLeft(_:)))
@@ -90,13 +80,32 @@ class EducationalViewController: UIViewController {
         
     func updateState() {
         
+        let attributedString = NSMutableAttributedString(string: self.currentState.description)
+        
 
-        // update text
-        UIView.transitionWithView(educationalLabel, duration: 0.5, options: [.TransitionCrossDissolve], animations: {
-            self.educationalLabel.text = self.currentState.description
-            }, completion: nil)
+        
+
+        
         
         switch self.currentState {
+            
+        case .Start:
+            // set label to .Start
+            educationalLabel.text = currentState.description
+            
+            let attributedStringLength = self.currentState.description.characters.count
+            
+            attributedString.addAttribute(NSKernAttributeName, value: CGFloat(5.0), range: NSRange(location: 0, length: attributedStringLength))
+            
+            // hide all buttons and progress circles
+            backButton.hidden = true
+            nextButton.hidden = true
+            closeButton.hidden = true
+            exitButton.hidden = true
+            progressCircles.hidden = true
+            
+            break
+            
         case .WhenSomeone:
             // show progressCircles, nextButton, closeButton
             progressCircles.hidden = false
@@ -155,11 +164,20 @@ class EducationalViewController: UIViewController {
             // show exitButton
             exitButton.hidden = false
             
+            let attributedStringLength = self.currentState.description.characters.count
+            
+            attributedString.addAttribute(NSKernAttributeName, value: CGFloat(5.0), range: NSRange(location: 0, length: attributedStringLength))
+            
             
             break
         default: break
             
         }
+        
+        // update text
+        UIView.transitionWithView(educationalLabel, duration: 0.5, options: [.TransitionCrossDissolve], animations: {
+            self.educationalLabel.attributedText = attributedString
+            }, completion: nil)
 
     }
     

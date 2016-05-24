@@ -140,6 +140,7 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
         case .TapToStart:
             // show label, radiatingCirlces
             label.hidden = false
+            label.textColor = UIColor.whiteColor()
             radiatingCircles.hidden = false
             radiatingCircles.reset()
             radiatingCircles.startAnimation()

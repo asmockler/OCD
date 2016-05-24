@@ -92,7 +92,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        self.shader = self.shaderTwirl!
         
         // run actions
-        self.waitAction = SKAction.waitForDuration(3.0)
+        self.waitAction = SKAction.waitForDuration(0.5)
         addSentences()
         
     }
