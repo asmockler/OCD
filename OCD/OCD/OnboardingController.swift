@@ -9,39 +9,39 @@
 import UIKit
 
 enum OnboardingLabelState : CustomStringConvertible {
-    case TapToStart, KeepScreenClear, SwipeLeftAndRight, TapToPlay, MoveToGameController, MoveToEducationController
+    case tapToStart, keepScreenClear, swipeLeftAndRight, tapToPlay, moveToGameController, moveToEducationController
     
     var description: String {
         switch self {
-        case .TapToStart:
+        case .tapToStart:
             return "TAP TO START"
-        case .KeepScreenClear:
+        case .keepScreenClear:
             return "Try and keep the screen clear of\nintrusive thoughts."
-        case .SwipeLeftAndRight:
+        case .swipeLeftAndRight:
             return "Swipe them off the screen\nleft and right."
-        case .TapToPlay:
+        case .tapToPlay:
             return "TAP TO PLAY"
-        case .MoveToGameController:
+        case .moveToGameController:
             return ""
-        case .MoveToEducationController:
+        case .moveToEducationController:
             return ""
         }
     }
     
     var nextState: OnboardingLabelState {
         switch self {
-        case .TapToStart:
-            return .KeepScreenClear
-        case .KeepScreenClear:
-            return .SwipeLeftAndRight
-        case .SwipeLeftAndRight:
-            return .TapToPlay
-        case .TapToPlay:
-            return .MoveToGameController
-        case .MoveToGameController:
-            return .MoveToEducationController
-        case .MoveToEducationController:
-            return .TapToStart
+        case .tapToStart:
+            return .keepScreenClear
+        case .keepScreenClear:
+            return .swipeLeftAndRight
+        case .swipeLeftAndRight:
+            return .tapToPlay
+        case .tapToPlay:
+            return .moveToGameController
+        case .moveToGameController:
+            return .moveToEducationController
+        case .moveToEducationController:
+            return .tapToStart
         }
     }
 }
@@ -50,7 +50,7 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
     
     // MARK: Properties
     @IBOutlet weak var label: UILabel!
-    var currentState:OnboardingLabelState = .TapToStart
+    var currentState:OnboardingLabelState = .tapToStart
     
     @IBOutlet weak var radiatingCircles: RadiatingCircles!
     
@@ -69,19 +69,19 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         print("onboard view did appear")
         
         updateState()
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         if self.touchesEnabled {
             self.currentState = currentState.nextState
@@ -92,18 +92,18 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
         
     func moveToGameController() {
         // call segue manually with identifier
-        performSegueWithIdentifier("gameViewSegue", sender: self)
+        performSegue(withIdentifier: "gameViewSegue", sender: self)
     }
     
 
-    @IBAction func reviewButtonTapped(sender: UIButton) {
+    @IBAction func reviewButtonTapped(_ sender: UIButton) {
         
-        self.currentState = .KeepScreenClear
+        self.currentState = .keepScreenClear
         updateState()
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "gameViewSegue" {
             
             if self.sentenceNumber < 5 {
@@ -113,7 +113,7 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
             }
             
             // pass sentenceNumber
-            let viewController = segue.destinationViewController as! GameViewController
+            let viewController = segue.destination as! GameViewController
             viewController.sentenceNumber = self.sentenceNumber
         }
     }
@@ -121,46 +121,43 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
     
     func updateState() {
         
-        let attributedString = NSMutableAttributedString(string: self.currentState.description.uppercaseString)
+        let attributedString = NSMutableAttributedString(string: self.currentState.description.uppercased())
         
         let attributedStringLength = self.currentState.description.characters.count
         
         attributedString.addAttribute(NSKernAttributeName, value: CGFloat(5.0), range: NSRange(location: 0, length: attributedStringLength))
         
         
-        UIView.transitionWithView(label, duration: 0.5, options: [.TransitionCrossDissolve], animations: {
+        UIView.transition(with: label, duration: 0.5, options: [.transitionCrossDissolve], animations: {
             self.label.attributedText = attributedString
-            }, completion: nil)
-        
-        
-        
+        }, completion: nil)
         
         switch self.currentState {
             
-        case .TapToStart:
+        case .tapToStart:
             // show label, radiatingCirlces
-            label.hidden = false
-            label.textColor = UIColor.whiteColor()
-            radiatingCircles.hidden = false
+            label.isHidden = false
+            label.textColor = UIColor.white
+            radiatingCircles.isHidden = false
             radiatingCircles.reset()
             radiatingCircles.startAnimation()
             
             // hide reviewButton
-            reviewButton.hidden = true
+            reviewButton.isHidden = true
             
             // enable touches
             self.touchesEnabled = true
             
             break
             
-        case .KeepScreenClear:
+        case .keepScreenClear:
             
             // hide radiatingCircles and reviewInstructions
-            radiatingCircles.hidden = true
-            reviewButton.hidden = true
+            radiatingCircles.isHidden = true
+            reviewButton.isHidden = true
             
             // start timer
-            _ = NSTimer.scheduledTimerWithTimeInterval(3.0, target:self, selector: #selector(OnboardingController.updateState), userInfo: nil, repeats: false)
+            _ = Timer.scheduledTimer(timeInterval: 3.0, target:self, selector: #selector(OnboardingController.updateState), userInfo: nil, repeats: false)
             
             // change state
             self.currentState = self.currentState.nextState
@@ -170,10 +167,10 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
             
             break
             
-        case .SwipeLeftAndRight:
+        case .swipeLeftAndRight:
             
             // start timer
-            _ = NSTimer.scheduledTimerWithTimeInterval(3.0, target:self, selector: #selector(OnboardingController.updateState), userInfo: nil, repeats: false)
+            _ = Timer.scheduledTimer(timeInterval: 3.0, target:self, selector: #selector(OnboardingController.updateState), userInfo: nil, repeats: false)
             
             // change state
             self.currentState = self.currentState.nextState
@@ -181,33 +178,33 @@ class OnboardingController : UIViewController, UIGestureRecognizerDelegate {
             break
             
             
-        case .TapToPlay:
+        case .tapToPlay:
             // show radidiatingCircles and reviewButton
-            radiatingCircles.hidden = false
-            reviewButton.hidden = false
+            radiatingCircles.isHidden = false
+            reviewButton.isHidden = false
             
             // enable touches
             self.touchesEnabled = true
             
             break
         
-        case .MoveToGameController:
+        case .moveToGameController:
             // disable touches
             self.touchesEnabled = false
             
             // hide radiatingCircles, reviewButton
-            radiatingCircles.hidden = true
-            reviewButton.hidden = true
+            radiatingCircles.isHidden = true
+            reviewButton.isHidden = true
             
             // change state
             self.currentState = self.currentState.nextState
             moveToGameController()
             break
             
-        case .MoveToEducationController:
+        case .moveToEducationController:
             
             self.currentState = self.currentState.nextState
-            self.performSegueWithIdentifier("showEducationalSeries", sender: self)
+            self.performSegue(withIdentifier: "showEducationalSeries", sender: self)
             
             break
         }

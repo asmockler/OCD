@@ -15,8 +15,6 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("game view did load")
                 
         let scene = GameScene(size: view.bounds.size)
         scene.parentViewController = self
@@ -28,11 +26,11 @@ class GameViewController: UIViewController {
 
     }
     
-    override func viewDidAppear(animated: Bool) {
-        print("Game view did appear")
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
 
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
         

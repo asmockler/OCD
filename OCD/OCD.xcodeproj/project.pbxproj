@@ -125,6 +125,7 @@
 					A15CA3281CC0A4E900A1DF3D = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = WTBVMZ9B5P;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -295,6 +296,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dan.morain.test.ocd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -309,6 +311,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dan.morain.test.ocd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

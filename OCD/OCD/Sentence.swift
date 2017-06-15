@@ -10,7 +10,7 @@ import SpriteKit
 import GLKit
 
 enum SentenceType {
-    case FromTop, FromBottom
+    case fromTop, fromBottom
 }
 
 
@@ -26,14 +26,13 @@ class Sentence: SKSpriteNode {
         let sentenceString = "sentences-" + String(sentenceNumber)
         
         let texture = SKTexture(imageNamed: sentenceString)
-        super.init(texture: texture, color: UIColor.whiteColor(), size: texture.size())
+        super.init(texture: texture, color: UIColor.white, size: texture.size())
         self.type = type
         self.sentenceNumber = sentenceNumber
         self.effect = GLKBaseEffect()
-//        effect?.transform.
         let projectionMatrix = GLKMatrix4MakeOrtho(0, Float(texture.size().width), 0, Float(texture.size().height), -1, 1)
         self.effect!.transform.projectionMatrix = projectionMatrix
-        self.texture?.textureByApplyingCIFilter(CIFilter(name: "CIBumpDistortion")!)
+        self.texture?.applying(CIFilter(name: "CIBumpDistortion")!)
         
         initPhysics()
         
@@ -45,8 +44,8 @@ class Sentence: SKSpriteNode {
     
     func initPhysics() {
         // init physics body
-        self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
-        self.physicsBody?.dynamic = true
+        self.physicsBody = SKPhysicsBody(rectangleOf: self.size)
+        self.physicsBody?.isDynamic = true
         self.physicsBody?.friction = 0.0
         self.physicsBody?.categoryBitMask = PhysicsCategory.Sentence
         self.physicsBody?.contactTestBitMask = PhysicsCategory.Sentence
@@ -57,20 +56,20 @@ class Sentence: SKSpriteNode {
         self.physicsBody?.angularDamping = 0.0
     }
     
-    func setInitialVelocity(dy:CGFloat) {
-        if self.type == .FromTop {
-            self.physicsBody?.velocity = CGVectorMake(0.0, -dy)
-        } else if type == .FromBottom {
-            self.physicsBody?.velocity = CGVectorMake(0.0, dy)
+    func setInitialVelocity(_ dy:CGFloat) {
+        if self.type == .fromTop {
+            self.physicsBody?.velocity = CGVector(dx: 0.0, dy: -dy)
+        } else if type == .fromBottom {
+            self.physicsBody?.velocity = CGVector(dx: 0.0, dy: dy)
         }
         
         self.currentVelocity = self.physicsBody?.velocity
     }
     
-    func increaseVelocity(dy:CGFloat) {
-        if self.type == .FromTop {
+    func increaseVelocity(_ dy:CGFloat) {
+        if self.type == .fromTop {
             self.physicsBody?.velocity.dy -= dy
-        } else if type == .FromBottom {
+        } else if type == .fromBottom {
             self.physicsBody?.velocity.dy += dy
         }
         

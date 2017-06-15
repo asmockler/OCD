@@ -19,7 +19,7 @@ class EducationalViewController: UIViewController {
     @IBOutlet weak var exitButton: UIButton!
     @IBOutlet weak var progressCircles: UIButton!
     
-    var currentState:EducationLabelState = .Start
+    var currentState:EducationLabelState = .start
     
     var sentenceNumber:Int = 1
     
@@ -30,33 +30,32 @@ class EducationalViewController: UIViewController {
         
         // swipe left to progress
         let swipeLeft:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(EducationalViewController.swipedLeft(_:)))
-        swipeLeft.direction = .Left
+        swipeLeft.direction = .left
         view.addGestureRecognizer(swipeLeft)
         
         // set timeout if user bails after 2 mins
-        var timer = NSTimer.scheduledTimerWithTimeInterval(120.0, target:self, selector: #selector(EducationalViewController.closeButtonTapped), userInfo: nil, repeats: false)
-        
+        Timer.scheduledTimer(timeInterval: 120.0, target:self, selector: #selector(EducationalViewController.closeButtonTapped), userInfo: nil, repeats: false)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         print("edu view did appear")
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
-    func swipedLeft(sender:UISwipeGestureRecognizer){
+    func swipedLeft(_ sender:UISwipeGestureRecognizer){
         // update state
         self.currentState = currentState.nextState
         updateState()
         
         // disable swipe
-        sender.enabled = false
+        sender.isEnabled = false
     }
     
     
-    @IBAction func nextButtonTapped(sender: UIButton) {
+    @IBAction func nextButtonTapped(_ sender: UIButton) {
                 
         // update state
         self.currentState = currentState.nextState
@@ -64,7 +63,7 @@ class EducationalViewController: UIViewController {
         
     }
     
-    @IBAction func backButtonTapped(sender: UIButton) {
+    @IBAction func backButtonTapped(_ sender: UIButton) {
         
         // update state
         self.currentState = currentState.prevState
@@ -72,10 +71,10 @@ class EducationalViewController: UIViewController {
         
     }
     
-    @IBAction func closeButtonTapped(sender: UIButton) {
+    @IBAction func closeButtonTapped(_ sender: UIButton) {
         
-        // seque back to Onboarding
-        self.dismissViewControllerAnimated(true, completion: nil)
+        // segue back to Onboarding
+        self.dismiss(animated: true, completion: nil)
     }
         
     func updateState() {
@@ -89,7 +88,7 @@ class EducationalViewController: UIViewController {
         
         switch self.currentState {
             
-        case .Start:
+        case .start:
             // set label to .Start
             educationalLabel.text = currentState.description
             
@@ -98,71 +97,71 @@ class EducationalViewController: UIViewController {
             attributedString.addAttribute(NSKernAttributeName, value: CGFloat(5.0), range: NSRange(location: 0, length: attributedStringLength))
             
             // hide all buttons and progress circles
-            backButton.hidden = true
-            nextButton.hidden = true
-            closeButton.hidden = true
-            exitButton.hidden = true
-            progressCircles.hidden = true
+            backButton.isHidden = true
+            nextButton.isHidden = true
+            closeButton.isHidden = true
+            exitButton.isHidden = true
+            progressCircles.isHidden = true
             
             break
             
-        case .WhenSomeone:
+        case .whenSomeone:
             // show progressCircles, nextButton, closeButton
-            progressCircles.hidden = false
-            nextButton.hidden = false
-            closeButton.hidden = false
+            progressCircles.isHidden = false
+            nextButton.isHidden = false
+            closeButton.isHidden = false
             
             // hide backButton
-            backButton.hidden = true
+            backButton.isHidden = true
             
             // set progressCircles to cirlces-1
             let image = UIImage(named: "circles-1")
-            progressCircles.setImage(image, forState: .Normal)
+            progressCircles.setImage(image, for: UIControlState())
             
             break
             
-        case .JustLikeHaving:
+        case .justLikeHaving:
             // show back button
-            backButton.hidden = false
+            backButton.isHidden = false
             
             // set progressCircles to circles-2
             let image = UIImage(named: "circles-2")
-            progressCircles.setImage(image, forState: .Normal)
+            progressCircles.setImage(image, for: UIControlState())
             
             break
             
-        case .ItOnlyGetsWorse:
+        case .itOnlyGetsWorse:
             // set progress circles to circles-3
             let image = UIImage(named: "circles-3")
-            progressCircles.setImage(image, forState: .Normal)
+            progressCircles.setImage(image, for: UIControlState())
             
             break
             
-        case .FeelNeedToEngage:
+        case .feelNeedToEngage:
             // set progress circles to circles-4
             let image = UIImage(named: "circles-4")
-            progressCircles.setImage(image, forState: .Normal)
+            progressCircles.setImage(image, for: UIControlState())
             
             break
             
-        case .SuccessfulTherapy:
+        case .successfulTherapy:
             // set progress circles to circles-5
             let image = UIImage(named: "circles-5")
-            progressCircles.setImage(image, forState: .Normal)
+            progressCircles.setImage(image, for: UIControlState())
             
             break
             
-        case .End:
+        case .end:
             // hide backButton, nextButton, progressCircles
-            backButton.hidden = true
-            nextButton.hidden = true
-            progressCircles.hidden = true
+            backButton.isHidden = true
+            nextButton.isHidden = true
+            progressCircles.isHidden = true
             
             // center educationalLabel text
-            educationalLabel.textAlignment = .Center
+            educationalLabel.textAlignment = .center
             
             // show exitButton
-            exitButton.hidden = false
+            exitButton.isHidden = false
             
             let attributedStringLength = self.currentState.description.characters.count
             
@@ -170,12 +169,10 @@ class EducationalViewController: UIViewController {
             
             
             break
-        default: break
-            
         }
         
         // update text
-        UIView.transitionWithView(educationalLabel, duration: 0.5, options: [.TransitionCrossDissolve], animations: {
+        UIView.transition(with: educationalLabel, duration: 0.5, options: [.transitionCrossDissolve], animations: {
             self.educationalLabel.attributedText = attributedString
             }, completion: nil)
 
@@ -185,62 +182,62 @@ class EducationalViewController: UIViewController {
 }
 
 enum EducationLabelState : CustomStringConvertible {
-    case Start, WhenSomeone, JustLikeHaving, ItOnlyGetsWorse, FeelNeedToEngage, SuccessfulTherapy, End
+    case start, whenSomeone, justLikeHaving, itOnlyGetsWorse, feelNeedToEngage, successfulTherapy, end
     
     var description: String {
         switch self {
-        case .Start:
+        case .start:
             return "UH OH! WHAT HAPPENED? \nSWIPE LEFT TO FIND OUT."
-        case .WhenSomeone:
+        case .whenSomeone:
             return "When someone has Obsessive Compulsive Disorder, they \nexperience obsessive impulsive thoughts that cause them life \ndisrupting anxiety.  Everyone has intrusive thoughts sometimes, \nbut when you have OCD it is invasive – it won't go away."
-        case .JustLikeHaving:
+        case .justLikeHaving:
             return "Just like having OCD, the swiping action you were doing to try \nand get rid of the obsessive thought acted as a compulsion. \nCompulsions are repetitive behaviors or thoughts used to get \nrid of an obsession."
-        case .ItOnlyGetsWorse:
+        case .itOnlyGetsWorse:
             return "Just as you tried harder to get rid of the thoughts by engaging \nin the \"compulsion\" it only gets worse, which is what happens \nwith OCD.  The more you obsess or engage in a compulsion, \nthe worse and stronger the obsession gets. "
-        case .FeelNeedToEngage:
+        case .feelNeedToEngage:
             return "People with OCD feel the need to engage in compulsions in \norder to get rid of the obsessive thoughts and the accompanying \nparalyzing and life disrupting anxiety they are experiencing."
-        case .SuccessfulTherapy:
+        case .successfulTherapy:
             return "Through successful therapy and/or medication sufferers learn to \naccept their uncertainties and not engage in their compulsions."
-        case .End:
+        case .end:
             return "OCD IS NOT AN ADJECTIVE AND SHOULD \nNOT BE USED AS SUCH AS IT IS A \nDEBILITATING MENTAL ILLNESS. BUT \nTHERE IS HOPE FOR PEOPLE SUFFERING. \n\nLearn more by visiting iocdf.org"
         }
     }
     
     var nextState: EducationLabelState {
         switch self {
-        case .Start:
-            return .WhenSomeone
-        case .WhenSomeone:
-            return .JustLikeHaving
-        case .JustLikeHaving:
-            return .ItOnlyGetsWorse
-        case .ItOnlyGetsWorse:
-            return .FeelNeedToEngage
-        case .FeelNeedToEngage:
-            return .SuccessfulTherapy
-        case .SuccessfulTherapy:
-            return .End
+        case .start:
+            return .whenSomeone
+        case .whenSomeone:
+            return .justLikeHaving
+        case .justLikeHaving:
+            return .itOnlyGetsWorse
+        case .itOnlyGetsWorse:
+            return .feelNeedToEngage
+        case .feelNeedToEngage:
+            return .successfulTherapy
+        case .successfulTherapy:
+            return .end
         default:
-            return .End
+            return .end
         }
     }
     
     var prevState: EducationLabelState {
         switch self {
-        case .WhenSomeone:
-            return .WhenSomeone
-        case .JustLikeHaving:
-            return .WhenSomeone
-        case .ItOnlyGetsWorse:
-            return .JustLikeHaving
-        case .FeelNeedToEngage:
-            return .ItOnlyGetsWorse
-        case .SuccessfulTherapy:
-            return .FeelNeedToEngage
-        case .End:
-            return .SuccessfulTherapy
+        case .whenSomeone:
+            return .whenSomeone
+        case .justLikeHaving:
+            return .whenSomeone
+        case .itOnlyGetsWorse:
+            return .justLikeHaving
+        case .feelNeedToEngage:
+            return .itOnlyGetsWorse
+        case .successfulTherapy:
+            return .feelNeedToEngage
+        case .end:
+            return .successfulTherapy
         default:
-            return .WhenSomeone
+            return .whenSomeone
         }
     }
 }

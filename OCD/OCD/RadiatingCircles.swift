@@ -15,15 +15,15 @@ class RadiatingCircles : UIView {
         circles = [CAShapeLayer]()
         super.init(coder: aDecoder)
         
-        self.backgroundColor = UIColor.blackColor()
+        self.backgroundColor = UIColor.black
         
         startAnimation()
     }
     
     func startAnimation() {
-        performSelector(#selector(RadiatingCircles.drawCircle), withObject: self, afterDelay: 1.0)
-        performSelector(#selector(RadiatingCircles.drawCircle), withObject: self, afterDelay: 4.0)
-        performSelector(#selector(RadiatingCircles.drawCircle), withObject: self, afterDelay: 7.0)
+        perform(#selector(RadiatingCircles.drawCircle), with: self, afterDelay: 1.0)
+        perform(#selector(RadiatingCircles.drawCircle), with: self, afterDelay: 4.0)
+        perform(#selector(RadiatingCircles.drawCircle), with: self, afterDelay: 7.0)
     }
     
     func reset () {
@@ -33,13 +33,20 @@ class RadiatingCircles : UIView {
     }
     
     func drawCircle () {
-        let circlePath = UIBezierPath(arcCenter: CGPoint(x: 0, y: 0), radius: CGFloat(20), startAngle: CGFloat(0), endAngle: CGFloat(M_PI * 2), clockwise: true)
+        let circlePath = UIBezierPath(
+            arcCenter: CGPoint(x: 0, y: 0),
+            radius: CGFloat(20),
+            startAngle: CGFloat(0),
+            endAngle: (CGFloat.pi * 2),
+            clockwise: true
+        )
+        
         
         let shapeLayer = CAShapeLayer()
-        shapeLayer.path = circlePath.CGPath
+        shapeLayer.path = circlePath.cgPath
         
-        shapeLayer.fillColor = UIColor.clearColor().CGColor
-        shapeLayer.strokeColor = UIColor.whiteColor().CGColor
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = UIColor.white.cgColor
         shapeLayer.lineWidth = 1.0
         
         circles.append(shapeLayer)
@@ -56,18 +63,11 @@ class RadiatingCircles : UIView {
         opacityAnimation.fromValue = 0.0
         opacityAnimation.toValue = 1.0
         opacityAnimation.duration = 4.5
-        opacityAnimation.delegate = self
+        opacityAnimation.delegate = self as? CAAnimationDelegate
         opacityAnimation.repeatCount = .infinity
         opacityAnimation.autoreverses = true
         
-        shapeLayer.addAnimation(scaleAnimation, forKey: "scale")
-        shapeLayer.addAnimation(opacityAnimation, forKey: "opacity")
+        shapeLayer.add(scaleAnimation, forKey: "scale")
+        shapeLayer.add(opacityAnimation, forKey: "opacity")
     }
-    
-    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
-//        circles.first?.removeFromSuperlayer()
-//        circles.removeFirst()
-//        drawCircle(0.0)
-    }
-    
 }

@@ -6,35 +6,32 @@
 //  Copyright (c) 2016 Andy Mockler. All rights reserved.
 //
 
-
-// TODO
-//
-// LATER
-// Look into using timingFunction for the wait action timing
-//      Improve pacing (esp at beginning)
-// Screen Recording
-//
-// NOTES
-// Don't do distortion straight in the middle
-//      Chain linearbump and twisting
-//          Not "to a point"
-// Break image apart
-//      SKLabel (possibly?)
-//      Push in multiple sprite nodes
-// More subtle on the shader
-// Before and after stuff:
-//      ONBOARDING
-//          Tap here to start
-//          Instructions
-//              Swipe left and right to dismiss thoughts
-//                  Have a next button
-//              Ready...set...go! (just on a timer)
-//      INFORMATION
-
-
-
 import SpriteKit
 import QuartzCore
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -70,20 +67,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var userHasSwipedSentences = false
     
-    override func didMoveToView(view: SKView) {
-        backgroundColor = SKColor.whiteColor()
+    override func didMove(to view: SKView) {
+        backgroundColor = SKColor.white
 
         self.panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
         self.view?.addGestureRecognizer(self.panGestureRecognizer!)
         
-        startX = size.width/2
+        startX = (size.width / 2)
         startY = size.height
         
         self.shouldEnableEffects = true
         
         
         // init physics world
-        physicsWorld.gravity = CGVectorMake(0,0)
+        physicsWorld.gravity = CGVector(dx: 0,dy: 0)
         physicsWorld.contactDelegate = self
         
         // Setup shaders
@@ -92,17 +89,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        self.shader = self.shaderTwirl!
         
         // run actions
-        self.waitAction = SKAction.waitForDuration(0.5)
+        self.waitAction = SKAction.wait(forDuration: 0.5)
         addSentences()
         
     }
     
     func addSentences() {
         // create sprite
-        let topSentence = Sentence(type: SentenceType.FromTop, sentenceNumber: self.sentenceNumber)
-        let bottomSentence = Sentence(type: SentenceType.FromBottom, sentenceNumber: self.sentenceNumber)
-        
-//        topSentence.shader = self.shaderTwirl!
+        let topSentence = Sentence(type: SentenceType.fromTop, sentenceNumber: self.sentenceNumber)
+        let bottomSentence = Sentence(type: SentenceType.fromBottom, sentenceNumber: self.sentenceNumber)
         
         if self.sentenceHeight == nil {
             self.sentenceHeight = topSentence.size.height
@@ -118,7 +113,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.nodeScale = (size.width * 0.75) / topSentence.texture!.size().width
         }
         
-        
         topSentence.setScale(self.nodeScale!)
         bottomSentence.setScale(self.nodeScale!)
         
@@ -128,15 +122,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(topSentence)
         self.addChild(bottomSentence)
         
-        runAction(SKAction.sequence([
+        run(SKAction.sequence([
             self.waitAction!,
-            SKAction.runBlock(addSentences)
-            ]))
+            SKAction.run(addSentences)
+        ]))
     }
     
     // MARK: SKPhysicsContactDelegate
     
-    func didBeginContact(contact: SKPhysicsContact) {
+    func didBegin(_ contact: SKPhysicsContact) {
         
         var topBody: SKPhysicsBody
         var bottomBody: SKPhysicsBody
@@ -153,7 +147,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sentencesDidCollide(topBody.node as! Sentence, bottomSentence: bottomBody.node as! Sentence)
     }
     
-    func sentencesDidCollide(topSentence:Sentence, bottomSentence:Sentence) {
+    func sentencesDidCollide(_ topSentence:Sentence, bottomSentence:Sentence) {
         if userHasSwipedSentences {
             let topVelocity = topSentence.physicsBody?.velocity
             let bottomVelocity = bottomSentence.physicsBody?.velocity
@@ -165,7 +159,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             topSentence.currentVelocity = topSentence.physicsBody?.velocity
             bottomSentence.currentVelocity = bottomSentence.physicsBody?.velocity
             
-            topSentence.runAction(SKAction.scaleBy(currentScaleFactor, duration: 1.0))
+            topSentence.run(SKAction.scale(by: currentScaleFactor, duration: 1.0))
             currentScaleFactor += 0.025
             
             animateGlobalFilter()
@@ -180,7 +174,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         currentFilterValue += 80
     }
     
-    func fadeAndRemoveSentences(topSentence:Sentence, bottomSentence:Sentence) {
+    func fadeAndRemoveSentences(_ topSentence:Sentence, bottomSentence:Sentence) {
         // Pretend like the collision didn't happen
         topSentence.physicsBody?.categoryBitMask = PhysicsCategory.SelectedSentence
         topSentence.physicsBody?.collisionBitMask = PhysicsCategory.SelectedSentence
@@ -190,31 +184,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Run the animation
         let fadeAndShrink = SKAction.group([
-            SKAction.fadeOutWithDuration(0.5),
-            SKAction.scaleBy(0.95, duration: 0.75)
+            SKAction.fadeOut(withDuration: 0.5),
+            SKAction.scale(by: 0.95, duration: 0.75)
             ])
         
         let fadeOutAndRemove = SKAction.sequence([
             fadeAndShrink,
             SKAction.removeFromParent()
             ])
-        topSentence.runAction(fadeOutAndRemove)
-        bottomSentence.runAction(fadeOutAndRemove)
+        topSentence.run(fadeOutAndRemove)
+        bottomSentence.run(fadeOutAndRemove)
     }
     
     
     // MARK: Actions
     
-    func handlePanGesture (recognizer: UIPanGestureRecognizer) {
+    func handlePanGesture (_ recognizer: UIPanGestureRecognizer) {
         
         // Convert the gesture touch point into a scene touch point
-        var touchLocation = recognizer.locationInView(recognizer.view)
-        touchLocation = self.convertPointFromView(touchLocation)
+        var touchLocation = recognizer.location(in: recognizer.view)
+        touchLocation = self.convertPoint(fromView: touchLocation)
         
-        if recognizer.state == .Began {
+        if recognizer.state == .began {
             
             // Get the touched node
-            let touchedNode = self.nodeAtPoint(touchLocation)
+            let touchedNode = self.atPoint(touchLocation)
             
             // Set up the selectedNode if sentence is touched
             if touchedNode is Sentence {
@@ -224,35 +218,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 selectedNode?.physicsBody?.collisionBitMask = PhysicsCategory.SelectedSentence
                 selectedNode?.physicsBody?.contactTestBitMask = PhysicsCategory.SelectedSentence
                 selectedNode?.zPosition = 10.0
-                selectedNode?.physicsBody?.velocity = CGVectorMake(0, 0)
+                selectedNode?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
                 
                 selectedNode?.shader = self.shaderMove
                 
                 self.positionWhenTouched = selectedNode!.position
             }
             
-        } else if recognizer.state == .Changed {
+        } else if recognizer.state == .changed {
             
             if let node = self.selectedNode {
-                let translation = recognizer.translationInView(recognizer.view)
-                node.position = CGPointMake(positionWhenTouched!.x + translation.x, positionWhenTouched!.y - translation.y)
+                let translation = recognizer.translation(in: recognizer.view)
+                node.position = CGPoint(x: positionWhenTouched!.x + translation.x, y: positionWhenTouched!.y - translation.y)
                 
             }
             
-        } else if recognizer.state == .Ended {
+        } else if recognizer.state == .ended {
             
             if let node = self.selectedNode {
-                let v = recognizer.velocityInView(recognizer.view)
+                let v = recognizer.velocity(in: recognizer.view)
                 
                 if v.x > SWIPE_THRESHOLD || v.x < -SWIPE_THRESHOLD {
-                    node.physicsBody?.velocity = CGVectorMake(v.x, -v.y)
+                    node.physicsBody?.velocity = CGVector(dx: v.x, dy: -v.y)
                     node.name = NODE_BEING_DISMISSED
                     increaseGameSpeed()
                 } else {
                     // Move it back to center
-                    let moveToCenter = SKAction.moveToX(self.size.width / 2, duration: 0.5)
-                    moveToCenter.timingMode = SKActionTimingMode.EaseOut
-                    node.runAction(moveToCenter)
+                    let moveToCenter = SKAction.moveTo(x: self.size.width / 2, duration: 0.5)
+                    moveToCenter.timingMode = SKActionTimingMode.easeOut
+                    node.run(moveToCenter)
                     
                     node.physicsBody?.velocity = node.currentVelocity!
                     
@@ -284,7 +278,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.waitAction?.duration = Double(self.sentenceHeight! / self.currentGameVelocity)
     }
    
-    override func update(currentTime: CFTimeInterval) {
+    override func update(_ currentTime: TimeInterval) {
         // TODO replace 18000 with CONST
         if currentFilterValue > 18000 {
             // stop gameplay and transition to educational series
@@ -297,8 +291,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.removeAllChildren()
         self.removeFromParent()
         self.view?.presentScene(nil)
-//        self.parentViewController!.view = nil
-        self.parentViewController?.dismissViewControllerAnimated(true, completion: nil)
+        self.parentViewController?.dismiss(animated: true, completion: nil)
         
     }
     
