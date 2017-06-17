@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A11CCFA51EF4ADB2001517D7 /* UILabel+setKerning.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CCFA41EF4ADB2001517D7 /* UILabel+setKerning.swift */; };
 		A1F407EF1EF4674D004C37A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F407EE1EF4674D004C37A7 /* AppDelegate.swift */; };
 		A1F407F11EF4674D004C37A7 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F407F01EF4674D004C37A7 /* OnboardingViewController.swift */; };
 		A1F407F41EF4674D004C37A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F407F21EF4674D004C37A7 /* Main.storyboard */; };
 		A1F407F61EF4674D004C37A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1F407F51EF4674D004C37A7 /* Assets.xcassets */; };
 		A1F407F91EF4674D004C37A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F407F71EF4674D004C37A7 /* LaunchScreen.storyboard */; };
 		A1F408011EF46922004C37A7 /* RadiatingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F408001EF46922004C37A7 /* RadiatingCircle.swift */; };
+		A1F408031EF48A4C004C37A7 /* nimbus-sans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1F408021EF48A4C004C37A7 /* nimbus-sans.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A11CCFA41EF4ADB2001517D7 /* UILabel+setKerning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+setKerning.swift"; sourceTree = "<group>"; };
 		A1F407EB1EF4674D004C37A7 /* OCD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F407EE1EF4674D004C37A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1F407F01EF4674D004C37A7 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		A1F407F81EF4674D004C37A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1F407FA1EF4674D004C37A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1F408001EF46922004C37A7 /* RadiatingCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadiatingCircle.swift; sourceTree = "<group>"; };
+		A1F408021EF48A4C004C37A7 /* nimbus-sans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nimbus-sans.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +64,21 @@
 				A1F407F01EF4674D004C37A7 /* OnboardingViewController.swift */,
 				A1F408001EF46922004C37A7 /* RadiatingCircle.swift */,
 				A1F407F21EF4674D004C37A7 /* Main.storyboard */,
+				A11CCFA41EF4ADB2001517D7 /* UILabel+setKerning.swift */,
 				A1F407F51EF4674D004C37A7 /* Assets.xcassets */,
 				A1F407F71EF4674D004C37A7 /* LaunchScreen.storyboard */,
 				A1F407FA1EF4674D004C37A7 /* Info.plist */,
+				A1F408041EF48A57004C37A7 /* Fonts */,
 			);
 			path = OCD;
+			sourceTree = "<group>";
+		};
+		A1F408041EF48A57004C37A7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A1F408021EF48A4C004C37A7 /* nimbus-sans.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +143,7 @@
 				A1F407F91EF4674D004C37A7 /* LaunchScreen.storyboard in Resources */,
 				A1F407F61EF4674D004C37A7 /* Assets.xcassets in Resources */,
 				A1F407F41EF4674D004C37A7 /* Main.storyboard in Resources */,
+				A1F408031EF48A4C004C37A7 /* nimbus-sans.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +156,7 @@
 			files = (
 				A1F407F11EF4674D004C37A7 /* OnboardingViewController.swift in Sources */,
 				A1F408011EF46922004C37A7 /* RadiatingCircle.swift in Sources */,
+				A11CCFA51EF4ADB2001517D7 /* UILabel+setKerning.swift in Sources */,
 				A1F407EF1EF4674D004C37A7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,6 +321,7 @@
 				A1F407FF1EF4674D004C37A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
