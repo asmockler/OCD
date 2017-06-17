@@ -11,20 +11,30 @@ import os.log
 
 @IBDesignable class RadiatingCircle: UIView {
 
+    // MARK: Constants
+    fileprivate let ANIMATION_DURATION = 9.0
+    fileprivate let SCALE_AMOUNT: CGFloat = 3.0
+
     // MARK: Properties
     var circles = [CAShapeLayer]()
     fileprivate let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
     fileprivate let opacityAnimation = CABasicAnimation(keyPath: "opacity")
 
-    // MARK: Initialization
+    // MARK: Methods required for InterfaceBuilder
     override init(frame: CGRect) {
         super.init(frame: frame)
-        startAnimation()
+        #if TARGET_INTERFACE_BUILDER
+            for _ in 0..<3 { drawCircle() }
+        #endif
+        setupAnimations()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        startAnimation()
+        #if TARGET_INTERFACE_BUILDER
+            for _ in 0..<3 { drawCircle() }
+        #endif
+        setupAnimations()
     }
 
     override func prepareForInterfaceBuilder() {
@@ -37,36 +47,28 @@ import os.log
         }
     }
 
-    // MARK: Private Methods
-    fileprivate func startAnimation() {
-        #if TARGET_INTERFACE_BUILDER
-            for _ in 0..<3 { drawCircle() }
-        #endif
+    public override var intrinsicContentSize: CGSize {
+        return CGSize(width: bounds.width, height: bounds.height)
+    }
 
-        let animationDuration = 9.0
 
-        // Set up scale animation
-        scaleAnimation.fromValue = 1.0
-        scaleAnimation.toValue = 3.0
-        scaleAnimation.duration = animationDuration
-        scaleAnimation.repeatCount = .infinity
-
-        // Set up opacity animation
-        opacityAnimation.fromValue = 0.0
-        opacityAnimation.toValue = 1.0
-        opacityAnimation.duration = (animationDuration / 2)
-        opacityAnimation.repeatCount = .infinity
-        opacityAnimation.autoreverses = true
-
+    // MARK: Public Interface
+    func startAnimation() {
         perform(#selector(RadiatingCircle.drawCircle), with: self, afterDelay: 1.0)
         perform(#selector(RadiatingCircle.drawCircle), with: self, afterDelay: 4.0)
         perform(#selector(RadiatingCircle.drawCircle), with: self, afterDelay: 7.0)
     }
 
+
+    // MARK: Private methods
     @objc private func drawCircle() {
+        let smallestFrameLength = min(frame.size.width, frame.size.height)
+        let beginningDiameter = smallestFrameLength / SCALE_AMOUNT
+        let radius = beginningDiameter > 0 ? beginningDiameter / 2 : 15.0 // Specify a default value for interface builder
+
         let circlePath = UIBezierPath(
             arcCenter: CGPoint(x: 0, y: 0),
-            radius: 20.0,
+            radius: radius,
             startAngle: 0.0,
             endAngle: (CGFloat.pi * 2),
             clockwise: true
@@ -86,25 +88,19 @@ import os.log
         layer.addSublayer(shapeLayer)
     }
 
+    fileprivate func setupAnimations() {
+        // Set up scale animation
+        scaleAnimation.fromValue = 1.0
+        scaleAnimation.toValue = 3.0
+        scaleAnimation.duration = ANIMATION_DURATION
+        scaleAnimation.repeatCount = .infinity
+
+        // Set up opacity animation
+        opacityAnimation.fromValue = 0.0
+        opacityAnimation.toValue = 1.0
+        opacityAnimation.duration = (ANIMATION_DURATION / 2)
+        opacityAnimation.repeatCount = .infinity
+        opacityAnimation.autoreverses = true
+    }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

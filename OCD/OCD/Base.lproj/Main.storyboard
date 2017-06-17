@@ -21,8 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="center" axis="vertical" distribution="equalCentering" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yUk-dw-SDk">
-                                <rect key="frame" x="456" y="314.5" width="113.5" height="140.5"/>
+                            <stackView opaque="NO" contentMode="center" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yUk-dw-SDk">
+                                <rect key="frame" x="455.5" y="324" width="113.5" height="120.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP TO START" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbE-xW-JbK">
                                         <rect key="frame" x="0.0" y="0.0" width="113.5" height="20.5"/>
@@ -31,7 +31,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="xja-xJ-COE" customClass="RadiatingCircle" customModule="OCD" customModuleProvider="target">
-                                        <rect key="frame" x="7" y="40.5" width="100" height="100"/>
+                                        <rect key="frame" x="7" y="20.5" width="100" height="100"/>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -44,6 +44,7 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="radiatingCircles" destination="xja-xJ-COE" id="JaC-tY-Tpk"/>
                         <outlet property="tapToStartLabel" destination="UbE-xW-JbK" id="nuS-Rl-TkK"/>
                     </connections>
                 </viewController>
