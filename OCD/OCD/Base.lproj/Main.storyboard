@@ -37,10 +37,14 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="yUk-dw-SDk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ua1-x4-w8i"/>
                             <constraint firstItem="yUk-dw-SDk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="b0m-0r-e9J"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="L2K-fu-PKc" appends="YES" id="UtR-iG-m7U"/>
+                        </connections>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
@@ -49,8 +53,64 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="L2K-fu-PKc">
+                    <connections>
+                        <segue destination="A7f-Kx-Qsh" kind="presentation" modalTransitionStyle="crossDissolve" id="Bm4-S2-4Uv"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="34.5703125" y="39.84375"/>
+            <point key="canvasLocation" x="4" y="23"/>
+        </scene>
+        <!--Instructions View Controller-->
+        <scene sceneID="6in-XR-vSg">
+            <objects>
+                <viewController id="A7f-Kx-Qsh" customClass="InstructionsViewController" customModule="OCD" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QK6-fo-bxd"/>
+                        <viewControllerLayoutGuide type="bottom" id="DOW-ce-Z9A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PBg-CI-YdE">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wQY-M9-yAQ">
+                                <rect key="frame" x="243.5" y="274" width="537.5" height="221"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRY AND KEEP THE SCREEN CLEAR OF INTRUSIVE THOUGHTS." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUI-5D-XmB">
+                                        <rect key="frame" x="20" y="20" width="497.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SWIPE THEM OFF THE SCREEN LEFT AND RIGHT." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8q-W9-T5W">
+                                        <rect key="frame" x="77" y="60.5" width="384" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FET-vu-0Eg" customClass="RadiatingCircle" customModule="OCD" customModuleProvider="target">
+                                        <rect key="frame" x="219" y="101" width="100" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wQY-M9-yAQ" firstAttribute="centerY" secondItem="PBg-CI-YdE" secondAttribute="centerY" id="07O-uS-g46"/>
+                            <constraint firstItem="wQY-M9-yAQ" firstAttribute="centerX" secondItem="PBg-CI-YdE" secondAttribute="centerX" id="ooo-f7-YMX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bottomInstructionLabel" destination="x8q-W9-T5W" id="PvT-cN-zV8"/>
+                        <outlet property="radiatingCircles" destination="FET-vu-0Eg" id="E2d-io-aN7"/>
+                        <outlet property="topInstructionLabel" destination="oUI-5D-XmB" id="gWv-pc-6hv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OIG-bg-JBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="734" y="23"/>
         </scene>
     </scenes>
 </document>

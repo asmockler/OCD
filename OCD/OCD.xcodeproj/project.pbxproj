@@ -15,6 +15,8 @@
 		A1F407F91EF4674D004C37A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F407F71EF4674D004C37A7 /* LaunchScreen.storyboard */; };
 		A1F408011EF46922004C37A7 /* RadiatingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F408001EF46922004C37A7 /* RadiatingCircle.swift */; };
 		A1F408031EF48A4C004C37A7 /* nimbus-sans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1F408021EF48A4C004C37A7 /* nimbus-sans.ttf */; };
+		A1F55B961EF616DE004C7156 /* OCDConstants+Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F55B951EF616DE004C7156 /* OCDConstants+Typography.swift */; };
+		A1F55B981EF625ED004C7156 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F55B971EF625ED004C7156 /* InstructionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		A1F407FA1EF4674D004C37A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1F408001EF46922004C37A7 /* RadiatingCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadiatingCircle.swift; sourceTree = "<group>"; };
 		A1F408021EF48A4C004C37A7 /* nimbus-sans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nimbus-sans.ttf"; sourceTree = "<group>"; };
+		A1F55B951EF616DE004C7156 /* OCDConstants+Typography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OCDConstants+Typography.swift"; sourceTree = "<group>"; };
+		A1F55B971EF625ED004C7156 /* InstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +64,12 @@
 		A1F407ED1EF4674D004C37A7 /* OCD */ = {
 			isa = PBXGroup;
 			children = (
+				A1F55B971EF625ED004C7156 /* InstructionsViewController.swift */,
 				A1F407EE1EF4674D004C37A7 /* AppDelegate.swift */,
 				A1F407F01EF4674D004C37A7 /* OnboardingViewController.swift */,
 				A1F408001EF46922004C37A7 /* RadiatingCircle.swift */,
 				A1F407F21EF4674D004C37A7 /* Main.storyboard */,
+				A1F55B951EF616DE004C7156 /* OCDConstants+Typography.swift */,
 				A11CCFA41EF4ADB2001517D7 /* UILabel+setKerning.swift */,
 				A1F407F51EF4674D004C37A7 /* Assets.xcassets */,
 				A1F407F71EF4674D004C37A7 /* LaunchScreen.storyboard */,
@@ -154,6 +160,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1F55B981EF625ED004C7156 /* InstructionsViewController.swift in Sources */,
+				A1F55B961EF616DE004C7156 /* OCDConstants+Typography.swift in Sources */,
 				A1F407F11EF4674D004C37A7 /* OnboardingViewController.swift in Sources */,
 				A1F408011EF46922004C37A7 /* RadiatingCircle.swift in Sources */,
 				A11CCFA51EF4ADB2001517D7 /* UILabel+setKerning.swift in Sources */,

@@ -19,12 +19,13 @@ class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tapToStartLabel.setKerning(amount: 3.0)
+        tapToStartLabel.setKerning(amount: OCDConstants.Typography.Kerning)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         radiatingCircles.startAnimation()
     }
+
 
 }
