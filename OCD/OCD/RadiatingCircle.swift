@@ -27,6 +27,8 @@ import os.log
             for _ in 0..<3 { drawCircle() }
         #endif
         setupAnimations()
+
+        backgroundColor = UIColor.clear
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -35,6 +37,8 @@ import os.log
             for _ in 0..<3 { drawCircle() }
         #endif
         setupAnimations()
+
+        backgroundColor = UIColor.clear
     }
 
     override func prepareForInterfaceBuilder() {
@@ -45,10 +49,12 @@ import os.log
             let circleScale = CGFloat(index + 1)
             circle.transform = CATransform3DMakeScale(circleScale, circleScale, 1.0)
         }
+
+        backgroundColor = UIColor.clear
     }
 
     public override var intrinsicContentSize: CGSize {
-        return CGSize(width: bounds.width, height: bounds.height)
+        return CGSize(width: 100.0, height: 100.0)
     }
 
 
