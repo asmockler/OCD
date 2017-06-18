@@ -17,6 +17,10 @@
 		A1F408031EF48A4C004C37A7 /* nimbus-sans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1F408021EF48A4C004C37A7 /* nimbus-sans.ttf */; };
 		A1F55B961EF616DE004C7156 /* OCDConstants+Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F55B951EF616DE004C7156 /* OCDConstants+Typography.swift */; };
 		A1F55B981EF625ED004C7156 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F55B971EF625ED004C7156 /* InstructionsViewController.swift */; };
+		A1F7EAA21EF70974005B6777 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7EAA11EF70974005B6777 /* GameViewController.swift */; };
+		A1F7EAA81EF70C4E005B6777 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7EAA71EF70C4E005B6777 /* GameScene.swift */; };
+		A1F7EAAA1EF71243005B6777 /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = A1F7EAA91EF71243005B6777 /* Shaders */; };
+		A1F7EAAC1EF714B2005B6777 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7EAAB1EF714B2005B6777 /* Sentence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		A1F408021EF48A4C004C37A7 /* nimbus-sans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nimbus-sans.ttf"; sourceTree = "<group>"; };
 		A1F55B951EF616DE004C7156 /* OCDConstants+Typography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OCDConstants+Typography.swift"; sourceTree = "<group>"; };
 		A1F55B971EF625ED004C7156 /* InstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
+		A1F7EAA11EF70974005B6777 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		A1F7EAA71EF70C4E005B6777 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		A1F7EAA91EF71243005B6777 /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shaders; sourceTree = "<group>"; };
+		A1F7EAAB1EF714B2005B6777 /* Sentence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,14 +74,18 @@
 			children = (
 				A1F55B971EF625ED004C7156 /* InstructionsViewController.swift */,
 				A1F407EE1EF4674D004C37A7 /* AppDelegate.swift */,
+				A1F7EAA71EF70C4E005B6777 /* GameScene.swift */,
+				A1F7EAA11EF70974005B6777 /* GameViewController.swift */,
+				A1F7EAAB1EF714B2005B6777 /* Sentence.swift */,
+				A1F55B951EF616DE004C7156 /* OCDConstants+Typography.swift */,
 				A1F407F01EF4674D004C37A7 /* OnboardingViewController.swift */,
 				A1F408001EF46922004C37A7 /* RadiatingCircle.swift */,
-				A1F407F21EF4674D004C37A7 /* Main.storyboard */,
-				A1F55B951EF616DE004C7156 /* OCDConstants+Typography.swift */,
 				A11CCFA41EF4ADB2001517D7 /* UILabel+setKerning.swift */,
+				A1F407F21EF4674D004C37A7 /* Main.storyboard */,
 				A1F407F51EF4674D004C37A7 /* Assets.xcassets */,
 				A1F407F71EF4674D004C37A7 /* LaunchScreen.storyboard */,
 				A1F407FA1EF4674D004C37A7 /* Info.plist */,
+				A1F7EAA91EF71243005B6777 /* Shaders */,
 				A1F408041EF48A57004C37A7 /* Fonts */,
 			);
 			path = OCD;
@@ -147,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1F407F91EF4674D004C37A7 /* LaunchScreen.storyboard in Resources */,
+				A1F7EAAA1EF71243005B6777 /* Shaders in Resources */,
 				A1F407F61EF4674D004C37A7 /* Assets.xcassets in Resources */,
 				A1F407F41EF4674D004C37A7 /* Main.storyboard in Resources */,
 				A1F408031EF48A4C004C37A7 /* nimbus-sans.ttf in Resources */,
@@ -160,7 +173,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1F7EAA21EF70974005B6777 /* GameViewController.swift in Sources */,
+				A1F7EAAC1EF714B2005B6777 /* Sentence.swift in Sources */,
 				A1F55B981EF625ED004C7156 /* InstructionsViewController.swift in Sources */,
+				A1F7EAA81EF70C4E005B6777 /* GameScene.swift in Sources */,
 				A1F55B961EF616DE004C7156 /* OCDConstants+Typography.swift in Sources */,
 				A1F407F11EF4674D004C37A7 /* OnboardingViewController.swift in Sources */,
 				A1F408011EF46922004C37A7 /* RadiatingCircle.swift in Sources */,
