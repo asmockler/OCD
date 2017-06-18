@@ -14,6 +14,7 @@ class InstructionsViewController: UIViewController {
     @IBOutlet weak var topInstructionLabel: UILabel!
     @IBOutlet weak var bottomInstructionLabel: UILabel!
     @IBOutlet weak var radiatingCircles: RadiatingCircle!
+    @IBOutlet var advanceScreenTapGesture: UITapGestureRecognizer!
 
 
     override func viewDidLoad() {
@@ -45,6 +46,7 @@ class InstructionsViewController: UIViewController {
         // keyframes to keep dealing with relative times a bit more sane.
         DispatchQueue.main.asyncAfter(deadline: .now() + labelAnimationDuration, execute: {
             self.radiatingCircles.startAnimation()
+            self.advanceScreenTapGesture.isEnabled = true
         })
     }
 

@@ -97,20 +97,48 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="wQY-M9-yAQ" firstAttribute="centerY" secondItem="PBg-CI-YdE" secondAttribute="centerY" id="07O-uS-g46"/>
                             <constraint firstItem="wQY-M9-yAQ" firstAttribute="centerX" secondItem="PBg-CI-YdE" secondAttribute="centerX" id="ooo-f7-YMX"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="FSe-V0-URL" appends="YES" id="gUy-lm-FqR"/>
+                        </connections>
                     </view>
                     <connections>
+                        <outlet property="advanceScreenTapGesture" destination="FSe-V0-URL" id="pji-cS-UNh"/>
                         <outlet property="bottomInstructionLabel" destination="x8q-W9-T5W" id="PvT-cN-zV8"/>
                         <outlet property="radiatingCircles" destination="FET-vu-0Eg" id="E2d-io-aN7"/>
                         <outlet property="topInstructionLabel" destination="oUI-5D-XmB" id="gWv-pc-6hv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIG-bg-JBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer enabled="NO" id="FSe-V0-URL">
+                    <connections>
+                        <segue destination="eui-ex-2i8" kind="show" id="BIK-H2-m43"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="734" y="23"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="szl-pc-Q83">
+            <objects>
+                <viewController id="eui-ex-2i8" customClass="GameViewController" customModule="OCD" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZKw-pK-9qf"/>
+                        <viewControllerLayoutGuide type="bottom" id="geH-VQ-3oL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fST-rH-mws" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tdP-HO-qGw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1492" y="20"/>
         </scene>
     </scenes>
 </document>
