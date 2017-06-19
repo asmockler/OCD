@@ -23,5 +23,7 @@ class GameViewController: UIViewController {
         (view as! SKView).presentScene(scene)
     }
 
-
+    func moveToEducationView() {
+        performSegue(withIdentifier: "moveToEducationView", sender: self)
+    }
 }

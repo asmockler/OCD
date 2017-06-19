@@ -21,6 +21,7 @@
 		A1F7EAA81EF70C4E005B6777 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7EAA71EF70C4E005B6777 /* GameScene.swift */; };
 		A1F7EAAA1EF71243005B6777 /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = A1F7EAA91EF71243005B6777 /* Shaders */; };
 		A1F7EAAC1EF714B2005B6777 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7EAAB1EF714B2005B6777 /* Sentence.swift */; };
+		A1F7EAB21EF76FCF005B6777 /* EducationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7EAB11EF76FCF005B6777 /* EducationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		A1F7EAA71EF70C4E005B6777 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		A1F7EAA91EF71243005B6777 /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shaders; sourceTree = "<group>"; };
 		A1F7EAAB1EF714B2005B6777 /* Sentence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
+		A1F7EAB11EF76FCF005B6777 /* EducationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EducationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			children = (
 				A1F55B971EF625ED004C7156 /* InstructionsViewController.swift */,
 				A1F407EE1EF4674D004C37A7 /* AppDelegate.swift */,
+				A1F7EAB11EF76FCF005B6777 /* EducationViewController.swift */,
 				A1F7EAA71EF70C4E005B6777 /* GameScene.swift */,
 				A1F7EAA11EF70974005B6777 /* GameViewController.swift */,
 				A1F7EAAB1EF714B2005B6777 /* Sentence.swift */,
@@ -177,6 +180,7 @@
 				A1F7EAA21EF70974005B6777 /* GameViewController.swift in Sources */,
 				A1F7EAAC1EF714B2005B6777 /* Sentence.swift in Sources */,
 				A1F55B981EF625ED004C7156 /* InstructionsViewController.swift in Sources */,
+				A1F7EAB21EF76FCF005B6777 /* EducationViewController.swift in Sources */,
 				A1F7EAA81EF70C4E005B6777 /* GameScene.swift in Sources */,
 				A1F55B961EF616DE004C7156 /* OCDConstants+Typography.swift in Sources */,
 				A1F407F11EF4674D004C37A7 /* OnboardingViewController.swift in Sources */,
