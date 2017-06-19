@@ -93,13 +93,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     override func update(_ currentTime: TimeInterval) {
-        // TODO replace 18000 with an approprite constant (or calculate it)
-        if currentFilterValue > 18000 {
+        // TODO replace 1800 with an approprite constant (or calculate it)
+        if currentFilterValue > 1800 {
             removeAllActions()
             removeAllChildren()
             removeFromParent()
             view?.presentScene(nil)
-            parentViewController?.dismiss(animated: true, completion: nil)
+            parentViewController?.moveToEducationView()
         }
     }
 
