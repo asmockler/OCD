@@ -44,7 +44,7 @@ class InstructionsViewController: UIViewController {
 
         // Start circles animation to prompt a tap. This isn't a part of the above
         // keyframes to keep dealing with relative times a bit more sane.
-        DispatchQueue.main.asyncAfter(deadline: .now() + labelAnimationDuration, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + (labelAnimationDuration - 1), execute: {
             self.radiatingCircles.startAnimation()
             self.advanceScreenTapGesture.isEnabled = true
         })
