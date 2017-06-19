@@ -131,6 +131,7 @@
 				TargetAttributes = {
 					A1F407EA1EF4674D004C37A7 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 48T25SU88V;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -306,6 +307,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 48T25SU88V;
 				INFOPLIST_FILE = OCD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.OCD;
@@ -318,6 +320,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 48T25SU88V;
 				INFOPLIST_FILE = OCD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.OCD;
