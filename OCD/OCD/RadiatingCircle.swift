@@ -60,9 +60,9 @@ import os.log
 
     // MARK: Public Interface
     func startAnimation() {
-        perform(#selector(RadiatingCircle.drawCircle), with: self, afterDelay: 1.0)
-        perform(#selector(RadiatingCircle.drawCircle), with: self, afterDelay: 4.0)
-        perform(#selector(RadiatingCircle.drawCircle), with: self, afterDelay: 7.0)
+        perform(#selector(RadiatingCircle.drawCircle), with: self)
+        perform(#selector(RadiatingCircle.drawCircle), with: self, afterDelay: 3.0)
+        perform(#selector(RadiatingCircle.drawCircle), with: self, afterDelay: 6.0)
     }
 
 
