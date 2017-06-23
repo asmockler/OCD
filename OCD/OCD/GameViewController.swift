@@ -13,17 +13,26 @@ class GameViewController: UIViewController {
 
     // MARK: Properties
     var sentenceNumber: Int = 1
+    var scene: GameScene?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let scene = GameScene(size: view.bounds.size)
-        scene.parentViewController = self
+        scene = GameScene(size: view.bounds.size)
+        scene?.parentViewController = self
 
         (view as! SKView).presentScene(scene)
     }
 
     func moveToEducationView() {
         performSegue(withIdentifier: "moveToEducationView", sender: self)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        // Tear down scene
+        scene?.removeAllChildren()
+        scene?.removeAllActions()
+        scene?.removeFromParent()
+        scene?.view?.presentScene(nil)
     }
 }

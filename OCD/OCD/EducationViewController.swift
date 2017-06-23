@@ -21,6 +21,7 @@ class EducationViewController: UIPageViewController {
         super.viewDidLoad()
 
         dataSource = self
+        view.backgroundColor = UIColor.black
 
         if let firstViewController = educationViewControllers.first {
             setViewControllers([firstViewController],
