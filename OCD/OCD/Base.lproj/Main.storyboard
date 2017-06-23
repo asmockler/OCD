@@ -116,7 +116,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIG-bg-JBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer enabled="NO" id="FSe-V0-URL">
                     <connections>
-                        <segue destination="eui-ex-2i8" kind="show" id="BIK-H2-m43"/>
+                        <segue destination="eui-ex-2i8" kind="presentation" modalTransitionStyle="crossDissolve" id="BIK-H2-m43"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
