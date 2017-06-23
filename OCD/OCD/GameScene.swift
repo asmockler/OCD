@@ -92,14 +92,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addSentences()
     }
 
+    var gameIsOver = false
     override func update(_ currentTime: TimeInterval) {
         // TODO replace 1800 with an approprite constant (or calculate it)
-        if currentFilterValue > 1800 {
-            removeAllActions()
-            removeAllChildren()
-            removeFromParent()
-            view?.presentScene(nil)
-            parentViewController?.moveToEducationView()
+        if currentFilterValue > 1800 && !gameIsOver {
+            gameIsOver = true
+
+            run(SKAction.colorize(with: UIColor.black, colorBlendFactor: 1, duration: 1.0), completion: {
+                self.parentViewController?.moveToEducationView()
+            })
         }
     }
 
