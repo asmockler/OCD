@@ -423,6 +423,7 @@ SWIPE LEFT TO FIND OUT.</string>
                     </view>
                     <connections>
                         <outlet property="radiatingCircles" destination="iBl-6g-fAt" id="RKe-x5-RBz"/>
+                        <outlet property="tapToExitLabel" destination="JhN-s7-uFS" id="CUP-eO-jWo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZe-9t-yfx" userLabel="First Responder" sceneMemberID="firstResponder"/>
