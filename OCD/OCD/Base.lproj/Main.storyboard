@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -73,33 +74,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wQY-M9-yAQ">
-                                <rect key="frame" x="243.5" y="274" width="537.5" height="221"/>
+                            <stackView opaque="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wQY-M9-yAQ">
+                                <rect key="frame" x="20" y="294" width="984" height="181"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRY AND KEEP THE SCREEN CLEAR OF INTRUSIVE THOUGHTS." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUI-5D-XmB">
-                                        <rect key="frame" x="20" y="20" width="497.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="TRY AND KEEP THE SCREEN CLEAR OF INTRUSIVE THOUGHTS." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUI-5D-XmB">
+                                        <rect key="frame" x="0.0" y="0.0" width="984" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SWIPE THEM OFF THE SCREEN LEFT AND RIGHT." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8q-W9-T5W">
-                                        <rect key="frame" x="77" y="60.5" width="384" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SWIPE THEM OFF THE SCREEN LEFT AND RIGHT." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8q-W9-T5W">
+                                        <rect key="frame" x="0.0" y="40.5" width="984" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FET-vu-0Eg" customClass="RadiatingCircle" customModule="OCD" customModuleProvider="target">
-                                        <rect key="frame" x="219" y="101" width="100" height="100"/>
+                                        <rect key="frame" x="0.0" y="81" width="984" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
-                                <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="wQY-M9-yAQ" firstAttribute="centerY" secondItem="PBg-CI-YdE" secondAttribute="centerY" id="07O-uS-g46"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wQY-M9-yAQ" secondAttribute="trailing" id="hKc-KL-f4c"/>
+                            <constraint firstItem="wQY-M9-yAQ" firstAttribute="leading" secondItem="PBg-CI-YdE" secondAttribute="leadingMargin" id="icM-yr-jNT"/>
                             <constraint firstItem="wQY-M9-yAQ" firstAttribute="centerX" secondItem="PBg-CI-YdE" secondAttribute="centerX" id="ooo-f7-YMX"/>
                         </constraints>
                         <connections>
