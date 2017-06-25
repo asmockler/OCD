@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A10AAFD51F0055380013EF19 /* ExitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AAFD41F0055380013EF19 /* ExitViewController.swift */; };
 		A11CCFA51EF4ADB2001517D7 /* UILabel+setKerning.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CCFA41EF4ADB2001517D7 /* UILabel+setKerning.swift */; };
 		A1F407EF1EF4674D004C37A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F407EE1EF4674D004C37A7 /* AppDelegate.swift */; };
 		A1F407F11EF4674D004C37A7 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F407F01EF4674D004C37A7 /* OnboardingViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A10AAFD41F0055380013EF19 /* ExitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExitViewController.swift; sourceTree = "<group>"; };
 		A11CCFA41EF4ADB2001517D7 /* UILabel+setKerning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+setKerning.swift"; sourceTree = "<group>"; };
 		A1F407EB1EF4674D004C37A7 /* OCD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F407EE1EF4674D004C37A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				A1F55B971EF625ED004C7156 /* InstructionsViewController.swift */,
 				A1F407EE1EF4674D004C37A7 /* AppDelegate.swift */,
 				A1F7EAB11EF76FCF005B6777 /* EducationViewController.swift */,
+				A10AAFD41F0055380013EF19 /* ExitViewController.swift */,
 				A1F7EAA71EF70C4E005B6777 /* GameScene.swift */,
 				A1F7EAA11EF70974005B6777 /* GameViewController.swift */,
 				A1F7EAAB1EF714B2005B6777 /* Sentence.swift */,
@@ -186,6 +189,7 @@
 				A1F407F11EF4674D004C37A7 /* OnboardingViewController.swift in Sources */,
 				A1F408011EF46922004C37A7 /* RadiatingCircle.swift in Sources */,
 				A11CCFA51EF4ADB2001517D7 /* UILabel+setKerning.swift in Sources */,
+				A10AAFD51F0055380013EF19 /* ExitViewController.swift in Sources */,
 				A1F407EF1EF4674D004C37A7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
