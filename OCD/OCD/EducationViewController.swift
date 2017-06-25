@@ -9,9 +9,10 @@
 import UIKit
 
 class EducationViewController: UIPageViewController {
+    
     // Create an array of education view controllers (which are assigned IDs education1 - education6
     private(set) lazy var educationViewControllers: [UIViewController] = {
-        return (1...6).map {
+        return (1...7).map {
             UIStoryboard(name: "Main", bundle: nil)
                 .instantiateViewController(withIdentifier: "education\($0)")
         }
@@ -47,6 +48,7 @@ extension EducationViewController: UIPageViewControllerDataSource {
         return firstViewControllerIndex
     }
 
+    // Present next controller
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = educationViewControllers.index(of: viewController) else {
             fatalError("Could not find \(viewController) in educationViewControllers")
@@ -54,17 +56,14 @@ extension EducationViewController: UIPageViewControllerDataSource {
 
         let nextIndex = viewControllerIndex + 1
 
-        guard educationViewControllers.count != nextIndex else {
-            return nil
-        }
-
-        guard educationViewControllers.count > nextIndex else {
+        if nextIndex >= educationViewControllers.count {
             return nil
         }
 
         return educationViewControllers[nextIndex]
     }
 
+    // Present previous controller
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = educationViewControllers.index(of: viewController) else {
             fatalError("Could not find \(viewController) in educationViewControllers")
@@ -72,11 +71,7 @@ extension EducationViewController: UIPageViewControllerDataSource {
 
         let previousIndex = viewControllerIndex - 1
 
-        guard previousIndex >= 0 else {
-            return nil
-        }
-
-        guard educationViewControllers.count > previousIndex else {
+        if previousIndex < 0 {
             return nil
         }
 

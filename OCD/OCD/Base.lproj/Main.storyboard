@@ -151,7 +151,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="qGG-iw-KKA" customClass="EducationViewController" customModule="OCD" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lDf-dK-6p8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2439" y="24"/>
+            <point key="canvasLocation" x="2381" y="20"/>
         </scene>
         <!--Education View 1-->
         <scene sceneID="05J-TK-U8D">
@@ -186,7 +186,7 @@ SWIPE LEFT TO FIND OUT.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d87-T9-I1Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2133" y="891"/>
+            <point key="canvasLocation" x="2381" y="684"/>
         </scene>
         <!--Education View 4-->
         <scene sceneID="UIo-Zb-DOq">
@@ -220,7 +220,7 @@ SWIPE LEFT TO FIND OUT.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2dj-8e-Eym" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2124" y="1591"/>
+            <point key="canvasLocation" x="2381" y="2670"/>
         </scene>
         <!--Education View 2-->
         <scene sceneID="n3i-mr-Pr1">
@@ -254,7 +254,7 @@ SWIPE LEFT TO FIND OUT.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lmw-Cf-0fS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2828" y="890"/>
+            <point key="canvasLocation" x="2381" y="1355"/>
         </scene>
         <!--Education View 5-->
         <scene sceneID="TWz-1k-cGb">
@@ -288,7 +288,7 @@ SWIPE LEFT TO FIND OUT.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9qb-PE-gLU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2833.59375" y="1608.59375"/>
+            <point key="canvasLocation" x="2381" y="3320"/>
         </scene>
         <!--Education View 3-->
         <scene sceneID="iEi-32-jwy">
@@ -322,12 +322,12 @@ SWIPE LEFT TO FIND OUT.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tKd-vC-Z8K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3560" y="903"/>
+            <point key="canvasLocation" x="2381" y="2019"/>
         </scene>
         <!--Education View 6-->
         <scene sceneID="cNQ-Ae-noU">
             <objects>
-                <viewController storyboardIdentifier="education6" title="Education View 6" id="U0D-56-avl" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="education6" title="Education View 6" id="U0D-56-avl" customClass="EducationFinalViewController" customModule="OCD" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DtS-dp-vnI"/>
                         <viewControllerLayoutGuide type="bottom" id="hnU-B1-ZLj"/>
@@ -356,7 +356,83 @@ SWIPE LEFT TO FIND OUT.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NQB-7i-s5W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3564" y="1632"/>
+            <point key="canvasLocation" x="2381" y="3988"/>
+        </scene>
+        <!--Education View 7-->
+        <scene sceneID="yfG-jb-RQh">
+            <objects>
+                <viewController storyboardIdentifier="education7" title="Education View 7" id="pv0-3u-2Lo" customClass="ExitViewController" customModule="OCD" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h0C-AD-X3w"/>
+                        <viewControllerLayoutGuide type="bottom" id="LG8-1W-6bn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="38C-Fx-uQC">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BfZ-Ak-Vcy">
+                                <rect key="frame" x="20" y="278" width="984" height="212"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OCD IS NOT AN ADJECTIVE AND SHOULD NOT BE USED AS SUCH. IT IS A DEBILITATING MENTAL ILLNESS." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIf-dK-mw7">
+                                        <rect key="frame" x="0.0" y="0.0" width="984" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THERE IS HOPE FOR PEOPLE SUFFERING." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uF6-Kf-D8i">
+                                        <rect key="frame" x="0.0" y="30.5" width="984" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learn more by visiting iocdf.org" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYc-WP-gtP">
+                                        <rect key="frame" x="0.0" y="61" width="984" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hgf-gH-ZVU">
+                                        <rect key="frame" x="0.0" y="91.5" width="984" height="120.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="TAP TO EXIT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhN-s7-uFS">
+                                                <rect key="frame" x="0.0" y="0.0" width="984" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBl-6g-fAt" customClass="RadiatingCircle" customModule="OCD" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="20.5" width="984" height="100"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="J9l-zg-LAF" appends="YES" id="cDt-5L-4qf"/>
+                                        </connections>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BfZ-Ak-Vcy" firstAttribute="centerY" secondItem="38C-Fx-uQC" secondAttribute="centerY" id="0Fn-UM-Kr6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BfZ-Ak-Vcy" secondAttribute="trailing" id="ePN-7E-7h9"/>
+                            <constraint firstItem="BfZ-Ak-Vcy" firstAttribute="leading" secondItem="38C-Fx-uQC" secondAttribute="leadingMargin" id="llv-C9-VDd"/>
+                            <constraint firstItem="BfZ-Ak-Vcy" firstAttribute="centerX" secondItem="38C-Fx-uQC" secondAttribute="centerX" id="yUt-1k-cqm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="radiatingCircles" destination="iBl-6g-fAt" id="RKe-x5-RBz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qZe-9t-yfx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="J9l-zg-LAF">
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" id="1VC-de-lta"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2381" y="4684"/>
         </scene>
     </scenes>
 </document>
