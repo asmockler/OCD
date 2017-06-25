@@ -165,8 +165,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dwk-h2-iCO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dwk-h2-iCO">
                                 <rect key="frame" x="406.5" y="363.5" width="212" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="450" id="eaz-vS-uyG"/>
+                                </constraints>
                                 <string key="text">UH OH! WHAT HAPPENED?
 SWIPE LEFT TO FIND OUT.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -197,12 +200,12 @@ SWIPE LEFT TO FIND OUT.</string>
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKH-bc-IpX">
-                                <rect key="frame" x="274.5" y="343.5" width="475" height="81.5"/>
-                                <string key="text">Just as you tried harder to get rid of the thoughts by engaging
-in the "compulsion," it only gets worse, which is what happens
-with OCD. The more you obsess or engage in a compulsion,
-the worse and stronger the obsession gets.</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKH-bc-IpX">
+                                <rect key="frame" x="282" y="343.5" width="460" height="81.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="460" id="oav-d0-mrm"/>
+                                </constraints>
+                                <string key="text">Just as you tried harder to get rid of the thoughts by engaging in the "compulsion," it only gets worse, which is what happens with OCD. The more you obsess or engage in a compulsion, the worse and stronger the obsession gets.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -231,12 +234,12 @@ the worse and stronger the obsession gets.</string>
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SV6-Io-XoH">
-                                <rect key="frame" x="272" y="343.5" width="481.5" height="81.5"/>
-                                <string key="text">When someone has Obsessive Compulsive Disorder, they
-experience obsessive impulsive thoughts that cause them life-
-disrupting anxiety. Everyone has intrusive thoughts sometimes,
-but when you have OCD it is invasive – it won't go away.</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SV6-Io-XoH">
+                                <rect key="frame" x="287.5" y="333.5" width="450" height="101.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="450" id="QXN-oh-gYd"/>
+                                </constraints>
+                                <string key="text">When someone has Obsessive Compulsive Disorder, they experience obsessive impulsive thoughts that cause them life-disrupting anxiety. Everyone has intrusive thoughts sometimes, but when you have OCD it is invasive – it won't go away.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -265,11 +268,12 @@ but when you have OCD it is invasive – it won't go away.</string>
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9t-ie-fo4">
-                                <rect key="frame" x="264.5" y="354" width="495.5" height="61"/>
-                                <string key="text">People with OCD feel the need to engage in compulsions in
-order to get rid of the obsessive thoughts and the accompanying
-paralyzing and life-disrupting anxiety they are experiencing.</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9t-ie-fo4">
+                                <rect key="frame" x="287.5" y="343.5" width="450" height="81.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="450" id="mzw-7X-cHF"/>
+                                </constraints>
+                                <string key="text">People with OCD feel the need to engage in compulsions in order to get rid of the obsessive thoughts and the accompanying paralyzing and life-disrupting anxiety they are experiencing.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -298,12 +302,12 @@ paralyzing and life-disrupting anxiety they are experiencing.</string>
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8F-Zz-7JV">
-                                <rect key="frame" x="277" y="343.5" width="471" height="81.5"/>
-                                <string key="text">Just like having OCD, the swiping action you were doing to try
-and get rid of the obsessive thought acted as a compulsion.
-Compulsions are repetitive behaviors or thoughts used to get
-rid of an obsession.</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8F-Zz-7JV">
+                                <rect key="frame" x="287.5" y="343.5" width="450" height="81.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="450" id="wh3-rv-NoY"/>
+                                </constraints>
+                                <string key="text">Just like having OCD, the swiping action you were doing to try and get rid of the obsessive thought acted as a compulsion. Compulsions are repetitive behaviors or thoughts used to get rid of an obsession.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -332,10 +336,12 @@ rid of an obsession.</string>
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgJ-Yi-v2v">
-                                <rect key="frame" x="264" y="364" width="496.5" height="41"/>
-                                <string key="text">Through successful therapy and/or medication, sufferers learn to
-accept their uncertainties and not engage in their compulsions.</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgJ-Yi-v2v">
+                                <rect key="frame" x="291" y="353.5" width="443" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="450" id="IjN-GD-W5U"/>
+                                </constraints>
+                                <string key="text">Through successful therapy and/or medication, sufferers learn to accept their uncertainties and not engage in their compulsions.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
