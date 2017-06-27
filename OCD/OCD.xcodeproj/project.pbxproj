@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A10AAFD51F0055380013EF19 /* ExitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AAFD41F0055380013EF19 /* ExitViewController.swift */; };
 		A11CCFA51EF4ADB2001517D7 /* UILabel+setKerning.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CCFA41EF4ADB2001517D7 /* UILabel+setKerning.swift */; };
+		A1AB208D1F01D90700F1B4AF /* OCDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB208C1F01D90700F1B4AF /* OCDUITests.swift */; };
+		A1AB20951F01E41200F1B4AF /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB20941F01E41200F1B4AF /* SnapshotHelper.swift */; };
 		A1F407EF1EF4674D004C37A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F407EE1EF4674D004C37A7 /* AppDelegate.swift */; };
 		A1F407F11EF4674D004C37A7 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F407F01EF4674D004C37A7 /* OnboardingViewController.swift */; };
 		A1F407F41EF4674D004C37A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F407F21EF4674D004C37A7 /* Main.storyboard */; };
@@ -25,9 +27,23 @@
 		A1F7EAB21EF76FCF005B6777 /* EducationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7EAB11EF76FCF005B6777 /* EducationViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A1AB208F1F01D90700F1B4AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1F407E31EF4674D004C37A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1F407EA1EF4674D004C37A7;
+			remoteInfo = OCD;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		A10AAFD41F0055380013EF19 /* ExitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExitViewController.swift; sourceTree = "<group>"; };
 		A11CCFA41EF4ADB2001517D7 /* UILabel+setKerning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+setKerning.swift"; sourceTree = "<group>"; };
+		A1AB208A1F01D90700F1B4AF /* OCDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1AB208C1F01D90700F1B4AF /* OCDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCDUITests.swift; sourceTree = "<group>"; };
+		A1AB208E1F01D90700F1B4AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1AB20941F01E41200F1B4AF /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		A1F407EB1EF4674D004C37A7 /* OCD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F407EE1EF4674D004C37A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1F407F01EF4674D004C37A7 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +63,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A1AB20871F01D90700F1B4AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1F407E81EF4674D004C37A7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -57,10 +80,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A1AB208B1F01D90700F1B4AF /* OCDUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A1AB208C1F01D90700F1B4AF /* OCDUITests.swift */,
+				A1AB20941F01E41200F1B4AF /* SnapshotHelper.swift */,
+				A1AB208E1F01D90700F1B4AF /* Info.plist */,
+			);
+			path = OCDUITests;
+			sourceTree = "<group>";
+		};
 		A1F407E21EF4674D004C37A7 = {
 			isa = PBXGroup;
 			children = (
 				A1F407ED1EF4674D004C37A7 /* OCD */,
+				A1AB208B1F01D90700F1B4AF /* OCDUITests */,
 				A1F407EC1EF4674D004C37A7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				A1F407EB1EF4674D004C37A7 /* OCD.app */,
+				A1AB208A1F01D90700F1B4AF /* OCDUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,6 +143,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A1AB20891F01D90700F1B4AF /* OCDUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1AB20911F01D90700F1B4AF /* Build configuration list for PBXNativeTarget "OCDUITests" */;
+			buildPhases = (
+				A1AB20861F01D90700F1B4AF /* Sources */,
+				A1AB20871F01D90700F1B4AF /* Frameworks */,
+				A1AB20881F01D90700F1B4AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1AB20901F01D90700F1B4AF /* PBXTargetDependency */,
+			);
+			name = OCDUITests;
+			productName = OCDUITests;
+			productReference = A1AB208A1F01D90700F1B4AF /* OCDUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		A1F407EA1EF4674D004C37A7 /* OCD */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1F407FD1EF4674D004C37A7 /* Build configuration list for PBXNativeTarget "OCD" */;
@@ -135,6 +188,11 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Andy Mockler";
 				TargetAttributes = {
+					A1AB20891F01D90700F1B4AF = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A1F407EA1EF4674D004C37A7;
+					};
 					A1F407EA1EF4674D004C37A7 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 4S2B9H6KMP;
@@ -156,11 +214,19 @@
 			projectRoot = "";
 			targets = (
 				A1F407EA1EF4674D004C37A7 /* OCD */,
+				A1AB20891F01D90700F1B4AF /* OCDUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A1AB20881F01D90700F1B4AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1F407E91EF4674D004C37A7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -176,6 +242,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A1AB20861F01D90700F1B4AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1AB208D1F01D90700F1B4AF /* OCDUITests.swift in Sources */,
+				A1AB20951F01E41200F1B4AF /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1F407E71EF4674D004C37A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -195,6 +270,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A1AB20901F01D90700F1B4AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1F407EA1EF4674D004C37A7 /* OCD */;
+			targetProxy = A1AB208F1F01D90700F1B4AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A1F407F21EF4674D004C37A7 /* Main.storyboard */ = {
@@ -216,6 +299,30 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A1AB20921F01D90700F1B4AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = OCDUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.OCDUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = OCD;
+			};
+			name = Debug;
+		};
+		A1AB20931F01D90700F1B4AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = OCDUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.OCDUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = OCD;
+			};
+			name = Release;
+		};
 		A1F407FB1EF4674D004C37A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -319,7 +426,7 @@
 				INFOPLIST_FILE = OCD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.udachi.ocd-understood";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andymockler.ocd-understood";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -333,7 +440,7 @@
 				INFOPLIST_FILE = OCD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.udachi.ocd-understood";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andymockler.ocd-understood";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -342,6 +449,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A1AB20911F01D90700F1B4AF /* Build configuration list for PBXNativeTarget "OCDUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1AB20921F01D90700F1B4AF /* Debug */,
+				A1AB20931F01D90700F1B4AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		A1F407E61EF4674D004C37A7 /* Build configuration list for PBXProject "OCD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

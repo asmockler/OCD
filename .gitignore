@@ -27,3 +27,6 @@ xcuserdata/
 ## Cocoapods
 Podfile.lock
 Pods/
+
+## Fastlane-generated screenshots
+screenshots/
