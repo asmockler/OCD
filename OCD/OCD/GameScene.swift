@@ -238,6 +238,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         topSentence.run(SKAction.scale(by: currentScaleFactor, duration: 1.0))
 
+        if #available(iOS 10.0, *) {
+            topSentence.animateWarpEffect()
+        }
+
         filterIsAnimating = true
         currentFilterValue += 80
         currentScaleFactor += 0.025

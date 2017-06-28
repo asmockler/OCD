@@ -11,6 +11,7 @@
 		A11CCFA51EF4ADB2001517D7 /* UILabel+setKerning.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CCFA41EF4ADB2001517D7 /* UILabel+setKerning.swift */; };
 		A1AB208D1F01D90700F1B4AF /* OCDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB208C1F01D90700F1B4AF /* OCDUITests.swift */; };
 		A1AB20951F01E41200F1B4AF /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB20941F01E41200F1B4AF /* SnapshotHelper.swift */; };
+		A1D3A3871F03769E0040F012 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D3A3861F03769E0040F012 /* utils.swift */; };
 		A1F407EF1EF4674D004C37A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F407EE1EF4674D004C37A7 /* AppDelegate.swift */; };
 		A1F407F11EF4674D004C37A7 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F407F01EF4674D004C37A7 /* OnboardingViewController.swift */; };
 		A1F407F41EF4674D004C37A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F407F21EF4674D004C37A7 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		A1AB208C1F01D90700F1B4AF /* OCDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCDUITests.swift; sourceTree = "<group>"; };
 		A1AB208E1F01D90700F1B4AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1AB20941F01E41200F1B4AF /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		A1D3A3861F03769E0040F012 /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		A1F407EB1EF4674D004C37A7 /* OCD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F407EE1EF4674D004C37A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1F407F01EF4674D004C37A7 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				A1F407F01EF4674D004C37A7 /* OnboardingViewController.swift */,
 				A1F408001EF46922004C37A7 /* RadiatingCircle.swift */,
 				A11CCFA41EF4ADB2001517D7 /* UILabel+setKerning.swift */,
+				A1D3A3861F03769E0040F012 /* utils.swift */,
 				A1F407F21EF4674D004C37A7 /* Main.storyboard */,
 				A1F407F51EF4674D004C37A7 /* Assets.xcassets */,
 				A1F407F71EF4674D004C37A7 /* LaunchScreen.storyboard */,
@@ -258,6 +261,7 @@
 				A1F7EAA21EF70974005B6777 /* GameViewController.swift in Sources */,
 				A1F7EAAC1EF714B2005B6777 /* Sentence.swift in Sources */,
 				A1F55B981EF625ED004C7156 /* InstructionsViewController.swift in Sources */,
+				A1D3A3871F03769E0040F012 /* utils.swift in Sources */,
 				A1F7EAB21EF76FCF005B6777 /* EducationViewController.swift in Sources */,
 				A1F7EAA81EF70C4E005B6777 /* GameScene.swift in Sources */,
 				A1F55B961EF616DE004C7156 /* OCDConstants+Typography.swift in Sources */,
@@ -456,6 +460,7 @@
 				A1AB20931F01D90700F1B4AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A1F407E61EF4674D004C37A7 /* Build configuration list for PBXProject "OCD" */ = {
 			isa = XCConfigurationList;
