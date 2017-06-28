@@ -39,7 +39,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var sentenceHeight: CGFloat?
     var nodeScale: CGFloat?
 
-    let shaderMove: SKShader? = SKShader(fileNamed: "./Shaders/water.fsh")
+    let shaderMove = SKShader(fileNamed: "./Shaders/water.fsh")
 
 
     // MARK: Properties - Game Dynamics
@@ -93,12 +93,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     var gameIsOver = false
+    let gameOverColorizeAction = SKAction.colorize(with: UIColor.black, colorBlendFactor: 1, duration: 1.0)
     override func update(_ currentTime: TimeInterval) {
-        // TODO replace 1800 with an approprite constant (or calculate it)
-        if currentFilterValue > 1800 && !gameIsOver {
+        let biggestSentenceSize = currentScaleFactor * sentenceHeight!
+
+        // Stop the game once the largest scaled sentence is as big as the screen
+        if biggestSentenceSize > (frame.height / 2) && !gameIsOver {
             gameIsOver = true
 
-            run(SKAction.colorize(with: UIColor.black, colorBlendFactor: 1, duration: 1.0), completion: {
+            run(gameOverColorizeAction, completion: {
                 self.parentViewController?.moveToEducationView()
             })
         }
@@ -233,15 +236,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         topSentence.physicsBody?.applyForce(bottomVelocity!)
         bottomSentence.physicsBody?.applyForce(topVelocity!)
 
-        //        // Cache the velocities for use after panning
-        //        topSentence.currentVelocity = topSentence.physicsBody?.velocity
-        //        bottomSentence.currentVelocity = bottomSentence.physicsBody?.velocity
-
         topSentence.run(SKAction.scale(by: currentScaleFactor, duration: 1.0))
-        currentScaleFactor += 0.025
 
         filterIsAnimating = true
         currentFilterValue += 80
+        currentScaleFactor += 0.025
     }
 
     private func fadeAndRemoveSentences(topSentence: Sentence, bottomSentence: Sentence) {
@@ -263,6 +262,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 sentence.velocity += dy
             }
         }
+
+        waitAction.duration = Double(sentenceHeight! / currentGameVelocity)
     }
 
     private func setCollisionBehavior(body: SKPhysicsBody, category: UInt32) {
