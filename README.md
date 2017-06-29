@@ -1,4 +1,6 @@
-# Brooke Alius BFA Projects
+# Brooke Alius BFA Project
+
+[![Download on the App Store](./assets/app_store_icon.png)](https://itunes.apple.com/us/app/ocd-understood/id1252841881)
 
 * **Design:** Brooke Alius
 * **Development:** Andy Mockler ([@asmockler](https://github.com/asmockler)), Dan Morain ([@danmo91](https://github.com/danmo91))
