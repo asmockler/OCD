@@ -67,7 +67,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     ])
     var moveToCenter: SKAction?
 
-
     // MARK: SKScene
 
     // Called immediately after a scene is presented by a view
@@ -199,7 +198,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let bottomSentence = Sentence(type: .fromBottom, sentenceNumber: sentenceNumber)
 
         if sentenceHeight == nil {
-            sentenceHeight = topSentence.size.height
+            sentenceHeight = topSentence.size.height + 10
             waitAction.duration = Double(sentenceHeight! / currentGameVelocity)
         }
 

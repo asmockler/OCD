@@ -33,7 +33,7 @@ class InstructionsViewController: UIViewController {
         let oneRelativeSecond = 1 / labelAnimationDuration
 
         // Fade in the instructions
-        UIView.animateKeyframes(withDuration: labelAnimationDuration, delay: 0.0, options: UIViewKeyframeAnimationOptions(), animations: {
+        UIView.animateKeyframes(withDuration: labelAnimationDuration, delay: 0.0, options: UIView.KeyframeAnimationOptions(), animations: {
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: oneRelativeSecond, animations: {
                 self.topInstructionLabel.alpha = 1.0
             })

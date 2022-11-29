@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad9_7" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad10_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Onboarding View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="OnboardingViewController" customModule="OCD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="OnboardingViewController" customModule="OCD" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yUk-dw-SDk">
-                                <rect key="frame" x="455.5" y="324" width="113.5" height="120.5"/>
+                                <rect key="frame" x="533.5" y="350" width="113" height="120.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP TO START" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbE-xW-JbK">
-                                        <rect key="frame" x="0.0" y="0.0" width="113.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="113" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="xja-xJ-COE" customClass="RadiatingCircle" customModule="OCD" customModuleProvider="target">
-                                        <rect key="frame" x="7" y="20.5" width="100" height="100"/>
+                                        <rect key="frame" x="6.5" y="20.5" width="100" height="100"/>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -55,7 +53,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="L2K-fu-PKc">
                     <connections>
-                        <segue destination="A7f-Kx-Qsh" kind="presentation" modalTransitionStyle="crossDissolve" id="Bm4-S2-4Uv"/>
+                        <segue destination="A7f-Kx-Qsh" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Bm4-S2-4Uv"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -64,32 +62,32 @@
         <!--Instructions View Controller-->
         <scene sceneID="6in-XR-vSg">
             <objects>
-                <viewController id="A7f-Kx-Qsh" customClass="InstructionsViewController" customModule="OCD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="A7f-Kx-Qsh" customClass="InstructionsViewController" customModule="OCD" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QK6-fo-bxd"/>
                         <viewControllerLayoutGuide type="bottom" id="DOW-ce-Z9A"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PBg-CI-YdE">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wQY-M9-yAQ">
-                                <rect key="frame" x="20" y="294" width="984" height="181"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wQY-M9-yAQ">
+                                <rect key="frame" x="20" y="319.5" width="1140" height="181"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="TRY AND KEEP THE SCREEN CLEAR OF INTRUSIVE THOUGHTS." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUI-5D-XmB">
-                                        <rect key="frame" x="0.0" y="0.0" width="984" height="20.5"/>
+                                        <rect key="frame" x="322.5" y="0.0" width="495" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SWIPE THEM OFF THE SCREEN LEFT AND RIGHT." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8q-W9-T5W">
-                                        <rect key="frame" x="0.0" y="40.5" width="984" height="20.5"/>
+                                        <rect key="frame" x="379" y="40.5" width="382" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FET-vu-0Eg" customClass="RadiatingCircle" customModule="OCD" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="81" width="984" height="100"/>
+                                        <rect key="frame" x="520" y="81" width="100" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -117,7 +115,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIG-bg-JBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer enabled="NO" id="FSe-V0-URL">
                     <connections>
-                        <segue destination="eui-ex-2i8" kind="presentation" modalTransitionStyle="crossDissolve" id="BIK-H2-m43"/>
+                        <segue destination="eui-ex-2i8" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="BIK-H2-m43"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -126,18 +124,19 @@
         <!--Game View Controller-->
         <scene sceneID="szl-pc-Q83">
             <objects>
-                <viewController id="eui-ex-2i8" customClass="GameViewController" customModule="OCD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="eui-ex-2i8" customClass="GameViewController" customModule="OCD" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZKw-pK-9qf"/>
                         <viewControllerLayoutGuide type="bottom" id="geH-VQ-3oL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fST-rH-mws" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="0Tb-w2-czD"/>
                     <connections>
-                        <segue destination="qGG-iw-KKA" kind="presentation" identifier="moveToEducationView" modalTransitionStyle="crossDissolve" id="2c0-qR-BMW"/>
+                        <segue destination="qGG-iw-KKA" kind="presentation" identifier="moveToEducationView" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="2c0-qR-BMW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tdP-HO-qGw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -147,7 +146,7 @@
         <!--Education View Controller-->
         <scene sceneID="xLp-e7-jqC">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="qGG-iw-KKA" customClass="EducationViewController" customModule="OCD" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" modalPresentationStyle="fullScreen" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="qGG-iw-KKA" customClass="EducationViewController" customModule="OCD" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lDf-dK-6p8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2381" y="20"/>
@@ -155,17 +154,17 @@
         <!--Education View 1-->
         <scene sceneID="05J-TK-U8D">
             <objects>
-                <viewController storyboardIdentifier="education1" title="Education View 1" id="0um-Eo-dfb" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="education1" title="Education View 1" modalPresentationStyle="fullScreen" id="0um-Eo-dfb" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Ma-pa-he9"/>
                         <viewControllerLayoutGuide type="bottom" id="mn8-bU-dSU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PTj-mf-KNZ">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dwk-h2-iCO">
-                                <rect key="frame" x="406.5" y="363.5" width="212" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dwk-h2-iCO" userLabel="UH OH! WHAT HAPPENED? SWIPE LEFT TO FIND OUT.">
+                                <rect key="frame" x="484.5" y="389.5" width="211" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="450" id="eaz-vS-uyG"/>
                                 </constraints>
@@ -190,17 +189,17 @@ SWIPE LEFT TO FIND OUT.</string>
         <!--Education View 4-->
         <scene sceneID="UIo-Zb-DOq">
             <objects>
-                <viewController storyboardIdentifier="education4" title="Education View 4" id="hkV-B3-ebL" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="education4" title="Education View 4" modalPresentationStyle="fullScreen" id="hkV-B3-ebL" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nhq-Z6-Bfb"/>
                         <viewControllerLayoutGuide type="bottom" id="Qso-sO-vwF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="AoA-Pm-151">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKH-bc-IpX">
-                                <rect key="frame" x="282" y="343.5" width="460" height="81.5"/>
+                                <rect key="frame" x="361" y="369.5" width="458.5" height="81.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="460" id="oav-d0-mrm"/>
                                 </constraints>
@@ -224,17 +223,17 @@ SWIPE LEFT TO FIND OUT.</string>
         <!--Education View 2-->
         <scene sceneID="n3i-mr-Pr1">
             <objects>
-                <viewController storyboardIdentifier="education2" title="Education View 2" id="IUr-CI-bzA" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="education2" title="Education View 2" modalPresentationStyle="fullScreen" id="IUr-CI-bzA" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ue6-70-Se6"/>
                         <viewControllerLayoutGuide type="bottom" id="dhc-0G-8ft"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WHB-lv-rGP">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SV6-Io-XoH">
-                                <rect key="frame" x="287.5" y="333.5" width="450" height="101.5"/>
+                                <rect key="frame" x="365.5" y="359.5" width="449.5" height="101.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="450" id="QXN-oh-gYd"/>
                                 </constraints>
@@ -258,17 +257,17 @@ SWIPE LEFT TO FIND OUT.</string>
         <!--Education View 5-->
         <scene sceneID="TWz-1k-cGb">
             <objects>
-                <viewController storyboardIdentifier="education5" title="Education View 5" id="W9R-dC-wyM" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="education5" title="Education View 5" modalPresentationStyle="fullScreen" id="W9R-dC-wyM" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6KV-W8-51V"/>
                         <viewControllerLayoutGuide type="bottom" id="41o-ET-bOT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Cd8-g3-7Le">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9t-ie-fo4">
-                                <rect key="frame" x="287.5" y="343.5" width="450" height="81.5"/>
+                                <rect key="frame" x="365" y="369.5" width="450" height="81.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="450" id="mzw-7X-cHF"/>
                                 </constraints>
@@ -292,17 +291,17 @@ SWIPE LEFT TO FIND OUT.</string>
         <!--Education View 3-->
         <scene sceneID="iEi-32-jwy">
             <objects>
-                <viewController storyboardIdentifier="education3" title="Education View 3" id="Fzi-jd-oAs" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="education3" title="Education View 3" modalPresentationStyle="fullScreen" id="Fzi-jd-oAs" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gwV-K6-QcZ"/>
                         <viewControllerLayoutGuide type="bottom" id="VLn-aW-WLT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jcN-aX-cBu">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8F-Zz-7JV">
-                                <rect key="frame" x="287.5" y="343.5" width="450" height="81.5"/>
+                                <rect key="frame" x="366.5" y="369.5" width="447.5" height="81.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="450" id="wh3-rv-NoY"/>
                                 </constraints>
@@ -326,17 +325,17 @@ SWIPE LEFT TO FIND OUT.</string>
         <!--Education View 6-->
         <scene sceneID="cNQ-Ae-noU">
             <objects>
-                <viewController storyboardIdentifier="education6" title="Education View 6" id="U0D-56-avl" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="education6" title="Education View 6" modalPresentationStyle="fullScreen" id="U0D-56-avl" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DtS-dp-vnI"/>
                         <viewControllerLayoutGuide type="bottom" id="hnU-B1-ZLj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ibp-rm-efV">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgJ-Yi-v2v">
-                                <rect key="frame" x="291" y="353.5" width="443" height="61"/>
+                                <rect key="frame" x="370" y="379.5" width="440" height="61"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="450" id="IjN-GD-W5U"/>
                                 </constraints>
@@ -360,47 +359,47 @@ SWIPE LEFT TO FIND OUT.</string>
         <!--Education View 7-->
         <scene sceneID="yfG-jb-RQh">
             <objects>
-                <viewController storyboardIdentifier="education7" title="Education View 7" id="pv0-3u-2Lo" customClass="ExitViewController" customModule="OCD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="education7" title="Education View 7" modalPresentationStyle="fullScreen" id="pv0-3u-2Lo" customClass="ExitViewController" customModule="OCD" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h0C-AD-X3w"/>
                         <viewControllerLayoutGuide type="bottom" id="LG8-1W-6bn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="38C-Fx-uQC">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BfZ-Ak-Vcy">
-                                <rect key="frame" x="20" y="263" width="984" height="242"/>
+                                <rect key="frame" x="20" y="289" width="1140" height="242"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OCD IS NOT AN ADJECTIVE AND SHOULD NOT BE USED AS SUCH. IT IS A DEBILITATING MENTAL ILLNESS." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIf-dK-mw7">
-                                        <rect key="frame" x="0.0" y="0.0" width="984" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1140" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THERE IS HOPE FOR PEOPLE SUFFERING." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uF6-Kf-D8i">
-                                        <rect key="frame" x="0.0" y="40.5" width="984" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="40.5" width="1140" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learn more by visiting iocdf.org" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYc-WP-gtP">
-                                        <rect key="frame" x="0.0" y="81" width="984" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="81" width="1140" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hgf-gH-ZVU">
-                                        <rect key="frame" x="0.0" y="121.5" width="984" height="120.5"/>
+                                        <rect key="frame" x="0.0" y="121.5" width="1140" height="120.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="TAP TO EXIT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhN-s7-uFS">
-                                                <rect key="frame" x="0.0" y="0.0" width="984" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="1140" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBl-6g-fAt" customClass="RadiatingCircle" customModule="OCD" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="20.5" width="984" height="100"/>
+                                                <rect key="frame" x="0.0" y="20.5" width="1140" height="100"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                         </subviews>
@@ -428,11 +427,22 @@ SWIPE LEFT TO FIND OUT.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZe-9t-yfx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="J9l-zg-LAF">
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" id="1VC-de-lta"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="1VC-de-lta"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2381" y="4684"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="FET-vu-0Eg">
+            <size key="intrinsicContentSize" width="100" height="100"/>
+        </designable>
+        <designable name="iBl-6g-fAt">
+            <size key="intrinsicContentSize" width="100" height="100"/>
+        </designable>
+        <designable name="xja-xJ-COE">
+            <size key="intrinsicContentSize" width="100" height="100"/>
+        </designable>
+    </designables>
 </document>

@@ -41,7 +41,7 @@ extension EducationViewController: UIPageViewControllerDataSource {
     }
 
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        guard let firstViewController = viewControllers?.first, let firstViewControllerIndex = educationViewControllers.index(of: firstViewController) else {
+        guard let firstViewController = viewControllers?.first, let firstViewControllerIndex = educationViewControllers.firstIndex(of: firstViewController) else {
             return 0
         }
 
@@ -50,7 +50,7 @@ extension EducationViewController: UIPageViewControllerDataSource {
 
     // Present next controller
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = educationViewControllers.index(of: viewController) else {
+        guard let viewControllerIndex = educationViewControllers.firstIndex(of: viewController) else {
             fatalError("Could not find \(viewController) in educationViewControllers")
         }
 
@@ -65,7 +65,7 @@ extension EducationViewController: UIPageViewControllerDataSource {
 
     // Present previous controller
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = educationViewControllers.index(of: viewController) else {
+        guard let viewControllerIndex = educationViewControllers.firstIndex(of: viewController) else {
             fatalError("Could not find \(viewController) in educationViewControllers")
         }
 
